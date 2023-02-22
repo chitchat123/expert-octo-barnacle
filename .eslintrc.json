@@ -39,7 +39,8 @@
       "error",
       "never",
       {
-        "svg": "always"
+        "svg": "always",
+        "json": "always"
       }
     ],
     "react/no-unescaped-entities": 0,
