@@ -1,8 +1,12 @@
 import React from 'react';
 
 import styles from './styles.module.scss';
-const Reset = () => {
-  return <div className={styles.container}>Login</div>;
+const Login = () => {
+  return (
+    <div className={styles.container}>
+      <h1>Sing in</h1>
+    </div>
+  );
 };
 
-export default Reset;
+export default Login;
