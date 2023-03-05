@@ -4,4 +4,4 @@ const Password = () => {
   return <div></div>;
 };
 
-export default Password;
+export { Password };
