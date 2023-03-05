@@ -105,11 +105,17 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/Lesson'
+                  $ref: '#/components/schemas/Subject'
         '400':
           description: Invalid request
   /lessons/{id}:
     get:
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: integer
+          required: true
       tags:
         - lessons
       summary: get lesson
@@ -121,7 +127,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Lesson'
+                $ref: '#/components/schemas/Subject'
         '400':
           description: Invalid request
   /user:
@@ -129,18 +135,34 @@ paths:
       tags:
         - user
       description: get user info
-      parameters: []
+      security:
+        - cookieAuth: [ ]
       responses:
         "200":
           description: "OK"
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
     post:
       tags:
         - user
       description: edit user info
-      parameters: [ ]
+      security:
+        - cookieAuth: [ ]
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+        required: true
       responses:
         "200":
           description: "OK"
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
 components:
   schemas:
     Credentials:
@@ -148,76 +170,103 @@ components:
       properties:
         username:
           type: string
-          example: username
         password:
           type: string
-          example: password
     News:
       type: object
       properties:
         id:
           type: integer
-          example: 1
         title:
           type: string
-          example: news title
         content:
           type: string
-          example: news content
-    Lesson:
+    Subject:
       type: object
       properties:
         id:
           type: integer
-          example: 1
+        title:
+          type: string
+        entries:
+          type: array
+    Lesson:
+      type: object
+      properties:
+        mark:
+          type: integer
+        teacher:
+          type: object
+          properties:
+            id:
+              type: integer
+            name:
+              type: string
     Session:
       type: object
       properties:
         id:
           type: integer
-          example: 1
     Attestation:
       type: object
       properties:
         id:
           type: integer
-          example: 1
     User:
       type: object
       properties:
         id:
           type: integer
-          format: int64
-          example: 10
+        sid:
+          type: string
         username:
           type: string
-          example: theUser
-        firstName:
+        fullName:
           type: string
-          example: John
-        lastName:
-          type: string
-          example: James
         email:
           type: string
-          example: john@email.com
         password:
           type: string
-          example: '12345'
-        phone:
+        modules:
+          type: array
+          items:
+            type: string
+        position:
+          type: array
+          items:
+            type: string
+        subdivision:
+          type: array
+          items:
+            type: string
+        studyGroup:
+          type: object
+          properties:
+            id:
+              type: integer
+            name:
+              type: string
+        scientificInterest:
           type: string
-          example: '12345'
-        userStatus:
-          type: integer
-          description: User Status
-          format: int32
-          example: 1
+        tgAuthLinked:
+          type: boolean
+        profiles:
+          type: array
+          items:
+            type: string
+        userIdentifier:
+          type: string
+        photo:
+          type: string
+        credo:
+          type: string
+        profile:
+          type: object
   securitySchemes:
     cookieAuth:
       type: apiKey
       in: cookie
       name: token
-    api_key:
-      type: apiKey
-      name: api_key
-      in: header
+    Bearer:
+      type: http
+      scheme: bearer
