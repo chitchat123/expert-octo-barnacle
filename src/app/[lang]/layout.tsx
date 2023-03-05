@@ -16,7 +16,7 @@ export default function Root({
 }) {
   return (
     <html lang={params.lang}>
-      <body>{children}</body>
+      <body data-theme={'light'}>{children}</body>
     </html>
   );
 }
