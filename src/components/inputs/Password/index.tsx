@@ -1,6 +1,8 @@
 'use client';
 import React, { FC, useState } from 'react';
 
+import { FiEye, FiEyeOff } from 'react-icons/all';
+
 import defaultStyle from '../index.module.scss';
 
 import { PasswordInputProps } from './type';
@@ -40,7 +42,7 @@ const Password: FC<PasswordInputProps> = ({
       <p
         onClick={() => setShowPassword(!showPassword)}
         className={defaultStyle.icon}>
-        show
+        {showPassword ? <FiEye size={15} /> : <FiEyeOff size={15} />}
       </p>
       <div className={defaultStyle.parError}>{error}</div>
     </div>
