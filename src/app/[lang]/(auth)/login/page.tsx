@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 
 import { useRouter } from 'next/navigation';
 
+import { Button } from '@components/Button';
 import { Email, Password, TextInput } from '@components/inputs';
 
 import styles from './styles.module.scss';
@@ -58,7 +59,9 @@ const Login = () => {
             value={userData.nickname}
             required={true}
           />
-          <button type='submit'>Submit</button>
+          <Button variant={'primary'} type='submit'>
+            Submit
+          </Button>
         </form>
       </div>
     </div>
