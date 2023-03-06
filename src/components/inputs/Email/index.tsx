@@ -12,6 +12,7 @@ const Email: FC<EmailInputProps> = ({
   onChange,
   disabled,
   label,
+  name,
 }) => {
   const [error, setError] = useState<string | undefined>(undefined);
   const isValidEmail = () => {
@@ -32,10 +33,11 @@ const Email: FC<EmailInputProps> = ({
   return (
     <div className={defaultStyle.container}>
       <input
+        name={name}
         type='email'
         readOnly={readOnly}
         value={value}
-        onChange={e => onChange(e.target.value)}
+        onChange={onChange}
         disabled={disabled}
         required={required}
         onBlur={focusOut}
