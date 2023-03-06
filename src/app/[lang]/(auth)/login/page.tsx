@@ -34,31 +34,33 @@ const Login = () => {
 
   return (
     <div className={styles.container}>
-      <form onSubmit={handleSubmit}>
-        <label>Sign in</label>
-        <Email
-          name={'email'}
-          label={'Email'}
-          onChange={handleChange}
-          value={userData.email}
-          required={true}
-        />
-        <Password
-          name={'password'}
-          label={'Password'}
-          onChange={handleChange}
-          value={userData.password}
-          required={true}
-        />
-        <TextInput
-          name={'nickname'}
-          label={'Nickname'}
-          onChange={handleChange}
-          value={userData.nickname}
-          required={true}
-        />
-        <button type='submit'>Submit</button>
-      </form>
+      <div className={styles.form}>
+        <h3>Sign in</h3>
+        <form onSubmit={handleSubmit}>
+          <Email
+            name={'email'}
+            label={'Email'}
+            onChange={handleChange}
+            value={userData.email}
+            required={true}
+          />
+          <Password
+            name={'password'}
+            label={'Password'}
+            onChange={handleChange}
+            value={userData.password}
+            required={true}
+          />
+          <TextInput
+            name={'nickname'}
+            label={'Nickname'}
+            onChange={handleChange}
+            value={userData.nickname}
+            required={true}
+          />
+          <button type='submit'>Submit</button>
+        </form>
+      </div>
     </div>
   );
 };
