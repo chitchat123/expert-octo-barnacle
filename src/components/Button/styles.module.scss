@@ -35,16 +35,21 @@
     color: white;
   }
 }
+.black{
+  background-color: #343131;
+  color: white;
+  &:hover{
+    background-color: black;
+  }
+}
 
-//.large {
-//  padding: 2rem 5rem;
-//  font-size: 2rem;
-//  height: 8rem;
-//}
-//
-//.medium {
-//  padding: 1.5rem 4rem;
-//  font-size: 1.7rem;
-//  height: 7rem;
-//}
+.large {
+  width: 100%;
+}
+
+.medium {
+  padding: 1.5rem 4rem;
+  font-size: 1.7rem;
+  height: 7rem;
+}
 

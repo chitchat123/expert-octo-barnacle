@@ -6,7 +6,7 @@ import { ButtonProps } from './type';
 const Button = ({
   children,
   variant,
-  // size,
+  size,
   type,
   style,
   className,
@@ -21,7 +21,7 @@ const Button = ({
       [
         styles.button,
         variant ? styles[variant] : styles.primary,
-        // size ? styles[size] : styles.medium,
+        size ? styles[size] : styles.medium,
         className ? className : '',
       ].join(' ')
     );
