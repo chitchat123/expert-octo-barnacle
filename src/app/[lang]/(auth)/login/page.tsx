@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation';
 
 import { Button } from '@components/Button';
 import { Email, Password, TextInput } from '@components/inputs';
+import Loader from '@components/Loader';
 
 import { useDictionary } from '@helpers/useDictionary';
 
@@ -34,38 +35,42 @@ const Login: FC<LoginProps> = ({ params: { lang } }) => {
     }));
   };
 
-  if (dict === undefined) return <div>Load</div>;
-
   return (
     <div className={styles.container}>
       <div className={styles.form}>
-        <h3>{dict.login.authTitle}</h3>
-        <form onSubmit={handleSubmit}>
-          <Email
-            name={'email'}
-            label={dict.login.emailInput}
-            onChange={handleChange}
-            value={userData.email}
-            required={true}
-          />
-          <Password
-            name={'password'}
-            label={dict.login.passwordInput}
-            onChange={handleChange}
-            value={userData.password}
-            required={true}
-          />
-          <TextInput
-            name={'nickname'}
-            label={dict.login.nickNameInput}
-            onChange={handleChange}
-            value={userData.nickname}
-            required={true}
-          />
-          <Button variant={'primary'} type='submit'>
-            Submit
-          </Button>
-        </form>
+        {dict === undefined ? (
+          <Loader />
+        ) : (
+          <>
+            <h3>{dict.login.authTitle}</h3>
+            <form onSubmit={handleSubmit}>
+              <Email
+                name={'email'}
+                label={dict.login.emailInput}
+                onChange={handleChange}
+                value={userData.email}
+                required={true}
+              />
+              <Password
+                name={'password'}
+                label={dict.login.passwordInput}
+                onChange={handleChange}
+                value={userData.password}
+                required={true}
+              />
+              <TextInput
+                name={'nickname'}
+                label={dict.login.nickNameInput}
+                onChange={handleChange}
+                value={userData.nickname}
+                required={true}
+              />
+              <Button variant={'primary'} type='submit'>
+                Submit
+              </Button>
+            </form>
+          </>
+        )}
       </div>
     </div>
   );
