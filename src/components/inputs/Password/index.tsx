@@ -1,7 +1,7 @@
 'use client';
 import React, { FC, useState } from 'react';
 
-import { FiEye, FiEyeOff } from 'react-icons/all';
+import { FiEye, FiEyeOff } from 'react-icons/fi';
 
 import defaultStyle from '../index.module.scss';
 

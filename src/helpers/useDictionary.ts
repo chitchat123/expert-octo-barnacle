@@ -6,7 +6,7 @@ import { Locale } from '@helpers/i18n';
 export const useDictionary = (locale: Locale) => {
   const [dict, setDict] = useState<Dictionary | undefined>(undefined);
   useEffect(() => {
-    getDictionary(locale || 'en').then(res => setDict(res));
+    getDictionary(locale || 'en').then(res => setDict(res as Dictionary));
   }, []);
   return dict;
 };

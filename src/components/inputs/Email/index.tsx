@@ -1,6 +1,8 @@
 'use client';
 import React, { FC, useState } from 'react';
 
+import { isValidEmail } from '@helpers/inputHelper';
+
 import defaultStyle from '../index.module.scss';
 
 import { EmailInputProps } from './type';
@@ -15,15 +17,9 @@ const Email: FC<EmailInputProps> = ({
   name,
 }) => {
   const [error, setError] = useState<string | undefined>(undefined);
-  const isValidEmail = () => {
-    let re;
-    re =
-      /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    return re.test(String(value).toLowerCase());
-  };
 
   const focusOut = () => {
-    if (!isValidEmail()) {
+    if (!isValidEmail(value)) {
       setError('Invalid Email');
     } else {
       setError('');

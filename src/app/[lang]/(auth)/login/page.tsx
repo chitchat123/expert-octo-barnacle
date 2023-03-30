@@ -43,25 +43,25 @@ const Login = ({ params: { lang } }: { params: { lang: Locale } }) => {
   return (
     <div className={styles.container}>
       <div className={styles.form}>
-        <h3>{dict.title || ''}</h3>
+        <h3>{dict.login.authTitle}</h3>
         <form onSubmit={handleSubmit}>
           <Email
             name={'email'}
-            label={'Email'}
+            label={dict.login.emailInput}
             onChange={handleChange}
             value={userData.email}
             required={true}
           />
           <Password
             name={'password'}
-            label={'Password'}
+            label={dict.login.passwordInput}
             onChange={handleChange}
             value={userData.password}
             required={true}
           />
           <TextInput
             name={'nickname'}
-            label={'Nickname'}
+            label={dict.login.nickNameInput}
             onChange={handleChange}
             value={userData.nickname}
             required={true}
