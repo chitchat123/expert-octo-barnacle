@@ -1,13 +1,16 @@
 'use client';
-import React, { useState } from 'react';
+import React, { FC, useState } from 'react';
 
 import { Button } from '@components/Button';
 import { Email } from '@components/inputs';
 
 import styles from './styles.module.scss';
 
-const Reset = () => {
+interface ResetProps {}
+
+const Reset: FC<ResetProps> = ({}) => {
   const [state, setState] = useState<string>('');
+
   return (
     <div className={styles.container}>
       <div className={styles.form}>

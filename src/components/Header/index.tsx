@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC } from 'react';
 
 import { FaUserCircle } from 'react-icons/fa';
 import { MdCircleNotifications } from 'react-icons/md';
@@ -7,7 +7,9 @@ import { Button } from '@components/Button';
 
 import styles from './styles.module.scss';
 
-const Header = () => {
+interface HeaderProps {}
+
+const Header: FC<HeaderProps> = ({}) => {
   return (
     <div className={styles.container}>
       <div className={styles.logo}>

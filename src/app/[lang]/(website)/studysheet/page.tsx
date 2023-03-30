@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { FC } from 'react';
 
 import styles from './styles.module.scss';
 
-const StudySheet = () => {
+interface StudySheetProps {}
+
+const StudySheet: FC<StudySheetProps> = ({}) => {
   return <div className={styles.container}> StudySheet </div>;
 };
 

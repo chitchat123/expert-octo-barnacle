@@ -1,9 +1,12 @@
 import React from 'react';
+import { FC } from 'react';
 
 import styles from './styles.module.scss';
 
-const Rnp = () => {
-  return <div className={styles.container}> Rnp </div>;
+interface RNPProps {}
+
+const RNP: FC<RNPProps> = ({}) => {
+  return <div className={styles.container}> RNP </div>;
 };
 
-export default Rnp;
+export default RNP;

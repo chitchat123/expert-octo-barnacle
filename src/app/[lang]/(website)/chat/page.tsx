@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { FC } from 'react';
 
 import styles from './styles.module.scss';
 
-const Chat = () => {
+interface ChatProps {}
+
+const Chat: FC<ChatProps> = ({}) => {
   return <div className={styles.container}> Chat </div>;
 };
 

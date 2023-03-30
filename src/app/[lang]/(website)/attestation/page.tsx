@@ -1,10 +1,12 @@
 'use client';
 
-import React from 'react';
+import React, { FC } from 'react';
 
 import styles from './styles.module.scss';
 
-const Attestation = () => {
+interface AttestationProps {}
+
+const Attestation: FC<AttestationProps> = ({}) => {
   return <div className={styles.container}>Attestation</div>;
 };
 

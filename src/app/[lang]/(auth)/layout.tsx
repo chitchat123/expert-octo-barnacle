@@ -1,14 +1,14 @@
-import React from 'react';
+import React, { FC } from 'react';
 
 import { BsQuestionCircle } from 'react-icons/bs';
 
 import styles from './layout.module.scss';
 
-export default function AuthLayout({
-  children,
-}: {
+interface AuthProps {
   children: React.ReactNode;
-}) {
+}
+
+const Auth: FC<AuthProps> = ({ children }) => {
   return (
     <section className={styles.authLayout}>
       <div className={styles.auth_children}>{children}</div>
@@ -21,4 +21,6 @@ export default function AuthLayout({
       </div>
     </section>
   );
-}
+};
+
+export default Auth;
