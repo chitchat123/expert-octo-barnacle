@@ -1,5 +1,11 @@
 {
   "placeholder": "lorem",
   "title": "ЕЛЕКТРОННИЙ КАМПУС",
-  "test": "Test"
+  "login": {
+    "authTitle": "Авторизація",
+    "passwordInput": "Пароль",
+    "emailInput": "Електрона пошта",
+    "nickNameInput": "Логін"
+
+  }
 }

@@ -1,5 +1,11 @@
 {
   "placeholder": "lorem",
   "title": "eCampus",
-  "test": "test"
+  "login": {
+    "authTitle": "Sing in",
+    "passwordInput": "Password",
+    "emailInput": "Email",
+    "nickNameInput": "Nickname"
+
+  }
 }

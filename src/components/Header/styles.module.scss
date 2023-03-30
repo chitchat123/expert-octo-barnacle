@@ -1,0 +1,17 @@
+.container{
+  max-width: 146rem;
+  padding: 0 2rem;
+  margin: 0 auto;
+  height: 6rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  .buttons{
+    display: flex;
+    align-items: center;
+    .button{
+      width: 19rem;
+      height: 4rem;
+    }
+  }
+}

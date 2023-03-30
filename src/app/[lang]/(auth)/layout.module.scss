@@ -6,6 +6,7 @@
   .auth_children{
     width: 50%;
     height: 100%;
+    padding-top: 8vw
   }
   .auth_logo{
     background-color: $base-background;
@@ -20,5 +21,15 @@
     position: absolute;
     bottom: 1rem;
     right: 1rem;
+  }
+
+  @media screen and (max-width: 375px){
+    .auth_logo{
+      display: none;
+    }
+    .auth_children{
+      width: 100%;
+      padding-top: 25vw;
+    }
   }
 }

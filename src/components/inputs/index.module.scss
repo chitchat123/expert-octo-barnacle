@@ -1,0 +1,104 @@
+@mixin shrinkLabel {
+  top: -12px;
+  font-size: 12px;
+  color: #7E7E7E;
+  width: auto;
+  background-color: white;
+  padding: 0 .5rem;
+
+  text-align: center;
+  &.error {
+    color: #CB3D40;
+  }
+
+}
+@mixin underInput {
+  position: relative;
+  word-break: break-all;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+  display: inline-block;
+  font-size: 12px;
+  line-height: 14px;
+  margin-top: 4px;
+  left: 16px;
+}
+
+.container {
+  position: relative;
+  width: 100%;
+  .icon{
+    position: absolute;
+    top: 35%;
+    right: 4%;
+  }
+
+
+  .label {
+    width: auto;
+    font-weight: normal;
+    pointer-events: none;
+    position: absolute;
+    font-size: 16px;
+    line-height: 26px;
+    left: 1rem;
+    top: 25%;
+    color: #7E7E7E;
+    transition: 300ms ease all;
+    text-align: center;
+
+    &.shrink {
+      @include shrinkLabel
+    }
+
+    &.error {
+      color: #CB3D40;
+    }
+
+  }
+
+  .input {
+    border-radius: 4px;
+    box-sizing: border-box;
+
+    width: 100%;
+    border: 1px solid #D0CFCF;
+    background-color: transparent;
+    color: black;
+    height: 54px;
+    outline: none;
+    line-height: 26px;
+    padding-left: 16px;
+    font-size: 16px;
+    position: relative;
+
+    &:read-only {
+      pointer-events: none;
+    }
+
+    &.error {
+      border: 1px solid #CB3D40;
+    }
+
+
+    &:focus ~ .label {
+      @include shrinkLabel
+    }
+  }
+
+  .parError {
+    @include underInput;
+    color:#CB3D40;
+  }
+  .helperText{
+    @include underInput;
+    color: #7E7E7E;
+  }
+
+
+}
+
+
+// style for upload
+
