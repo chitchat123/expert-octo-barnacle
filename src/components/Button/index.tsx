@@ -1,10 +1,10 @@
 'use client';
-import React, { useEffect, useState } from 'react';
+import React, { FC, useEffect, useState } from 'react';
 
 import styles from './styles.module.scss';
 import { ButtonProps } from './type';
 
-const Button = ({
+const Button: FC<ButtonProps> = ({
   children,
   variant,
   size,
@@ -14,7 +14,7 @@ const Button = ({
   disabled,
   onClick,
   ...rest
-}: ButtonProps) => {
+}) => {
   const [btnStyles, setBtnStyle] = useState<string>('');
 
   useEffect(() => {
@@ -27,7 +27,6 @@ const Button = ({
       ].join(' ')
     );
   }, []);
-
   return (
     <button
       type={type}
