@@ -6,6 +6,9 @@ import { useRouter } from 'next/navigation';
 import { Button } from '@components/Button';
 import { Email, Password, TextInput } from '@components/inputs';
 
+import { Locale } from '@helpers/i18n';
+import { useDictionary } from '@helpers/useDictionary';
+
 import styles from './styles.module.scss';
 
 interface UserState {
@@ -14,7 +17,9 @@ interface UserState {
   nickname: string;
 }
 
-const Login = () => {
+const Login = ({ params: { lang } }: { params: { lang: Locale } }) => {
+  const dict = useDictionary(lang);
+  console.info(dict?.title);
   const router = useRouter();
   const [userData, setUserData] = useState<UserState>({
     password: '',
@@ -33,10 +38,12 @@ const Login = () => {
     }));
   };
 
+  if (dict === undefined) return <div>Load</div>;
+
   return (
     <div className={styles.container}>
       <div className={styles.form}>
-        <h3>Sign in</h3>
+        <h3>{dict.title || ''}</h3>
         <form onSubmit={handleSubmit}>
           <Email
             name={'email'}
