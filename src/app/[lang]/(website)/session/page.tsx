@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { FC } from 'react';
 
 import styles from './styles.module.scss';
 
-const Session = () => {
+interface SessionProps {}
+
+const Session: FC<SessionProps> = ({}) => {
   return <div className={styles.container}> Session </div>;
 };
 

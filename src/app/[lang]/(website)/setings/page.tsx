@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { FC } from 'react';
 
 import styles from './styles.module.scss';
 
-const Settings = () => {
+interface SettingsProps {}
+
+const Settings: FC<SettingsProps> = ({}) => {
   return <div className={styles.container}> Settings </div>;
 };
 

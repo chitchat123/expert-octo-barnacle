@@ -1,35 +1,31 @@
 'use client';
-import React, { useState } from 'react';
+import React, { FC, useState } from 'react';
 
 import { useRouter } from 'next/navigation';
 
 import { Button } from '@components/Button';
 import { Email, Password, TextInput } from '@components/inputs';
 
-import { Locale } from '@helpers/i18n';
 import { useDictionary } from '@helpers/useDictionary';
 
 import styles from './styles.module.scss';
+import { LoginProps, UserState } from './type';
 
-interface UserState {
-  email: string;
-  password: string;
-  nickname: string;
-}
-
-const Login = ({ params: { lang } }: { params: { lang: Locale } }) => {
+const Login: FC<LoginProps> = ({ params: { lang } }) => {
   const dict = useDictionary(lang);
-  console.info(dict?.title);
   const router = useRouter();
+
   const [userData, setUserData] = useState<UserState>({
     password: '',
     email: '',
     nickname: '',
   });
+
   const handleSubmit = (event: any) => {
     event.preventDefault();
     router.push('/');
   };
+
   const handleChange = (event: any) => {
     const { name, value } = event.target;
     setUserData(prevUserData => ({

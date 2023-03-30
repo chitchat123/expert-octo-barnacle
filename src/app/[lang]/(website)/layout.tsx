@@ -1,12 +1,12 @@
-import React from 'react';
+import React, { FC } from 'react';
 
 import { Header } from '@components/Header';
 
-export default function WebSiteLayout({
-  children,
-}: {
+interface LayoutProps {
   children: React.ReactNode;
-}) {
+}
+
+const Layout: FC<LayoutProps> = ({ children }) => {
   return (
     <section>
       <>
@@ -15,4 +15,6 @@ export default function WebSiteLayout({
       <>{children}</>
     </section>
   );
-}
+};
+
+export default Layout;

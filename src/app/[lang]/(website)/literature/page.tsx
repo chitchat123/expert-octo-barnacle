@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { FC } from 'react';
 
 import styles from './styles.module.scss';
 
-const Literature = () => {
+interface LiteratureProps {}
+
+const Literature: FC<LiteratureProps> = ({}) => {
   return <div className={styles.container}> Literature </div>;
 };
 

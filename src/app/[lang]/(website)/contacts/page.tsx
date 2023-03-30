@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { FC } from 'react';
 
 import styles from './styles.module.scss';
 
-const Contacts = () => {
+interface ContactsProps {}
+
+const Contacts: FC<ContactsProps> = ({}) => {
   return <div className={styles.container}> Contacts </div>;
 };
 
