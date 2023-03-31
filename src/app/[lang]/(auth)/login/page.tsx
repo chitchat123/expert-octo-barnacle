@@ -1,35 +1,32 @@
 'use client';
-import React, { useState } from 'react';
+import React, { FC, useState } from 'react';
 
 import { useRouter } from 'next/navigation';
 
 import { Button } from '@components/Button';
 import { Email, Password, TextInput } from '@components/inputs';
+import Loader from '@components/Loader';
 
-import { Locale } from '@helpers/i18n';
 import { useDictionary } from '@helpers/useDictionary';
 
 import styles from './styles.module.scss';
+import { LoginProps, UserState } from './type';
 
-interface UserState {
-  email: string;
-  password: string;
-  nickname: string;
-}
-
-const Login = ({ params: { lang } }: { params: { lang: Locale } }) => {
+const Login: FC<LoginProps> = ({ params: { lang } }) => {
   const dict = useDictionary(lang);
-  console.info(dict?.title);
   const router = useRouter();
+
   const [userData, setUserData] = useState<UserState>({
     password: '',
     email: '',
     nickname: '',
   });
+
   const handleSubmit = (event: any) => {
     event.preventDefault();
     router.push('/');
   };
+
   const handleChange = (event: any) => {
     const { name, value } = event.target;
     setUserData(prevUserData => ({
@@ -38,38 +35,42 @@ const Login = ({ params: { lang } }: { params: { lang: Locale } }) => {
     }));
   };
 
-  if (dict === undefined) return <div>Load</div>;
-
   return (
     <div className={styles.container}>
       <div className={styles.form}>
-        <h3>{dict.login.authTitle}</h3>
-        <form onSubmit={handleSubmit}>
-          <Email
-            name={'email'}
-            label={dict.login.emailInput}
-            onChange={handleChange}
-            value={userData.email}
-            required={true}
-          />
-          <Password
-            name={'password'}
-            label={dict.login.passwordInput}
-            onChange={handleChange}
-            value={userData.password}
-            required={true}
-          />
-          <TextInput
-            name={'nickname'}
-            label={dict.login.nickNameInput}
-            onChange={handleChange}
-            value={userData.nickname}
-            required={true}
-          />
-          <Button variant={'primary'} type='submit'>
-            Submit
-          </Button>
-        </form>
+        {dict === undefined ? (
+          <Loader />
+        ) : (
+          <>
+            <h3>{dict.login.authTitle}</h3>
+            <form onSubmit={handleSubmit}>
+              <Email
+                name={'email'}
+                label={dict.login.emailInput}
+                onChange={handleChange}
+                value={userData.email}
+                required={true}
+              />
+              <Password
+                name={'password'}
+                label={dict.login.passwordInput}
+                onChange={handleChange}
+                value={userData.password}
+                required={true}
+              />
+              <TextInput
+                name={'nickname'}
+                label={dict.login.nickNameInput}
+                onChange={handleChange}
+                value={userData.nickname}
+                required={true}
+              />
+              <Button variant={'primary'} type='submit'>
+                Submit
+              </Button>
+            </form>
+          </>
+        )}
       </div>
     </div>
   );

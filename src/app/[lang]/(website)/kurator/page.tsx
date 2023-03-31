@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { FC } from 'react';
 
 import styles from './styles.module.scss';
 
-const Kurator = () => {
+interface KuratorProps {}
+
+const Kurator: FC<KuratorProps> = ({}) => {
   return <div className={styles.container}> Kurator </div>;
 };
 

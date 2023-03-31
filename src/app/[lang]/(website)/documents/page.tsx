@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { FC } from 'react';
 
 import styles from './styles.module.scss';
 
-const Documents = () => {
+interface DocumentsProps {}
+
+const Documents: FC<DocumentsProps> = ({}) => {
   return <div className={styles.container}> Documents </div>;
 };
 

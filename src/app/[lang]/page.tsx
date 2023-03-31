@@ -1,9 +1,15 @@
 import { getDictionary } from '@/helpers/dictionary';
+import { Locale } from '@helpers/i18n';
 
-const Home = async ({ params: { lang } }: any) => {
+interface HomeProps {
+  params: {
+    lang: Locale;
+  };
+}
+
+const Home = async ({ params: { lang } }: HomeProps) => {
   const dict = await getDictionary(lang);
 
-  return <div>{dict['title']}</div>;
+  return <div>{dict.title}</div>;
 };
-
 export default Home;

@@ -47,6 +47,7 @@
     "jsx-a11y/label-has-associated-control": 0,
     "react/no-unused-prop-types": 0,
     "no-underscore-dangle": 0,
+    "react-hooks/exhaustive-deps": 0,
     "@typescript-eslint/no-unused-vars": [
       0,
       {

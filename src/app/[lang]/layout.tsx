@@ -1,22 +1,23 @@
-import React from 'react';
+import React, { FC } from 'react';
 
 import '../global.scss';
-import { i18n } from '@helpers/i18n';
+import { i18n, Locale } from '@helpers/i18n';
 
-export async function generateStaticParams() {
+export const generateStaticParams = async () => {
   return i18n.locales.map(locale => ({ lang: locale }));
+};
+
+interface LayoutProps {
+  children: React.ReactNode;
+  params: { lang: Locale };
 }
 
-export default function Root({
-  children,
-  params,
-}: {
-  children: React.ReactNode;
-  params: { lang: string };
-}) {
+const Layout: FC<LayoutProps> = ({ children, params: { lang } }) => {
   return (
-    <html lang={params.lang}>
+    <html lang={lang}>
       <body data-theme={'light'}>{children}</body>
     </html>
   );
-}
+};
+
+export default Layout;
