@@ -1,9 +1,11 @@
 import React, { FC } from 'react';
 
+import Link from 'next/link';
 import { FaUserCircle } from 'react-icons/fa';
 import { MdCircleNotifications } from 'react-icons/md';
 
 import { Button } from '@components/Button';
+import { ContextMenu } from '@components/ContextMenu';
 
 import styles from './styles.module.scss';
 
@@ -19,8 +21,20 @@ const Header: FC<HeaderProps> = ({}) => {
         <div className={styles.button}>
           <Button variant={'secondary'}>Поточний кампус</Button>
         </div>
-        <FaUserCircle fill={'#18A0FB'} size={60} />
-        <MdCircleNotifications fill={'#18A0FB'} size={60} />
+        <ContextMenu>
+          <FaUserCircle fill={'#18A0FB'} size={60} />
+          <>
+            <Link href={'/settings'}> go to</Link>
+            <Link href={'/settings'}> go to</Link>
+          </>
+        </ContextMenu>
+        <ContextMenu>
+          <MdCircleNotifications fill={'#18A0FB'} size={60} />
+          <>
+            <Link href={'/settings'}> go to</Link>
+            <Link href={'/settings'}> go to</Link>
+          </>
+        </ContextMenu>
       </div>
     </div>
   );
