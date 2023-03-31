@@ -1,0 +1,34 @@
+.container {
+  display: flex;
+  flex-direction: column;
+
+  min-width: 100rem;
+  width: 100%;
+  font-size: 4rem;
+  margin-left: 5rem;
+
+
+  .row {
+    //display: flex;
+    //flex-direction: row;
+    //justify-content: space-between;
+    margin: 1rem;
+
+    display: grid;
+    //grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: var(--columns);
+    //grid-template-rows: 1fr;
+    grid-column-gap: 3rem;
+    div, span {
+      //width: 100%;
+      background-color: #18A0FB;
+
+      padding: 1rem 2rem;
+      border-radius: 5rem;
+    }
+  }
+}
+
+.attestation {
+  --columns: 1fr 2fr 1fr;
+}
