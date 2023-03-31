@@ -7,5 +7,9 @@
     "emailInput": "Електрона пошта",
     "nickNameInput": "Логін"
 
+  },
+  "sidebar": {
+    "session": "Cесія",
+    "attestation": "Атестація"
   }
 }
