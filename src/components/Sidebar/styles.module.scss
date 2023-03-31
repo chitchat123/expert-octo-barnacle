@@ -1,0 +1,22 @@
+.constant {
+  transition: 300ms all;
+  background-color: #191641;
+
+  .sideBarContainer {
+    height: 100vh;
+    display: flex;
+    position: fixed;
+    flex-direction: column;
+    transition: all 0.3s ease-out;
+    color: white;
+  }
+
+}
+
+.open {
+  width: 25rem;
+}
+
+.close {
+  width: 8rem;
+}
