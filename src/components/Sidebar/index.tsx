@@ -30,6 +30,12 @@ const getListItems = (dict: DictionarySide) => [
     type: 'simple',
     icon: <BsEarbuds />,
   },
+  {
+    title: 'Profile',
+    href: 'profile',
+    type: 'simple',
+    icon: <BsEarbuds />,
+  },
 ];
 const Sidebar: FC<SidebarProps> = ({ dictionary }) => {
   const menu = getListItems(dictionary);
