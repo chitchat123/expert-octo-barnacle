@@ -5,16 +5,14 @@ import { BsEarbuds } from 'react-icons/bs';
 
 import { Button } from '@components/Button';
 import { SidebarItem } from '@components/Sidebar/SidebarItem';
-import { SidebarProps } from '@components/Sidebar/type';
-
-import { DictionarySide } from '@helpers/dictionary';
+import { getListItemsType, SidebarProps } from '@components/Sidebar/type';
 
 import styles from './styles.module.scss';
 
-const getListItems = (dict: DictionarySide) => [
+const getListItems: getListItemsType = dict => [
   {
     title: dict.session,
-    href: 'session',
+    href: 'attestation',
     type: 'menu',
     icon: <BsEarbuds />,
   },
@@ -27,34 +25,25 @@ const getListItems = (dict: DictionarySide) => [
   {
     title: 'Text',
     href: 'attestation',
-    type: 'simple',
     icon: <BsEarbuds />,
   },
   {
     title: 'Profile',
     href: 'profile',
-    type: 'simple',
     icon: <BsEarbuds />,
   },
 ];
 const Sidebar: FC<SidebarProps> = ({ dictionary }) => {
   const menu = getListItems(dictionary);
 
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(true);
   return (
     <div
       className={`${isOpen ? styles.open : styles.close} ${styles.constant}`}>
       <div className={styles.sideBarContainer}>
         {<Button onClick={() => setIsOpen(!isOpen)}>click</Button>}
-        {menu.map(({ title, type, href, icon }, id) => (
-          <SidebarItem
-            icon={icon}
-            key={id}
-            title={title}
-            href={href}
-            type={type}
-            state={isOpen}
-          />
+        {menu.map((item, id) => (
+          <SidebarItem key={id} item={item} state={isOpen} />
         ))}
       </div>
     </div>

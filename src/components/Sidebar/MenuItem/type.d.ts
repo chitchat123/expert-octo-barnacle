@@ -1,3 +1,3 @@
 export interface MenuItemProps {
-  href: string;
+  href: 'attestation' | 'profile';
 }

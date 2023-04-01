@@ -19,7 +19,6 @@ const MenuItem: FC<MenuItemProps> = ({ href }) => {
           <span className={styles.year}>{year}</span>
           {semesters.map((semester, key) => (
             <div className={styles.semester} key={key}>
-              {/* @ts-ignore */}
               <Link href={`/${href}/${year}/${semester[0]}`}>{semester}</Link>
             </div>
           ))}

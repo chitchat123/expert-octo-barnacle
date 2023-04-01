@@ -1,26 +1,16 @@
-
 @mixin ItemStyle {
   display: flex;
   font-size: 3rem;
   margin-left: 1rem;
   gap: .5rem;
   color: #7E7E7E;
-  &:hover{
+  &:hover {
     color: #18A0FB;
   }
 }
 
-.menu {
-  @include ItemStyle;
-  cursor: pointer;
-}
-
 .simple {
+  cursor: pointer;
+  height: 3.5rem;
   @include ItemStyle;
-  a{
-    &:hover{
-      color: #18A0FB;
-    }
-  }
-
 }
