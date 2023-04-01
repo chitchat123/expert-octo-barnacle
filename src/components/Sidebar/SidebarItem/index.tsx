@@ -19,36 +19,25 @@ const SidebarItem: FC<SidebarItemProps> = ({
   switch (type) {
     case 'menu':
       return (
-        <div
-          style={{ transition: 'all', transitionDelay: '300' }}
-          onClick={() => setOpen(!open)}>
-          <h3 className={styles.menulist}>
-            {icon}
-            {state ? <div className={styles.simple}>{title}</div> : ''}
-          </h3>
-          <div
-            style={
-              open
-                ? { display: 'none', opacity: 0 }
-                : { display: 'block', opacity: 1 }
-            }>
-            <MenuItem href={href} />
+        <div onClick={() => setOpen(!open)}>
+          <div className={styles.menu}>
+            <div>{icon}</div>
+            {state ? <div>{title}</div> : ''}
           </div>
+          {state ? (
+            <div style={open ? { display: 'none' } : { display: 'block' }}>
+              <MenuItem href={href} />
+            </div>
+          ) : null}
         </div>
       );
     case 'simple':
     default:
       return (
-        <h3>
+        <div className={styles.simple}>
           {icon}
-          {state ? (
-            <Link className={styles.simple} href={`/${href}`}>
-              {title}
-            </Link>
-          ) : (
-            ''
-          )}
-        </h3>
+          {state ? <Link href={`/${href}`}>{title}</Link> : ''}
+        </div>
       );
   }
 };

@@ -2,7 +2,9 @@
   display: flex;
   justify-content: space-between;
   align-content: center;
-  background-color: darkgreen;
+  padding: 1rem;
+  margin: 1rem;
+  border-top: 1px solid black;
   height: 6rem;
   .left{
     text-align: center;

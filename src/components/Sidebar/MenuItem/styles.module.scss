@@ -6,5 +6,13 @@
   .semester{
     margin-left: 2rem;
     margin-top: 0.5rem;
+    cursor: pointer;
+    a{
+      font-size: 1.4rem;
+      &:hover{
+        color: #18A0FB;
+      }
+    }
+
   }
 }
