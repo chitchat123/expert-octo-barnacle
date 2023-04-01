@@ -34,7 +34,7 @@ const getListItems = (dict: DictionarySide) => [
 const Sidebar: FC<SidebarProps> = ({ dictionary }) => {
   const menu = getListItems(dictionary);
 
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
   return (
     <div
       className={`${isOpen ? styles.open : styles.close} ${styles.constant}`}>

@@ -6,10 +6,10 @@
   .mainContainer {
     display: flex;
     min-height: calc(100vh - 6rem);
-    background-color: #18A0FB;
 
     .childrenContainer {
       display: flex;
+      padding: 3rem;
       justify-content: space-between;
       flex-direction: column;
       width: 100%;
