@@ -5,10 +5,11 @@
 
   .mainContainer {
     display: flex;
-    height: calc(100vh - 6rem);
-    background-color: #18A0FB;
+    min-height: calc(100vh - 6rem);
+
     .childrenContainer {
       display: flex;
+      padding: 3rem;
       justify-content: space-between;
       flex-direction: column;
       width: 100%;

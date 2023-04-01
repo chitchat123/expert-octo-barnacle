@@ -15,7 +15,10 @@ interface LayoutProps {
 const Layout: FC<LayoutProps> = ({ children, params: { lang } }) => {
   return (
     <html lang={lang}>
-      <body data-theme={'light'}>{children}</body>
+      <body data-theme={'light'}>
+        {children}
+        <div id='modal-root'></div>
+      </body>
     </html>
   );
 };

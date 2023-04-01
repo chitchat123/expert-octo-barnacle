@@ -1,11 +1,10 @@
+'use client';
 import React, { FC } from 'react';
-
-import styles from './styles.module.scss';
 
 interface SettingsProps {}
 
 const Settings: FC<SettingsProps> = ({}) => {
-  return <div className={styles.container}> Settings </div>;
+  return <div>Settings</div>;
 };
 
 export default Settings;
