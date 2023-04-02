@@ -1,22 +1,21 @@
 .constant {
-  transition: all 0.3s ease-out;
+  transition: width 0.3s ease-out;
   border-right: 1px #7E7E7E solid;
+  width: 8rem;
 
   .sideBarContainer {
     height: 100vh;
     display: flex;
-    position: fixed;
+    position: sticky;
     flex-direction: column;
-    transition: all 0.3s ease-out;
+    align-items: flex-start;
     color: white;
+    width: 100%;
+    overflow: hidden;
+    padding: 0 2.5rem;
   }
-
 }
 
 .open {
   width: 25rem;
-}
-
-.close {
-  width: 8rem;
 }
