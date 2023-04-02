@@ -34,5 +34,10 @@
   "sidebar": {
     "session": "Session",
     "attestation": "Attestation"
+  },
+  "find": {
+    "title": "Find Curator",
+    "placeholder": "Group",
+    "buttonTitle": "Back"
   }
 }

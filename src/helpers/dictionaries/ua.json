@@ -34,5 +34,10 @@
   "sidebar": {
     "session": "Cесія",
     "attestation": "Атестація"
+  },
+  "find": {
+    "title": "Пошук куратора",
+    "placeholder": "Група",
+    "buttonTitle": "Назад"
   }
 }
