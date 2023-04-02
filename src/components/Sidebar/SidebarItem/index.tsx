@@ -19,7 +19,7 @@ const SidebarItem: FC<SidebarItemProps> = ({
 
   const content = (
     <>
-      {icon} <span>{state ? title : ''}</span>
+      {icon} <span className={styles.appear}>{state ? title : ''}</span>
     </>
   );
 

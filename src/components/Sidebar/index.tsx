@@ -38,8 +38,7 @@ const Sidebar: FC<SidebarProps> = ({ dictionary }) => {
 
   const [isOpen, setIsOpen] = useState(true);
   return (
-    <div
-      className={`${isOpen ? styles.open : styles.close} ${styles.constant}`}>
+    <div className={`${isOpen ? styles.open : ''} ${styles.constant}`}>
       <div className={styles.sideBarContainer}>
         {<Button onClick={() => setIsOpen(!isOpen)}>click</Button>}
         {menu.map((item, id) => (
