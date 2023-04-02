@@ -26,7 +26,7 @@ const UserContextProvider = ({ children }: { children: React.ReactNode }) => {
       },
     })
       .then(response => response.json())
-      .then(result => console.info(result))
+      .then(result => setUser(result))
       .catch(error => console.error(error, 'An error occured'));
   };
 
@@ -36,7 +36,7 @@ const UserContextProvider = ({ children }: { children: React.ReactNode }) => {
   }, []);
 
   useEffect(() => {
-    if (token) getUser();
+    // if (token) getUser();
   }, [token]);
 
   const loginUser = async (login: string, password: string) => {

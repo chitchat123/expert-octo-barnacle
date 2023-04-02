@@ -1,6 +1,7 @@
 'use client';
 import React, { FC } from 'react';
 
+import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 
 import { Button } from '@components/Button';
@@ -18,7 +19,7 @@ const Profile: FC<SettingsProps> = ({}) => {
       <div className={styles.profileView}>
         <div className={styles.leftContainer}>
           <div className={styles.imageContainer}>
-            <img
+            <Image
               alt={'r'}
               src={
                 'https://images.pexels.com/photos/6872161/pexels-photo-6872161.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
