@@ -32,7 +32,6 @@ const UserContextProvider = ({ children }: { children: React.ReactNode }) => {
 
   useEffect(() => {
     let tkn = localStorage.getItem('token');
-    console.info(tkn, 'eff');
     if (tkn) setToken(tkn);
   }, []);
 
@@ -65,7 +64,6 @@ const UserContextProvider = ({ children }: { children: React.ReactNode }) => {
         .catch(er => console.error(er))
     );
   };
-  // console.info(token, 'token');
 
   const logoutUser = useCallback(() => {
     setUser(null);

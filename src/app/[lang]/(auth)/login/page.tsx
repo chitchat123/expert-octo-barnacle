@@ -23,7 +23,6 @@ const Login: FC<LoginProps> = ({ params: { lang } }) => {
   const handleSubmit = (event: any) => {
     event.preventDefault();
     handleLogin();
-    console.info('login');
   };
 
   const handleChange = (event: any) => {
