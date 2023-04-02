@@ -1,12 +1,11 @@
 'use client';
-import React, { FC, useState } from 'react';
-
-import { useRouter } from 'next/navigation';
+import React, { FC, useContext, useState } from 'react';
 
 import { Button } from '@components/Button';
 import { Email, Password, TextInput } from '@components/inputs';
 import Loader from '@components/Loader';
 
+import { UserContext } from '@context/user.context';
 import { useDictionary } from '@helpers/useDictionary';
 
 import styles from './styles.module.scss';
@@ -14,7 +13,6 @@ import { LoginProps, UserState } from './type';
 
 const Login: FC<LoginProps> = ({ params: { lang } }) => {
   const dict = useDictionary(lang);
-  const router = useRouter();
 
   const [userData, setUserData] = useState<UserState>({
     password: '',
@@ -24,7 +22,8 @@ const Login: FC<LoginProps> = ({ params: { lang } }) => {
 
   const handleSubmit = (event: any) => {
     event.preventDefault();
-    router.push('/');
+    handleLogin();
+    console.info('login');
   };
 
   const handleChange = (event: any) => {
@@ -34,7 +33,11 @@ const Login: FC<LoginProps> = ({ params: { lang } }) => {
       [name]: value,
     }));
   };
+  const { loginUser } = useContext(UserContext);
 
+  const handleLogin = () => {
+    loginUser(userData.nickname, userData.password);
+  };
   return (
     <div className={styles.container}>
       <div className={styles.form}>

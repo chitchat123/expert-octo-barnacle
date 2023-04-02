@@ -1,6 +1,7 @@
 import React, { FC } from 'react';
 
 import '../global.scss';
+import { UserContextProvider } from '@context/user.context';
 import { i18n, Locale } from '@helpers/i18n';
 
 export const generateStaticParams = async () => {
@@ -16,7 +17,7 @@ const Layout: FC<LayoutProps> = ({ children, params: { lang } }) => {
   return (
     <html lang={lang}>
       <body data-theme={'light'}>
-        {children}
+        <UserContextProvider>{children}</UserContextProvider>
         <div id='modal-root'></div>
       </body>
     </html>
