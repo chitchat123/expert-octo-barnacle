@@ -62,7 +62,7 @@ const UserContextProvider = ({ children }: { children: React.ReactNode }) => {
             'campus.kpi.ua',
             'ecampus.kpi.ua',
             'login.kpi.ua',
-            'localhost:3000',
+            'localhost',
           ].forEach(domain =>
             Cookies.set('token', res.access_token, { domain: domain })
           );
