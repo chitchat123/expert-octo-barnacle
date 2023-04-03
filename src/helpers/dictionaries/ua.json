@@ -39,5 +39,10 @@
     "title": "Пошук куратора",
     "placeholder": "Група",
     "buttonTitle": "Назад"
+  },
+  "contextMenu": {
+    "settings": "Налаштування",
+    "logout": "Вихід"
+
   }
 }

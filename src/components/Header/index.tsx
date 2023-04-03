@@ -1,5 +1,6 @@
-import React, { FC } from 'react';
+import React from 'react';
 
+import { cookies } from 'next/headers';
 import Link from 'next/link';
 import { FaUserCircle } from 'react-icons/fa';
 import { MdCircleNotifications } from 'react-icons/md';
@@ -7,11 +8,20 @@ import { MdCircleNotifications } from 'react-icons/md';
 import { Button } from '@components/Button';
 import { ContextMenu } from '@components/ContextMenu';
 
+import { DictionaryCtxMenu } from '@helpers/dictionary';
+import { apiCallUser } from '@helpers/getUserInfo';
+
 import styles from './styles.module.scss';
 
-interface HeaderProps {}
+const Header: ({
+  dictionary,
+}: {
+  dictionary: DictionaryCtxMenu;
+}) => Promise<JSX.Element> = async ({ dictionary }) => {
+  const cookieStore = cookies();
+  const token = cookieStore.get('token');
 
-const Header: FC<HeaderProps> = ({}) => {
+  const { fullName } = await apiCallUser(token);
   return (
     <div className={styles.container}>
       <div className={styles.logo}>
@@ -24,15 +34,24 @@ const Header: FC<HeaderProps> = ({}) => {
         <ContextMenu>
           <FaUserCircle fill={'#18A0FB'} size={60} />
           <>
-            <Link href={'/settings'}> go to</Link>
-            <Link href={'/settings'}> go to</Link>
+            <Link className={styles.contextLink} href={'/settings'}>
+              Custom
+            </Link>
+            <Link className={styles.contextLink} href={'/settings'}>
+              Custom
+            </Link>
           </>
         </ContextMenu>
         <ContextMenu>
           <MdCircleNotifications fill={'#18A0FB'} size={60} />
           <>
-            <Link href={'/settings'}> go to</Link>
-            <Link href={'/settings'}> go to</Link>
+            <div>{fullName}</div>
+            <Link className={styles.contextLink} href={'/settings'}>
+              {dictionary.settings}
+            </Link>
+            <Link className={styles.contextLink} href={'/logout'}>
+              {dictionary.logout}
+            </Link>
           </>
         </ContextMenu>
       </div>

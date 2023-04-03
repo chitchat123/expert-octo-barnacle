@@ -39,5 +39,10 @@
     "title": "Find Curator",
     "placeholder": "Group",
     "buttonTitle": "Back"
+  },
+  "contextMenu": {
+    "settings": "Settings",
+    "logout": "Logout"
+
   }
 }

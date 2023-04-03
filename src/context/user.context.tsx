@@ -1,16 +1,11 @@
 'use client';
 
-import {
-  createContext,
-  useCallback,
-  useEffect,
-  useMemo,
-  useState,
-} from 'react';
+import React, { createContext, useEffect, useMemo, useState } from 'react';
+
+import Cookies from 'js-cookie';
 
 const INITIAL_STATE = {
   user: null,
-  logoutUser: () => {},
   loginUser: (login: string, password: string) => {},
 };
 export const UserContext = createContext(INITIAL_STATE);
@@ -31,13 +26,16 @@ const UserContextProvider = ({ children }: { children: React.ReactNode }) => {
   };
 
   useEffect(() => {
-    let tkn = localStorage.getItem('token');
+    let tkn = Cookies.get('token');
     if (tkn) setToken(tkn);
   }, []);
 
   useEffect(() => {
-    // if (token) getUser();
+    if (token) {
+      getUser();
+    }
   }, [token]);
+  console.info(user, 'user');
 
   const loginUser = async (login: string, password: string) => {
     const body = Object.entries({
@@ -59,23 +57,26 @@ const UserContextProvider = ({ children }: { children: React.ReactNode }) => {
         .json()
         .then(res => {
           setToken(res.access_token);
-          localStorage.setItem('token', res.access_token);
+          [
+            'kpi.ua',
+            'campus.kpi.ua',
+            'ecampus.kpi.ua',
+            'login.kpi.ua',
+            'localhost:3000',
+          ].forEach(domain =>
+            Cookies.set('token', res.access_token, { domain: domain })
+          );
         })
         .catch(er => console.error(er))
     );
   };
 
-  const logoutUser = useCallback(() => {
-    setUser(null);
-  }, []);
-
   const contextValue = useMemo(
     () => ({
       user,
-      logoutUser,
       loginUser,
     }),
-    [user, logoutUser, loginUser]
+    [user, loginUser]
   );
   return (
     // the Provider gives access to the context to its children
