@@ -11,6 +11,7 @@ const Logout: FC<LogoutProps> = ({}) => {
   useEffect(() => {
     Cookies.remove('token');
   }, []);
+
   return <Loading />;
 };
 
