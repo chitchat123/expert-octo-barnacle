@@ -24,7 +24,8 @@ const Layout: ({
   const dict = await getDictionary(lang);
   return (
     <>
-      <Header />
+      {/*@ts-ignore*/}
+      <Header dictionary={dict.contextMenu} />
       <section className={styles.websiteLayout}>
         <div className={styles.mainContainer}>
           <Sidebar dictionary={dict.sidebar} />

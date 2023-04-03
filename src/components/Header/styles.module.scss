@@ -15,5 +15,15 @@
       width: 19rem;
       height: 4rem;
     }
+
+    .contextLink {
+      font-size: 2rem;
+      padding: .5rem;
+
+      &:hover {
+        color: #18A0FB;
+      }
+
+    }
   }
 }

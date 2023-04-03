@@ -3,7 +3,7 @@ import React, { FC, useContext, useState } from 'react';
 
 import { Button } from '@components/Button';
 import { Email, Password, TextInput } from '@components/inputs';
-import Loader from '@components/Loader';
+import Loading from '@components/Loader';
 
 import { UserContext } from '@context/user.context';
 import { useDictionary } from '@helpers/useDictionary';
@@ -41,7 +41,7 @@ const Login: FC<LoginProps> = ({ params: { lang } }) => {
     <div className={styles.container}>
       <div className={styles.form}>
         {dict === undefined ? (
-          <Loader />
+          <Loading />
         ) : (
           <>
             <h3>{dict.login.authTitle}</h3>

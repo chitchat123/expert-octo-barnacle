@@ -5,6 +5,7 @@ import type { Locale } from './i18n';
 
 export type Dictionary = typeof tmp;
 export type DictionarySide = typeof tmp.sidebar;
+export type DictionaryCtxMenu = typeof tmp.contextMenu;
 
 const dictionaries = {
   en: () => import('./dictionaries/en.json').then(module => module.default),

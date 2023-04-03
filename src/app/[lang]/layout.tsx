@@ -2,11 +2,11 @@ import React, { FC } from 'react';
 
 import '../global.scss';
 import { UserContextProvider } from '@context/user.context';
-import { i18n, Locale } from '@helpers/i18n';
+import { Locale } from '@helpers/i18n';
 
-export const generateStaticParams = async () => {
-  return i18n.locales.map(locale => ({ lang: locale }));
-};
+// export const generateStaticParams = async () => {
+//   return i18n.locales.map(locale => ({ lang: locale }));
+// };
 
 interface LayoutProps {
   children: React.ReactNode;

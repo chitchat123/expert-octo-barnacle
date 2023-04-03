@@ -4,12 +4,12 @@ import Table from '@components/Table';
 
 import styles from './styles.module.scss';
 
-export const generateStaticParams = async () => {
-  return [['2021', '1']].map(([year, semester]) => ({
-    year: year,
-    semester: semester,
-  }));
-};
+// export const generateStaticParams = async () => {
+//   return [['2021', '1']].map(([year, semester]) => ({
+//     year: year,
+//     semester: semester,
+//   }));
+// };
 
 interface PageProps {
   params: {
