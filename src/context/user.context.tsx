@@ -57,15 +57,7 @@ const UserContextProvider = ({ children }: { children: React.ReactNode }) => {
         .json()
         .then(res => {
           setToken(res.access_token);
-          [
-            'kpi.ua',
-            'campus.kpi.ua',
-            'ecampus.kpi.ua',
-            'login.kpi.ua',
-            'localhost',
-          ].forEach(domain =>
-            Cookies.set('token', res.access_token, { domain: domain })
-          );
+          Cookies.set('token', res.access_token);
         })
         .catch(er => console.error(er))
     );

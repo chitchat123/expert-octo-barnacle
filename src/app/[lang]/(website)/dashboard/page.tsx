@@ -1,8 +1,6 @@
-import React, { ReactNode, Suspense } from 'react';
+import React from 'react';
 
 import { cookies } from 'next/headers';
-
-import Loading from '@components/Loader';
 
 import { delay } from '@helpers/delay';
 import { apiCallUser } from '@helpers/getUserInfo';
@@ -29,23 +27,23 @@ const Page: ({}: PageProps) => Promise<JSX.Element> = async ({}) => {
           alignContent: 'center',
           justifyContent: 'space-around',
         }}>
-        <Suspense fallback={<Loading />}>
-          <TestLoading>test</TestLoading>
-        </Suspense>{' '}
-        <Suspense fallback={<Loading />}>
-          <TestLoading>test</TestLoading>
-        </Suspense>
+        {/*<Suspense fallback={<Loading />}>*/}
+        {/*  <TestLoading>test</TestLoading>*/}
+        {/*</Suspense>{' '}*/}
+        {/*<Suspense fallback={<Loading />}>*/}
+        {/*  <TestLoading>test</TestLoading>*/}
+        {/*</Suspense>*/}
       </div>
     </div>
   );
 };
 
-const TestLoading: ({
-  children,
-}: {
-  children: ReactNode;
-}) => Promise<JSX.Element> = async ({ children }) => {
-  return await delay(2000).then(() => children);
-};
+// const TestLoading: ({
+//   children,
+// }: {
+//   children: ReactNode;
+// }) => Promise<JSX.Element> = async ({ children }) => {
+//   return await delay(2000).then(() => children);
+// };
 
 export default Page;

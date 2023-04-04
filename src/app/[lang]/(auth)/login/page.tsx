@@ -1,9 +1,9 @@
 'use client';
-import React, { FC, useContext, useState } from 'react';
+import React, { FC, FormEvent, useContext, useState } from 'react';
 
 import { Button } from '@components/Button';
 import { Email, Password, TextInput } from '@components/inputs';
-import Loading from '@components/Loader';
+import Loader from '@components/Loader';
 
 import { UserContext } from '@context/user.context';
 import { useDictionary } from '@helpers/useDictionary';
@@ -20,7 +20,7 @@ const Login: FC<LoginProps> = ({ params: { lang } }) => {
     nickname: '',
   });
 
-  const handleSubmit = (event: any) => {
+  const handleSubmit = (event: FormEvent) => {
     event.preventDefault();
     handleLogin();
   };
@@ -41,7 +41,7 @@ const Login: FC<LoginProps> = ({ params: { lang } }) => {
     <div className={styles.container}>
       <div className={styles.form}>
         {dict === undefined ? (
-          <Loading />
+          <Loader />
         ) : (
           <>
             <h3>{dict.login.authTitle}</h3>

@@ -3,7 +3,7 @@ import { FC, useEffect } from 'react';
 
 import Cookies from 'js-cookie';
 
-import Loading from '@components/Loader';
+import Loader from '@components/Loader';
 
 interface LogoutProps {}
 
@@ -12,7 +12,7 @@ const Logout: FC<LogoutProps> = ({}) => {
     Cookies.remove('token');
   }, []);
 
-  return <Loading />;
+  return <Loader />;
 };
 
 export default Logout;
