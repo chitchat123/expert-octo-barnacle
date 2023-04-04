@@ -15,10 +15,10 @@ interface LayoutProps {
 
 const Layout: FC<LayoutProps> = ({ children }) => {
   return (
-    <>
+    <div style={{ height: '100vh' }}>
       <UserContextProvider>{children}</UserContextProvider>
       <div id='modal-root'></div>
-    </>
+    </div>
   );
 };
 
