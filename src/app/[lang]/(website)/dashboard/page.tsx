@@ -12,8 +12,7 @@ const Page: ({}: PageProps) => Promise<JSX.Element> = async ({}) => {
   const token = cookieStore.get('token');
 
   const { fullName } = await apiCallUser(token);
-  console.info(fullName, 'data');
-  await delay(2000);
+  await delay(1000);
   return <div className={styles.container}>{fullName}</div>;
 };
 
