@@ -13,14 +13,12 @@ interface LayoutProps {
   params: { lang: Locale };
 }
 
-const Layout: FC<LayoutProps> = ({ children, params: { lang } }) => {
+const Layout: FC<LayoutProps> = ({ children }) => {
   return (
-    <html lang={lang}>
-      <body data-theme={'light'}>
-        <UserContextProvider>{children}</UserContextProvider>
-        <div id='modal-root'></div>
-      </body>
-    </html>
+    <>
+      <UserContextProvider>{children}</UserContextProvider>
+      <div id='modal-root'></div>
+    </>
   );
 };
 
