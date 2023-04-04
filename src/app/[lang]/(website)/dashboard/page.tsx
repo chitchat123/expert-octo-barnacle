@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { ReactNode, Suspense } from 'react';
 
 import { cookies } from 'next/headers';
 
 import { ContentCard } from '@components/ContentCard';
+import Loading from '@components/Loader';
 
 import { delay } from '@helpers/delay';
 import { apiCallUser } from '@helpers/getUserInfo';
@@ -25,14 +26,19 @@ const Page: ({}: PageProps) => Promise<JSX.Element> = async ({}) => {
       <div className={styles.mainContent}>
         <div className={styles.currentSemester}>
           <h3 className={styles.title}>Current semester</h3>
-          <div className={styles.subjects}>
-            <ContentCard />
-            <ContentCard />
-            <ContentCard />
-            <ContentCard />
-            <ContentCard />
-            <ContentCard />
-          </div>
+          <Suspense fallback={<Loading />}>
+            <div className={styles.subjects}>
+              {/*@ts-ignore*/}
+              <TestLoading>
+                <ContentCard />
+                <ContentCard />
+                <ContentCard />
+                <ContentCard />
+                <ContentCard />
+                <ContentCard />
+              </TestLoading>
+            </div>
+          </Suspense>
         </div>
         <div className={styles.news}>
           <ContentCard />
@@ -43,12 +49,13 @@ const Page: ({}: PageProps) => Promise<JSX.Element> = async ({}) => {
   );
 };
 
-// const TestLoading: ({
-//   children,
-// }: {
-//   children: ReactNode;
-// }) => Promise<JSX.Element> = async ({ children }) => {
-//   return await delay(2000).then(() => children);
-// };
+// @ts-ignore
+const TestLoading: ({
+  children,
+}: {
+  children: ReactNode;
+}) => Promise<JSX.Element> = async ({ children }) => {
+  return await delay(200).then(() => children);
+};
 
 export default Page;
