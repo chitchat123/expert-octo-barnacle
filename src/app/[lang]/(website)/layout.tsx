@@ -27,12 +27,10 @@ const Layout: ({
       {/*@ts-ignore*/}
       <Header dictionary={dict.contextMenu} />
       <section className={styles.websiteLayout}>
-        <div className={styles.mainContainer}>
-          <Sidebar dictionary={dict.sidebar} />
-          <div className={styles.childrenContainer}>
-            {children}
-            <Footer fulled={true} />
-          </div>
+        <Sidebar dictionary={dict.sidebar} />
+        <div className={styles.childrenContainer}>
+          {children}
+          <Footer fulled={true} />
         </div>
       </section>
     </>

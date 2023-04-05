@@ -1,23 +1,17 @@
 .websiteLayout {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   min-height: calc(100vh - 6rem);
-
-  .mainContainer {
-    display: flex;
-    min-height: calc(100vh - 6rem);
 
     .childrenContainer {
       display: flex;
-      padding: 3rem;
       justify-content: space-between;
       flex-direction: column;
       width: 100%;
-      height: 100vh;
       gap: 4rem;
+      min-height: 100%;
+      padding: 3rem 3rem 0 3rem;
 
-
-    }
   }
 
 
