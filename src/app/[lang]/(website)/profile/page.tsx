@@ -4,6 +4,7 @@ import React, { FC } from 'react';
 import { useRouter } from 'next/navigation';
 
 import { Button } from '@components/Button';
+import ImageFrame from '@components/ImageFrame';
 
 import styles from './styles.module.scss';
 
@@ -17,14 +18,7 @@ const Profile: FC<SettingsProps> = ({}) => {
     <div className={styles.container}>
       <div className={styles.profileView}>
         <div className={styles.leftContainer}>
-          <div className={styles.imageContainer}>
-            <img
-              alt={'r'}
-              src={
-                'https://images.pexels.com/photos/6872161/pexels-photo-6872161.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
-              }
-            />
-          </div>
+          <ImageFrame />
           <div className={styles.underImagefield}>
             <div className={styles.field}>d</div>
             <div className={styles.field}>d</div>

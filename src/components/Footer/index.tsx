@@ -8,6 +8,12 @@ import { FooterProps } from './type';
 const Footer: FC<FooterProps> = ({ fulled }) => {
   return (
     <div className={styles.container}>
+      <div className={styles.left}>
+        Усі права застережено. © 2023 <u>КПІ ім. Ігоря Сікорського</u>
+        <br />
+        Розробник: <u>Конструкторське бюро інформаційних систем</u>
+      </div>
+      {fulled ? <div>right content</div> : ''}
       <div className={styles.left}>left content</div>
 
       {fulled ? (
