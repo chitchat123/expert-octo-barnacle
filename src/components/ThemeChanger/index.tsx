@@ -9,17 +9,22 @@ interface ThemeChangerProps {}
 
 const ThemeChanger: FC<ThemeChangerProps> = ({}) => {
   const { theme, changeTheme } = useContext(ThemeContext);
-
+  const handleThemeChange = () => {
+    if (theme === 'dark') {
+      changeTheme('light');
+    } else {
+      changeTheme('dark');
+    }
+  };
   return (
     <div style={{ display: 'flex' }}>
-      {/*<p>ToggleTheme</p>*/}
-      {/*<div style={{ display: 'flex', gap: '20px' }}>*/}
-      {/*  <p onClick={() => changeTheme('dark')}>Dark</p>*/}
-      {/*  <p onClick={() => changeTheme('light')}>Light</p>*/}
-      {/*</div>*/}
       <div className={styles.toggleSwitch}>
         <label className={styles.switchLabel}>
-          <input type='checkbox' className={styles.checkbox} />
+          <input
+            type='checkbox'
+            onClick={handleThemeChange}
+            className={styles.checkbox}
+          />
           <span className={styles.slider}></span>
         </label>
       </div>

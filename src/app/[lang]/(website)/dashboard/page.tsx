@@ -23,7 +23,7 @@ const Page: ({}: PageProps) => Promise<JSX.Element> = async ({}) => {
 
   return (
     <div className={styles.container}>
-      <h1>Вітаємо, {fullName}</h1>
+      {/*<h1>Вітаємо, {fullName}</h1>*/}
       <div className={styles.mainContent}>
         <div className={styles.currentSemester}>
           <h3 className={styles.title}>Current semester</h3>
