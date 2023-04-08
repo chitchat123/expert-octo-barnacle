@@ -4,7 +4,7 @@ import { FC, useEffect } from 'react';
 import Cookies from 'js-cookie';
 import { useRouter } from 'next/navigation';
 
-import Loading from '@components/Loader';
+import Loader from '@components/Loader';
 
 import { Locale } from '@helpers/i18n';
 
@@ -23,7 +23,7 @@ const Logout: FC<LogoutProps> = ({ params: { lang } }) => {
     redirect.then(() => push(`/${lang}/login`));
   }, []);
 
-  return <Loading />;
+  return <Loader />;
 };
 
 export default Logout;

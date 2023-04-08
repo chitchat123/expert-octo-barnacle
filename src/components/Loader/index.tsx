@@ -2,9 +2,9 @@ import { FC } from 'react';
 
 import styles from './index.module.scss';
 
-interface LoadingProps {}
+interface LoaderProps {}
 
-const Loading: FC<LoadingProps> = ({}) => {
+const Loader: FC<LoaderProps> = ({}) => {
   return (
     <div className={styles.container}>
       <span className={styles.loader}></span>
@@ -12,4 +12,4 @@ const Loading: FC<LoadingProps> = ({}) => {
   );
 };
 
-export default Loading;
+export default Loader;

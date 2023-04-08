@@ -7,9 +7,11 @@ import { MdCircleNotifications } from 'react-icons/md';
 
 import { Button } from '@components/Button';
 import { ContextMenu } from '@components/ContextMenu';
+import { LangChanger } from '@components/LangChanger';
 
 import { DictionaryCtxMenu } from '@helpers/dictionary';
 import { apiCallUser } from '@helpers/getUserInfo';
+import { Locale } from '@helpers/i18n';
 
 import styles from './styles.module.scss';
 
@@ -17,7 +19,8 @@ const Header: ({
   dictionary,
 }: {
   dictionary: DictionaryCtxMenu;
-}) => Promise<JSX.Element> = async ({ dictionary }) => {
+  lang: Locale;
+}) => Promise<JSX.Element> = async ({ dictionary, lang }) => {
   const cookieStore = cookies();
   const token = cookieStore.get('token');
 
@@ -31,6 +34,7 @@ const Header: ({
         <div className={styles.button}>
           <Button variant={'secondary'}>Поточний кампус</Button>
         </div>
+        <LangChanger currLocale={lang} />
         <ContextMenu>
           <FaUserCircle fill={'#18A0FB'} size={60} />
           <>

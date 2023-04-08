@@ -1,18 +1,26 @@
 @import 'scss-reset/_reset.scss';
 
-body[data-theme="light"] {
-  --back: #fff
+.base {
+  --base-color: #18a0fb;
+  --base-text-color: #000;
 }
 
-body[data-theme="dark"] {
-  --back: #000
+div[data-theme="light"] {
+  @extend .base;
+  --back: #fff;
+}
+
+div[data-theme="dark"] {
+  @extend .base;
+  --back: #000;
 }
 
 html {
   font-size: 10px;
-  font-family: 'Montserrat', sans-serif ;
+  font-family: 'Montserrat', sans-serif;
   font-style: normal;
   font-weight: 500;
+
   h1 {
     font-size: 5.6rem;
     line-height: 8rem;
@@ -30,12 +38,14 @@ html {
     font-weight: 700;
     line-height: 3.6rem;
   }
-  p{
+
+  p {
     font-size: 1.8rem;
     font-weight: 500;
     line-height: 2.2rem;
   }
-  a{
+
+  a {
     color: #7E7E7E;
     font-size: 3rem;
     text-decoration: none;

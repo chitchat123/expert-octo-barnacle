@@ -25,7 +25,7 @@ const Layout: ({
   return (
     <>
       {/*@ts-ignore*/}
-      <Header dictionary={dict.contextMenu} />
+      <Header dictionary={dict.contextMenu} lang={lang} />
       <section className={styles.websiteLayout}>
         <Sidebar dictionary={dict.sidebar} />
         <div className={styles.childrenContainer}>
