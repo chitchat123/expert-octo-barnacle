@@ -24,7 +24,6 @@
       .slider {
         background-color: var(--light);
         &::before {
-          -webkit-transform: translateX(50px);
           -ms-transform: translateX(50px);
           transform: translateX(50px);
           background-color: var(--dark);

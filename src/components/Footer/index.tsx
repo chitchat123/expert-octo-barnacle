@@ -3,9 +3,8 @@ import React, { FC } from 'react';
 import ThemeChanger from '@components/ThemeChanger';
 
 import styles from './styles.module.scss';
-import { FooterProps } from './type';
 
-const Footer: FC<FooterProps> = ({ fulled }) => {
+const Footer: FC = () => {
   return (
     <div className={styles.container}>
       <div className={styles.left}>
