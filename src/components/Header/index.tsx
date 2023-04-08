@@ -7,7 +7,6 @@ import { MdCircleNotifications } from 'react-icons/md';
 
 import { Button } from '@components/Button';
 import { ContextMenu } from '@components/ContextMenu';
-import { LangChanger } from '@components/LangChanger';
 
 import { DictionaryCtxMenu } from '@helpers/dictionary';
 import { apiCallUser } from '@helpers/getUserInfo';
