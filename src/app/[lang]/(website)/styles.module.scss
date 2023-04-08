@@ -1,21 +1,14 @@
-.websiteLayout {
+.layoutContainer{
   display: flex;
-  flex-direction: column;
-  min-height: calc(100vh - 6rem);
-
-  .mainContainer {
+  height: 100vh;
+  width: 100%;
+  .childrenLayout{
     display: flex;
-    min-height: calc(100vh - 6rem);
-
-    .childrenContainer {
-      display: flex;
-      padding: 3rem;
-      justify-content: space-between;
-      flex-direction: column;
-      width: 100%;
-
-    }
+    border: 1px saddlebrown solid;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 120rem;
+    margin: 0 auto;
   }
-
-
 }

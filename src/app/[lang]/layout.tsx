@@ -1,6 +1,7 @@
 import React, { FC } from 'react';
 
 import '../global.scss';
+import { ThemeContextProvider } from '@context/theme.context';
 import { UserContextProvider } from '@context/user.context';
 import { Locale } from '@helpers/i18n';
 
@@ -10,15 +11,19 @@ import { Locale } from '@helpers/i18n';
 
 interface LayoutProps {
   children: React.ReactNode;
-  params: { lang: Locale };
+  lang: Locale;
 }
 
-const Layout: FC<LayoutProps> = ({ children, params: { lang } }) => {
+const Layout: FC<LayoutProps> = ({ children, lang }) => {
   return (
     <html lang={lang}>
-      <body data-theme={'light'}>
-        <UserContextProvider>{children}</UserContextProvider>
-        <div id='modal-root'></div>
+      <body>
+        <ThemeContextProvider>
+          <>
+            <UserContextProvider>{children}</UserContextProvider>
+            <div id='modal-root'></div>
+          </>
+        </ThemeContextProvider>
       </body>
     </html>
   );

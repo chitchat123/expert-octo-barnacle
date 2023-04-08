@@ -6,6 +6,17 @@ import { i18n } from '@helpers/i18n';
 
 import type { NextRequest } from 'next/server';
 
+const auth = /\/[\w]+\/(\w+).*/gm;
+
+const isPrivatePath = (s: string) => {
+  // @ts-ignore
+  const tmp = [...s.matchAll(auth)];
+  if (tmp.length > 0 && tmp[0].length > 0) {
+    return !['find', 'login', 'reset'].includes(tmp[0][1]);
+  }
+  return true;
+};
+
 function getLocale(request: NextRequest): string | undefined {
   // Negotiator expects plain object so we need to transform headers
   const negotiatorHeaders: Record<string, string> = {};
@@ -20,6 +31,7 @@ function getLocale(request: NextRequest): string | undefined {
 
 export function middleware(request: NextRequest) {
   const pathname = request.nextUrl.pathname;
+  const token = request.cookies.get('token');
 
   const pathnameIsMissingLocale = i18n.locales.every(
     locale => !pathname.startsWith(`/${locale}/`) && pathname !== `/${locale}`
@@ -35,9 +47,17 @@ export function middleware(request: NextRequest) {
       new URL(`/${locale}/${pathname}`, request.url)
     );
   }
+  const locale = getLocale(request);
+
+  if (isPrivatePath(pathname) && !token) {
+    return NextResponse.redirect(new URL(`/${locale}/login`, request.url));
+  }
+  if (!isPrivatePath(pathname) && token) {
+    return NextResponse.redirect(new URL(`/${locale}/dashboard`, request.url));
+  }
 }
 
 export const config = {
   // Matcher ignoring `/_next/` and `/api/`
-  matcher: ['/((?!api|_next/static|_next/image|favicon.ico|dashboard).*)'],
+  matcher: ['/((?!api|_next/static|_next/image|favicon.ico).*)'],
 };

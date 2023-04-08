@@ -1,3 +1,3 @@
-import Loading from '@components/Loader';
+import Loader from '@components/Loader';
 
-export default Loading;
+export default Loader;

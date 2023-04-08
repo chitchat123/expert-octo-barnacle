@@ -1,11 +1,13 @@
 .container {
-  max-width: 200rem;
-  padding: 0 2rem;
+  max-width: 120rem;
+  padding: 2rem 0;
   margin: 0 auto;
   height: 6rem;
   display: flex;
   justify-content: space-between;
   align-items: baseline;
+  background-color: var(--back);
+  width: 100%;
 
   .buttons {
     display: flex;

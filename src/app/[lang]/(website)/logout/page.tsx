@@ -2,16 +2,28 @@
 import { FC, useEffect } from 'react';
 
 import Cookies from 'js-cookie';
+import { useRouter } from 'next/navigation';
 
-import Loading from '@components/Loader';
+import Loader from '@components/Loader';
 
-interface LogoutProps {}
+import { Locale } from '@helpers/i18n';
 
-const Logout: FC<LogoutProps> = ({}) => {
+interface LogoutProps {
+  params: { lang: Locale };
+}
+
+const redirect = new Promise(resolve => {
+  Cookies.remove('token');
+  resolve('logout');
+});
+
+const Logout: FC<LogoutProps> = ({ params: { lang } }) => {
+  const { push } = useRouter();
   useEffect(() => {
-    Cookies.remove('token');
+    redirect.then(() => push(`/${lang}/login`));
   }, []);
-  return <Loading />;
+
+  return <Loader />;
 };
 
 export default Logout;

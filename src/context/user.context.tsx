@@ -4,6 +4,8 @@ import React, { createContext, useEffect, useMemo, useState } from 'react';
 
 import Cookies from 'js-cookie';
 
+import { parseBody } from '@helpers/parseUserCredentials';
+
 const INITIAL_STATE = {
   user: null,
   loginUser: (login: string, password: string) => {},
@@ -22,7 +24,7 @@ const UserContextProvider = ({ children }: { children: React.ReactNode }) => {
     })
       .then(response => response.json())
       .then(result => setUser(result))
-      .catch(error => console.error(error, 'An error occured'));
+      .catch(error => console.error(error, 'An error occurred'));
   };
 
   useEffect(() => {
@@ -35,19 +37,10 @@ const UserContextProvider = ({ children }: { children: React.ReactNode }) => {
       getUser();
     }
   }, [token]);
-  console.info(user, 'user');
 
   const loginUser = async (login: string, password: string) => {
-    const body = Object.entries({
-      username: login,
-      password: password,
-      grant_type: 'password',
-    })
-      .map(function ([key, value]) {
-        return encodeURIComponent(key) + '=' + encodeURIComponent(value);
-      })
-      .join('&');
-
+    const body = parseBody(login, password);
+    //get and save token. set token to cookie
     await fetch('https://api.campus.kpi.ua/oauth/token', {
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       method: 'POST',
@@ -57,15 +50,7 @@ const UserContextProvider = ({ children }: { children: React.ReactNode }) => {
         .json()
         .then(res => {
           setToken(res.access_token);
-          [
-            'kpi.ua',
-            'campus.kpi.ua',
-            'ecampus.kpi.ua',
-            'login.kpi.ua',
-            'localhost',
-          ].forEach(domain =>
-            Cookies.set('token', res.access_token, { domain: domain })
-          );
+          Cookies.set('token', res.access_token);
         })
         .catch(er => console.error(er))
     );

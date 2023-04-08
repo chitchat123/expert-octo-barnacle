@@ -1,9 +1,11 @@
 'use client';
-import React, { FC, useContext, useState } from 'react';
+import React, { FC, FormEvent, useContext, useState } from 'react';
+
+import { useRouter } from 'next/navigation';
 
 import { Button } from '@components/Button';
-import { Email, Password, TextInput } from '@components/inputs';
-import Loading from '@components/Loader';
+import { Password, TextInput } from '@components/inputs';
+import Loader from '@components/Loader';
 
 import { UserContext } from '@context/user.context';
 import { useDictionary } from '@helpers/useDictionary';
@@ -13,6 +15,7 @@ import { LoginProps, UserState } from './type';
 
 const Login: FC<LoginProps> = ({ params: { lang } }) => {
   const dict = useDictionary(lang);
+  const { push } = useRouter();
 
   const [userData, setUserData] = useState<UserState>({
     password: '',
@@ -20,7 +23,7 @@ const Login: FC<LoginProps> = ({ params: { lang } }) => {
     nickname: '',
   });
 
-  const handleSubmit = (event: any) => {
+  const handleSubmit = (event: FormEvent) => {
     event.preventDefault();
     handleLogin();
   };
@@ -41,16 +44,23 @@ const Login: FC<LoginProps> = ({ params: { lang } }) => {
     <div className={styles.container}>
       <div className={styles.form}>
         {dict === undefined ? (
-          <Loading />
+          <Loader />
         ) : (
           <>
             <h3>{dict.login.authTitle}</h3>
             <form onSubmit={handleSubmit}>
-              <Email
-                name={'email'}
-                label={dict.login.emailInput}
+              {/*<Email*/}
+              {/*  name={'email'}*/}
+              {/*  label={dict.login.emailInput}*/}
+              {/*  onChange={handleChange}*/}
+              {/*  value={userData.email}*/}
+              {/*  required={true}*/}
+              {/*/>*/}
+              <TextInput
+                name={'nickname'}
+                label={dict.login.nickNameInput}
                 onChange={handleChange}
-                value={userData.email}
+                value={userData.nickname}
                 required={true}
               />
               <Password
@@ -60,14 +70,11 @@ const Login: FC<LoginProps> = ({ params: { lang } }) => {
                 value={userData.password}
                 required={true}
               />
-              <TextInput
-                name={'nickname'}
-                label={dict.login.nickNameInput}
-                onChange={handleChange}
-                value={userData.nickname}
-                required={true}
-              />
-              <Button variant={'primary'} type='submit'>
+
+              <Button
+                variant={'primary'}
+                onClick={() => push(`${lang}/dashboard`)}
+                type='submit'>
                 Submit
               </Button>
             </form>
