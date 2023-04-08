@@ -34,7 +34,7 @@ const Header: ({
         <div className={styles.button}>
           <Button variant={'secondary'}>Поточний кампус</Button>
         </div>
-        <LangChanger currLocale={lang} />
+        {/*<LangChanger currLocale={lang} />*/}
         <ContextMenu>
           <FaUserCircle fill={'#18A0FB'} size={60} />
           <>

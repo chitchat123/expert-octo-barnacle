@@ -13,17 +13,12 @@ const Footer: FC<FooterProps> = ({ fulled }) => {
         <br />
         Розробник: <u>Конструкторське бюро інформаційних систем</u>
       </div>
-      {fulled ? <div>right content</div> : ''}
-      <div className={styles.left}>left content</div>
-
-      {fulled ? (
+      <div className={styles.right}>
         <div>
-          {' '}
           <ThemeChanger />
         </div>
-      ) : (
-        ''
-      )}
+        <div>Соціальні мережі</div>
+      </div>
     </div>
   );
 };

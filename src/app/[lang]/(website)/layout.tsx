@@ -23,17 +23,17 @@ const Layout: ({
 }) => {
   const dict = await getDictionary(lang);
   return (
-    <>
-      {/*@ts-ignore*/}
-      <Header dictionary={dict.contextMenu} lang={lang} />
-      <section className={styles.websiteLayout}>
+    <div className={styles.layoutContainer}>
+      <div className={styles.sidebar}>
         <Sidebar dictionary={dict.sidebar} />
-        <div className={styles.childrenContainer}>
-          {children}
-          <Footer fulled={true} />
-        </div>
-      </section>
-    </>
+      </div>
+      <div className={styles.childrenLayout}>
+        {/*@ts-ignore*/}
+        <Header dictionary={dict.contextMenu} lang={lang} />
+        {children}
+        <Footer fulled={true} />
+      </div>
+    </div>
   );
 };
 

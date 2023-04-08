@@ -1,7 +1,6 @@
 import React, { FC } from 'react';
 
 import '../global.scss';
-
 import { ThemeContextProvider } from '@context/theme.context';
 import { UserContextProvider } from '@context/user.context';
 import { Locale } from '@helpers/i18n';
@@ -19,12 +18,12 @@ const Layout: FC<LayoutProps> = ({ children, lang }) => {
   return (
     <html lang={lang}>
       <body>
-        <>
-          <ThemeContextProvider>
+        <ThemeContextProvider>
+          <>
             <UserContextProvider>{children}</UserContextProvider>
-          </ThemeContextProvider>
-          <div id='modal-root'></div>
-        </>
+            <div id='modal-root'></div>
+          </>
+        </ThemeContextProvider>
       </body>
     </html>
   );
