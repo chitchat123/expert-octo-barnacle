@@ -1,4 +1,4 @@
-.container{
+.footerContainer{
   display: flex;
   justify-content: space-between;
   align-content: center;
@@ -6,6 +6,8 @@
   height: 6rem;
   width: 100%;
   max-width: 120rem;
+  color: var(--color);
+  background-color: var(--background);
   margin: 0 auto;
   .left{
     text-align: center;

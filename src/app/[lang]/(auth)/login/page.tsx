@@ -41,7 +41,7 @@ const Login: FC<LoginProps> = ({ params: { lang } }) => {
     loginUser(userData.nickname, userData.password);
   };
   return (
-    <div className={styles.container}>
+    <div className={styles.loginContainer}>
       <div className={styles.form}>
         {dict === undefined ? (
           <Loader />

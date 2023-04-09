@@ -42,7 +42,7 @@ const Find: FC<FindProps> = ({ params: { lang } }) => {
   ];
 
   return (
-    <div className={styles.container}>
+    <div className={styles.findCuratorContainer}>
       {dict == undefined ? (
         <Loader />
       ) : (

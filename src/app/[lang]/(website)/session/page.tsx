@@ -8,7 +8,7 @@ interface SessionProps {}
 
 const Session: FC<SessionProps> = ({}) => {
   return (
-    <div className={styles.container}>
+    <div className={styles.sessionContainer}>
       <Table
         content={[
           {

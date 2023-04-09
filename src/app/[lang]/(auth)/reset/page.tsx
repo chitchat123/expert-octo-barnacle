@@ -12,7 +12,7 @@ const Reset: FC<ResetProps> = ({}) => {
   const [state, setState] = useState<string>('');
 
   return (
-    <div className={styles.container}>
+    <div className={styles.resetContainer}>
       <div className={styles.form}>
         <h3>Втратили свій пароль, чи логін?</h3>
         <p>Ви можете вiдновити доступ до системи.</p>

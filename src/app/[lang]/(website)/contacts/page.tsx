@@ -5,7 +5,7 @@ import styles from './styles.module.scss';
 interface ContactsProps {}
 
 const Contacts: FC<ContactsProps> = ({}) => {
-  return <div className={styles.container}> Contacts </div>;
+  return <div className={styles.contactsContainer}> Contacts </div>;
 };
 
 export default Contacts;
