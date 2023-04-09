@@ -6,7 +6,7 @@ import styles from './styles.module.scss';
 
 const Footer: FC = () => {
   return (
-    <div className={styles.container}>
+    <div className={styles.footerContainer}>
       <div className={styles.left}>
         Усі права застережено. © 2023 <u>КПІ ім. Ігоря Сікорського</u>
         <br />

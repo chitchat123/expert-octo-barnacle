@@ -34,7 +34,7 @@ const Table: FC<TableProps> = ({ titles, type, content }) => {
   };
 
   return (
-    <div className={[styles.container, styles.attestation].join(' ')}>
+    <div className={[styles.tableContainer, styles.attestation].join(' ')}>
       <div className={styles.row}>
         {titles.map((el, idx) => (
           <span key={idx}>{el}</span>

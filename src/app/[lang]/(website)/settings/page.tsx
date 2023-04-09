@@ -10,7 +10,7 @@ interface SettingsProps {}
 
 const Settings: FC<SettingsProps> = ({}) => {
   return (
-    <div className={styles.container}>
+    <div className={styles.settingsContainer}>
       <div className={styles.content}>
         <div className={styles.imageBlock}>
           <ImageFrame />

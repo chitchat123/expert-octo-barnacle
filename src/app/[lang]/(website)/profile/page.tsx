@@ -15,7 +15,7 @@ const Profile: FC<SettingsProps> = ({}) => {
   const router = useRouter();
   // if (loading) return <Loading />; if get user info req is pending
   return (
-    <div className={styles.container}>
+    <div className={styles.profileContainer}>
       <div className={styles.profileView}>
         <div className={styles.leftContainer}>
           <ImageFrame />

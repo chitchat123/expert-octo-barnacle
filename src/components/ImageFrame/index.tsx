@@ -8,7 +8,7 @@ interface IndexProps {
 
 const Index: FC<IndexProps> = ({ imageUrl }) => {
   return (
-    <div className={styles.imageContainer}>
+    <div className={styles.imageFrameContainer}>
       <img
         alt={'r'}
         src={

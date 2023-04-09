@@ -20,7 +20,7 @@ interface PageProps {
 
 const Page: FC<PageProps> = ({ params: { year, semester } }) => {
   return (
-    <div className={styles.container}>
+    <div className={styles.semesterPageContainer}>
       <h1>{`${year} ${semester} semester`}</h1>
       <Table
         content={[

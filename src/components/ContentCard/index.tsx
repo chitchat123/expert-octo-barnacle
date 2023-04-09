@@ -12,7 +12,7 @@ interface ContentCardProps {
 
 const ContentCard: FC<ContentCardProps> = ({ href, name, description }) => {
   return (
-    <Link className={styles.container} href={`/${href}`}>
+    <Link className={styles.contentCardContainer} href={`/${href}`}>
       <div className={styles.content}>
         <div className={styles.name}>
           {name || 'Lorem ipsum dolor sit amet'}

@@ -25,7 +25,7 @@ const Header: ({
 
   const { fullName } = await apiCallUser(token);
   return (
-    <div className={styles.container}>
+    <div className={styles.headerContainer}>
       <div className={styles.logo}>
         <h3>logo</h3>
       </div>

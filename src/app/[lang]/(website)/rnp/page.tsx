@@ -6,7 +6,7 @@ import styles from './styles.module.scss';
 interface RNPProps {}
 
 const RNP: FC<RNPProps> = ({}) => {
-  return <div className={styles.container}> RNP </div>;
+  return <div className={styles.rnpContainer}> RNP </div>;
 };
 
 export default RNP;
