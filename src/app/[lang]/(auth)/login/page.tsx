@@ -7,7 +7,7 @@ import { Button } from '@components/Button';
 import { Password, TextInput } from '@components/inputs';
 import Loader from '@components/Loader';
 
-import { UserContext } from '@context/user.context';
+import { UserContext } from '@context';
 import { useDictionary } from '@helpers/useDictionary';
 
 import styles from './styles.module.scss';

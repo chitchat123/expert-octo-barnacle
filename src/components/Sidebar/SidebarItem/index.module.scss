@@ -1,17 +1,18 @@
 @mixin ItemStyle {
   display: flex;
-  font-size: 3rem;
+  font-size: 2rem;
   gap: .5rem;
   color: #7E7E7E;
+  white-space: nowrap;
   &:hover {
     color: #18A0FB;
   }
 }
 
 .simple {
-  cursor: pointer;
-  height: 3.5rem;
   @include ItemStyle;
+  cursor: pointer;
+  min-height: 2.5rem;
 }
 
 .appear {

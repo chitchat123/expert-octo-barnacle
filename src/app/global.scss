@@ -3,6 +3,7 @@
 .base {
   --base-color: #18a0fb;
   --base-text-color: #000;
+  background-color: var(--back);
 }
 
 div[data-theme="light"] {
