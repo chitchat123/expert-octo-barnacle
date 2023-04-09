@@ -1,8 +1,7 @@
 import React, { FC } from 'react';
 
 import '../global.scss';
-import { ThemeContextProvider } from '@context/theme.context';
-import { UserContextProvider } from '@context/user.context';
+import { ThemeContextProvider, UserContextProvider } from '@context';
 import { Locale } from '@helpers/i18n';
 
 // export const generateStaticParams = async () => {

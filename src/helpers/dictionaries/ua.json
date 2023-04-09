@@ -33,7 +33,11 @@
   },
   "sidebar": {
     "session": "Cесія",
-    "attestation": "Атестація"
+    "attestation": "Атестація",
+    "main": "Головна",
+    "control": "Поточний контроль",
+    "news": "Новини",
+    "other": "інше"
   },
   "find": {
     "title": "Пошук куратора",

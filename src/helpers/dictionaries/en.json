@@ -29,11 +29,14 @@
       "Email служби підтримки: ecampus@kpi.ua",
       "Адреса: Україна, м. Київ, вул. Політехнічна 14-в, корпус 13, 4 поверх, 25 кабінет."
     ]
-
   },
   "sidebar": {
     "session": "Session",
-    "attestation": "Attestation"
+    "attestation": "Attestation",
+    "main": "Головна",
+    "control": "Поточний контроль",
+    "news": "Новини",
+    "other": "інше"
   },
   "find": {
     "title": "Find Curator",
@@ -43,6 +46,5 @@
   "contextMenu": {
     "settings": "Settings",
     "logout": "Logout"
-
   }
 }
