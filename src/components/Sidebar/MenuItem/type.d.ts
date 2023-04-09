@@ -1,3 +1,3 @@
 export interface MenuItemProps {
-  href: 'attestation' | 'profile';
+  href: 'attestation' | 'profile' | 'session' | 'dashboard';
 }

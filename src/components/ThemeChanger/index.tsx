@@ -1,7 +1,7 @@
 'use client';
 import { FC, useContext } from 'react';
 
-import { ThemeContext } from '@context/theme.context';
+import { ThemeContext } from '@context';
 
 import styles from './styles.module.scss';
 

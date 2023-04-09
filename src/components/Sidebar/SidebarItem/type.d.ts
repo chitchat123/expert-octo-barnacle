@@ -8,6 +8,6 @@ interface SidebarItemProps {
 type SidebarItemType = {
   title: string;
   type?: 'menu' | 'simple';
-  href: 'attestation' | 'profile';
+  href: 'attestation' | 'profile' | 'session' | 'dashboard';
   icon: ReactNode;
 };

@@ -27,10 +27,10 @@ const Layout: ({
       <div className={styles.sidebar}>
         <Sidebar dictionary={dict.sidebar} />
       </div>
-      <div className={styles.childrenLayout}>
+      <div className={styles.mainLayout}>
         {/*@ts-ignore*/}
         <Header dictionary={dict.contextMenu} lang={lang} />
-        {children}
+        <div className={styles.childrenLayout}>{children}</div>
         <Footer fulled={true} />
       </div>
     </div>
