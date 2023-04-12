@@ -1,6 +1,7 @@
 type Lesson = {
   name: string;
   teacher: string;
+  total: number;
   occurrences: LessonOccurrence[];
 };
 

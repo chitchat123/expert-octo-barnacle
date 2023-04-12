@@ -1,11 +1,16 @@
 .subjects {
-  //overflow-y: scroll;
-  //min-height: 100%;
+  overflow-y: scroll;
+  height: 65rem;
   width: 100%;
   margin: 0 auto;
   display: grid;
   gap: 1rem;
   @media (min-width: 1300px) {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+  }
+  @media (max-width: 1440px) {
     grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
   }
 }
