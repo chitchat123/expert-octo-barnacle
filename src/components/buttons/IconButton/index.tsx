@@ -1,19 +1,54 @@
-import { FC } from 'react';
+'use client';
+import React, { CSSProperties, FC, useEffect, useState } from 'react';
 
 import Image from 'next/image';
 
 import styles from './styles.module.scss';
 
 interface IndexProps {
-  onClick: any;
+  children?: React.ReactNode;
+  className?: string;
+  disabled?: boolean;
   icon: any;
+  onClick?: any;
+  size?: 'medium' | 'normal' | 'small' | 'extraSmall';
+  style?: CSSProperties;
+  type?: 'button' | 'submit' | 'reset' | undefined;
+  variant?: 'primary' | 'secondary';
 }
 
-const IconButton: FC<IndexProps> = ({ onClick, icon }) => {
+const IconButton: FC<IndexProps> = ({
+  children,
+  variant,
+  size,
+  type,
+  style,
+  className,
+  disabled,
+  icon,
+  onClick,
+}) => {
+  const [btnStyles, setBtnStyle] = useState<string>('');
+
+  useEffect(() => {
+    setBtnStyle(
+      [
+        styles.iconButtonContainer,
+        variant ? styles[variant] : styles.primary,
+        size ? styles[size] : styles.normal,
+        className ? className : '',
+      ].join(' ')
+    );
+  }, []);
   return (
-    <div onClick={onClick} className={styles.iconButtonContainer}>
-      <Image width={24} height={24} alt={'icon'} src={icon}></Image>
-    </div>
+    <button
+      type={type}
+      disabled={disabled}
+      onClick={onClick}
+      style={style}
+      className={btnStyles}>
+      <Image alt={'icon'} src={icon}></Image>
+    </button>
   );
 };
 

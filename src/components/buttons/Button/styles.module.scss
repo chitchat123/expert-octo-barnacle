@@ -6,6 +6,7 @@
   transition: 0.2s all linear;
   border-radius: .4rem;
 }
+//
 //variants
 .primary {
   background-color: var(--base-color);
@@ -28,6 +29,7 @@
     background-color: var(--hover-secondary);
   }
 }
+//icon button can be here
 
 //sizes
 .normal {

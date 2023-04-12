@@ -33,7 +33,8 @@
   div[data-theme="light"] {
   @extend .base;
   //--background: #fff;
-  //--color: #212121;
+  --color: #212121;
+    --footer: #7D858A
 
 }
 
@@ -41,6 +42,7 @@ div[data-theme="dark"] {
   @extend .base;
   //--background: #111b2d;
   --color: #62ff00;
+  --footer: #7D858A;
 
 }
 

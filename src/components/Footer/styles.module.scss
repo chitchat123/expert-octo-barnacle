@@ -2,17 +2,23 @@
   display: flex;
   justify-content: space-between;
   align-content: center;
-  padding: 1rem 0;
-  height: 6rem;
-  width: 100%;
   max-width: 120rem;
-  color: var(--color);
-  background-color: var(--background);
+  width: 90%;
   margin: 0 auto;
-  .left{
-    text-align: center;
-  }
+  padding: var(--padding24) 0;
+  color: var(--footer);
+  background-color: var(--background);
+  border-top: 1px solid #BCCEDB;
+  font-size: 1.4rem;
+  line-height: 1.6rem;
   .right{
     display: flex;
+    align-items: center;
+    gap: 12px;
+    .socialLinks{
+      display: flex;
+      gap: 12px;
+    }
   }
+
 }

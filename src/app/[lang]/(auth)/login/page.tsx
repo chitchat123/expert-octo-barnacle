@@ -12,6 +12,7 @@ import { UserContext } from '@context';
 import { useDictionary } from '@helpers/useDictionary';
 import { Button } from 'src/components/buttons/Button';
 
+import fc from '../../../../../public/icons/footer/facebook.svg';
 import modalIco from '../../../../../public/icons/login/_.svg';
 import langIco from '../../../../../public/icons/login/translate.svg';
 import mailIco from '../../../../../public/icons/login/mail.svg';
@@ -56,8 +57,18 @@ const Login: FC<LoginProps> = ({ params: { lang } }) => {
             <div className={styles.loginContainerTitle}>
               <h3>{dict.login.authTitle}</h3>
               <div className={styles.titleIcon}>
-                <IconButton icon={langIco} onClick={() => {}} />
-                <IconButton icon={modalIco} onClick={() => {}} />
+                <IconButton
+                  size={'medium'}
+                  variant={'primary'}
+                  icon={langIco}
+                  onClick={() => {}}
+                />
+                <IconButton
+                  size={'medium'}
+                  variant={'primary'}
+                  icon={modalIco}
+                  onClick={() => {}}
+                />
               </div>
             </div>
             <form onSubmit={handleSubmit}>
