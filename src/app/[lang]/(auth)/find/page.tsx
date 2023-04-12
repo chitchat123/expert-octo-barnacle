@@ -1,13 +1,13 @@
 'use client';
 import React, { FC, useState } from 'react';
 
-import { Button } from 'src/components/buttons/Button';
 import { TextInput } from '@components/inputs';
 import Loader from '@components/Loader';
 import CuratorItem from '@components/СuratorItem';
 
 import { FindProps } from '@app/[lang]/(auth)/find/type';
 import { useDictionary } from '@helpers/useDictionary';
+import { Button } from 'src/components/buttons/Button';
 
 import styles from './styles.module.scss';
 
@@ -66,11 +66,7 @@ const Find: FC<FindProps> = ({ params: { lang } }) => {
               />
             ))}
           </div>
-          <Button
-            className={styles.button}
-            size={'large'}
-            variant={'secondary'}
-            onClick={''}>
+          <Button className={styles.button} variant={'secondary'} onClick={''}>
             {dict?.find.buttonTitle}
           </Button>
         </div>

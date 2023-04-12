@@ -18,7 +18,7 @@ const SubjectCard: FC<SubjectCardProps> = ({ href, subject }) => {
         <div className={styles.content}>
           <div>
             <div className={styles.title}>
-              {subject.name || (<h5>Lorem ipsum dolor sit amet</h5>)}
+              {subject.name || <h5>Lorem ipsum dolor sit amet</h5>}
             </div>
             <div className={styles.description}>
               {subject.teacher ||

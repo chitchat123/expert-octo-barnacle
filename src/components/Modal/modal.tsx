@@ -2,10 +2,10 @@ import React, { FC, useEffect, useRef, useState } from 'react';
 
 import ReactDOM from 'react-dom';
 
-import { Button } from 'src/components/buttons/Button';
 import { ModalProps } from '@components/Modal/type';
 
 import { useOnClickOutside } from '@helpers/useOutsideClick';
+import { Button } from 'src/components/buttons/Button';
 
 import styles from './styles.module.scss';
 

@@ -5,12 +5,12 @@ import Link from 'next/link';
 import { FaUserCircle } from 'react-icons/fa';
 import { MdCircleNotifications } from 'react-icons/md';
 
-import { Button } from 'src/components/buttons/Button';
 import { ContextMenu } from '@components/ContextMenu';
 
 import { DictionaryCtxMenu } from '@helpers/dictionary';
 import { apiCallUser } from '@helpers/getUserInfo';
 import { Locale } from '@helpers/i18n';
+import { Button } from 'src/components/buttons/Button';
 
 import styles from './styles.module.scss';
 

@@ -18,7 +18,6 @@ interface IndexProps {
 }
 
 const IconButton: FC<IndexProps> = ({
-  children,
   variant,
   size,
   type,

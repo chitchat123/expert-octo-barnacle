@@ -13,7 +13,6 @@ import styles from './styles.module.scss';
 
 interface FooterProps {
   changer?: boolean;
-
 }
 
 const Footer: FC<FooterProps> = ({ changer }) => {

@@ -12,10 +12,9 @@ import { UserContext } from '@context';
 import { useDictionary } from '@helpers/useDictionary';
 import { Button } from 'src/components/buttons/Button';
 
-import fc from '../../../../../public/icons/footer/facebook.svg';
 import modalIco from '../../../../../public/icons/login/_.svg';
-import langIco from '../../../../../public/icons/login/translate.svg';
 import mailIco from '../../../../../public/icons/login/mail.svg';
+import langIco from '../../../../../public/icons/login/translate.svg';
 
 import styles from './styles.module.scss';
 import { LoginProps, UserState } from './type';
