@@ -2,12 +2,12 @@ import React, { Suspense } from 'react';
 
 import { cookies } from 'next/headers';
 
-import { ContentCard } from '@components/ContentCard';
 import { GridTable } from '@components/GridTable';
 import Loading from '@components/Loader';
 
 import { delay } from '@helpers/delay';
 import { apiCallUser } from '@helpers/getUserInfo';
+import { NewsCard } from 'src/components/NewsCard';
 
 import styles from './styles.module.scss';
 
@@ -33,8 +33,8 @@ const Page: ({}: PageProps) => Promise<JSX.Element> = async ({}) => {
           </Suspense>
         </div>
         <div className={styles.news}>
-          <ContentCard />
-          <ContentCard />
+          <NewsCard />
+          <NewsCard />
         </div>
       </div>
     </div>

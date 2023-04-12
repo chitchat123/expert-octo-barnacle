@@ -1,7 +1,7 @@
 @import 'scss-reset/_reset.scss';
 @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200;300;400;600;700&display=swap');
 
-.base {
+base {
   --base-color: #18A0FB;
   --base-text-color: #212121;
   --base-text-disabled: #C0CDDB;
@@ -26,10 +26,9 @@
   --base-input-background: #577ea4;
   --input-error: #FFF5F5;
   --input-error-stroke: #FFD8D8;
-
 }
 
-div[data-theme="light"] {
+  div[data-theme="light"] {
   @extend .base;
   //--background: #fff;
   --color: #212121;

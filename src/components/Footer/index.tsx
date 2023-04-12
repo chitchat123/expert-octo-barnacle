@@ -4,7 +4,11 @@ import ThemeChanger from '@components/ThemeChanger';
 
 import styles from './styles.module.scss';
 
-const Footer: FC = () => {
+interface FooterProps {
+  fulled: boolean;
+}
+
+const Footer: FC<FooterProps> = ({}) => {
   return (
     <div className={styles.footerContainer}>
       <div className={styles.left}>
