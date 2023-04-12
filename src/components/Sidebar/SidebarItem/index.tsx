@@ -18,9 +18,9 @@ const SidebarItem: FC<SidebarItemProps> = ({
   }, [state]);
 
   const content = (
-    <>
-      {icon} <span className={styles.appear}>{state ? title : ''}</span>
-    </>
+    <div className={styles.appear}>
+      {icon} <span>{state ? title : ''}</span>
+    </div>
   );
 
   switch (type) {

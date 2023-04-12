@@ -7,4 +7,6 @@ export interface TextInputProps {
   required?: boolean;
   name: string;
   error?: string | undefined;
+  iconItem?: any;
+  iconPosition?: 'left' | 'right';
 }

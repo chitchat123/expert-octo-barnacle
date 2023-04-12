@@ -1,104 +1,110 @@
 @mixin shrinkLabel {
-  top: -12px;
-  font-size: 12px;
-  color: #7E7E7E;
-  width: auto;
-  background-color: white;
-  padding: 0 .5rem;
+  top: 0;
+  left: 2rem;
+  font-size: 1.2rem;
+  color: var(--base-color);
+  transition: 300ms;
 
+}
+
+.inputContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   text-align: center;
-  &.error {
-    color: #CB3D40;
-  }
-
-}
-@mixin underInput {
-  position: relative;
-  word-break: break-all;
-  transform: translate3d(0, 0, 0);
-  backface-visibility: hidden;
-  perspective: 1000px;
-  display: inline-block;
-  font-size: 12px;
-  line-height: 14px;
-  margin-top: 4px;
-  left: 16px;
-}
-
-.container {
-  position: relative;
   width: 100%;
-  .icon{
+  position: relative;
+
+  .icoLeft {
     position: absolute;
-    top: 35%;
-    right: 4%;
-  }
+    left: 2rem;
 
-
-  .label {
-    width: auto;
-    font-weight: normal;
-    pointer-events: none;
-    position: absolute;
-    font-size: 16px;
-    line-height: 26px;
-    left: 1rem;
-    top: 25%;
-    color: #7E7E7E;
-    transition: 300ms ease all;
-    text-align: center;
-
-    &.shrink {
-      @include shrinkLabel
+    .search__icon {
+      height: 2.4rem;
+      width: 2.4em;
     }
-
-    &.error {
-      color: #CB3D40;
-    }
-
   }
 
   .input {
-    border-radius: 4px;
-    box-sizing: border-box;
-
-    width: 100%;
-    border: 1px solid #D0CFCF;
-    background-color: transparent;
-    color: black;
-    height: 54px;
-    outline: none;
-    line-height: 26px;
-    padding-left: 16px;
-    font-size: 16px;
     position: relative;
+    font-size: 1.6rem;
+    line-height: 2.4rem;
+    color: #212121;
+    outline: none;
+    background-color: var(--base-input-background);
+    border: 1px solid transparent;
+    padding: var(--padding16) var(--padding20);
+    border-radius: 4px;
+    width: 100%;
 
-    &:read-only {
-      pointer-events: none;
+    &:hover {
+      border: 1px solid #8BD0FD80;
+      box-sizing: border-box;
     }
 
-    &.error {
-      border: 1px solid #CB3D40;
-    }
+    &:focus {
+      border: 1px solid #8BD0FD;
 
+    }
 
     &:focus ~ .label {
       @include shrinkLabel
     }
   }
+  .error{
+    background-color: var(--input-error);
+    border: 1px solid var(--input-error-stroke);
+    &:focus{
+      background-color: var(--input-error);
+      border: 1px solid var(--input-error-stroke);
+    }
+    &:hover{
+      background-color: var(--input-error);
+      border: 1px solid var(--input-error-stroke);
+    }
 
-  .parError {
-    @include underInput;
-    color:#CB3D40;
   }
-  .helperText{
-    @include underInput;
-    color: #7E7E7E;
+  .errorPar{
+    margin-top: 8px;
+    display: flex;
+    p{
+      text-align: start;
+      font-size: 1.2rem;
+      line-height: 1.6rem;
+
+    }
+    .errorIco{
+      margin-right: 8px;
+
+    }
+  }
+  .label {
+    top: 1.6rem;
+    left: 2rem;
+    font-size: 1.6rem;
+    line-height: 2.4rem;
+    font-weight: normal;
+    pointer-events: none;
+    position: absolute;
+    transition: 300ms ease all;
+
+    &.shrink {
+      @include shrinkLabel
+    }
+
   }
 
+  .icoRight {
+    position: absolute;
+    right: 2rem;
+    top: 1.6rem;
+    img{
+      fill:red;
+    }
 
+    .search__icon {
+      height: 2.4rem;
+      width: 2.4em;
+    }
+  }
 }
-
-
-// style for upload
-

@@ -10,6 +10,8 @@ import Loader from '@components/Loader';
 import { UserContext } from '@context';
 import { useDictionary } from '@helpers/useDictionary';
 
+import mailIco from '../../../../../public/icons/login/mail.svg';
+
 import styles from './styles.module.scss';
 import { LoginProps, UserState } from './type';
 
@@ -49,14 +51,10 @@ const Login: FC<LoginProps> = ({ params: { lang } }) => {
           <>
             <h3>{dict.login.authTitle}</h3>
             <form onSubmit={handleSubmit}>
-              {/*<Email*/}
-              {/*  name={'email'}*/}
-              {/*  label={dict.login.emailInput}*/}
-              {/*  onChange={handleChange}*/}
-              {/*  value={userData.email}*/}
-              {/*  required={true}*/}
-              {/*/>*/}
               <TextInput
+                // error={'Error'}
+                iconPosition={'right'}
+                iconItem={mailIco}
                 name={'nickname'}
                 label={dict.login.nickNameInput}
                 onChange={handleChange}
@@ -64,6 +62,7 @@ const Login: FC<LoginProps> = ({ params: { lang } }) => {
                 required={true}
               />
               <Password
+                // error={'Пароль невірний'}
                 name={'password'}
                 label={dict.login.passwordInput}
                 onChange={handleChange}
@@ -72,10 +71,13 @@ const Login: FC<LoginProps> = ({ params: { lang } }) => {
               />
 
               <Button
+                style={{ width: '100%' }}
+                className={styles.button}
                 variant={'primary'}
                 onClick={() => push(`${lang}/dashboard`)}
-                type='submit'>
-                Submit
+                type='submit'
+                size={'normal'}>
+                Вхід
               </Button>
             </form>
           </>

@@ -15,11 +15,13 @@ const ContentCard: FC<ContentCardProps> = ({ href, name, description }) => {
     <Link className={styles.contentCardContainer} href={`/${href}`}>
       <div className={styles.content}>
         <div className={styles.name}>
-          {name || 'Lorem ipsum dolor sit amet'}
+          <h4> {name || 'Lorem ipsum dolor sit amet'}</h4>
         </div>
         <div className={styles.description}>
-          {description ||
-            'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem, nobis!'}
+          <p>
+            {description ||
+              'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem, nobis!'}
+          </p>
         </div>
       </div>
     </Link>

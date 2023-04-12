@@ -13,6 +13,7 @@ const Button: FC<ButtonProps> = ({
   className,
   disabled,
   onClick,
+  isIcon,
   ...rest
 }) => {
   const [btnStyles, setBtnStyle] = useState<string>('');
@@ -22,7 +23,7 @@ const Button: FC<ButtonProps> = ({
       [
         styles.button,
         variant ? styles[variant] : styles.primary,
-        size ? styles[size] : styles.medium,
+        size ? styles[size] : styles.normal,
         className ? className : '',
       ].join(' ')
     );
