@@ -5,7 +5,6 @@
   --base-color: #18A0FB;
   --base-text-color: #212121;
   --base-text-disabled: #C0CDDB;
-  background-color: var(--background);
   //BUTTONS
   --primary-label: #fff;
   --secondary-label: #18A0FB;
@@ -24,7 +23,7 @@
   --padding40: 40px;
   --padding48: 48px;
   //inputs
-  --base-input-background: #F5FAFF;
+  --base-input-background: #577ea4;
   --input-error: #FFF5F5;
   --input-error-stroke: #FFD8D8;
 
@@ -33,14 +32,15 @@
 div[data-theme="light"] {
   @extend .base;
   //--background: #fff;
-  //--color: #212121;
+  --color: #212121;
 
 }
 
 div[data-theme="dark"] {
   @extend .base;
-  --background: #111b2d;
-  --color: #62ff00
+  //--background: #111b2d;
+  --color: #62ff00;
+
 }
 
 html {

@@ -31,7 +31,7 @@
     line-height: 2.4rem;
     color: #212121;
     outline: none;
-    background-color: var(--base-input-background);
+    background-color: var(--base-input-background); //TODO bug with input background
     border: 1px solid transparent;
     padding: var(--padding16) var(--padding20);
     border-radius: 4px;
@@ -71,7 +71,6 @@
       text-align: start;
       font-size: 1.2rem;
       line-height: 1.6rem;
-
     }
     .errorIco{
       margin-right: 8px;
