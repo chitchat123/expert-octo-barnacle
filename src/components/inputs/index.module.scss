@@ -26,10 +26,9 @@
   }
 
   .input {
-    position: relative;
     font-size: 1.6rem;
     line-height: 2.4rem;
-    color: #212121;
+    color: var(--base-text-color);
     outline: none;
     background-color: var(--base-input-background); //TODO bug with input background
     border: 1px solid transparent;
@@ -97,9 +96,6 @@
     position: absolute;
     right: 2rem;
     top: 1.6rem;
-    img{
-      fill:red;
-    }
 
     .search__icon {
       height: 2.4rem;
