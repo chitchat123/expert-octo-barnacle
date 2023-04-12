@@ -1,7 +1,7 @@
 'use client';
 import React, { FC } from 'react';
 
-import { Button } from '@components/Button';
+import { Button } from 'src/components/buttons/Button';
 import ImageFrame from '@components/ImageFrame';
 
 import styles from './styles.module.scss';

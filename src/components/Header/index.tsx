@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { FaUserCircle } from 'react-icons/fa';
 import { MdCircleNotifications } from 'react-icons/md';
 
-import { Button } from '@components/Button';
+import { Button } from 'src/components/buttons/Button';
 import { ContextMenu } from '@components/ContextMenu';
 
 import { DictionaryCtxMenu } from '@helpers/dictionary';
@@ -31,9 +31,10 @@ const Header: ({
       </div>
       <div className={styles.buttons}>
         <div className={styles.button}>
-          <Button variant={'secondary'}>Поточний кампус</Button>
+          <Button size={'small'} variant={'secondary'}>
+            Поточний кампус
+          </Button>
         </div>
-        {/*<LangChanger currLocale={lang} />*/}
         <ContextMenu>
           <FaUserCircle fill={'#18A0FB'} size={60} />
           <>

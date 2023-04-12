@@ -4,7 +4,7 @@ import { FC, useState } from 'react';
 import Image from 'next/image';
 import { BsEarbuds } from 'react-icons/bs';
 
-import { Button } from '@components/Button';
+import { Button } from 'src/components/buttons/Button';
 import { SidebarItem } from '@components/Sidebar/SidebarItem';
 import { getListItemsType, SidebarProps } from '@components/Sidebar/type';
 

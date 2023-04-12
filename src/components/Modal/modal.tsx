@@ -2,7 +2,7 @@ import React, { FC, useEffect, useRef, useState } from 'react';
 
 import ReactDOM from 'react-dom';
 
-import { Button } from '@components/Button';
+import { Button } from 'src/components/buttons/Button';
 import { ModalProps } from '@components/Modal/type';
 
 import { useOnClickOutside } from '@helpers/useOutsideClick';

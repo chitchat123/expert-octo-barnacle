@@ -1,7 +1,7 @@
 'use client';
 import React, { FC, useState } from 'react';
 
-import { Button } from '@components/Button';
+import { Button } from 'src/components/buttons/Button';
 import { Email } from '@components/inputs';
 
 import styles from './styles.module.scss';

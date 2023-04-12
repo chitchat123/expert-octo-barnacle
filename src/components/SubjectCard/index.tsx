@@ -14,7 +14,7 @@ interface SubjectCardProps {
 const SubjectCard: FC<SubjectCardProps> = ({ href, subject }) => {
   return (
     <Link href={`/${href}`}>
-      <Card>
+      <Card padding={24}>
         <div className={styles.content}>
           <div>
             <div className={styles.title}>

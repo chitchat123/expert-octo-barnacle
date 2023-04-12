@@ -3,13 +3,17 @@ import React, { FC, FormEvent, useContext, useState } from 'react';
 
 import { useRouter } from 'next/navigation';
 
-import { Button } from '@components/Button';
+import { IconButton } from '@components/buttons/IconButton';
+import { Card } from '@components/Card';
 import { Password, TextInput } from '@components/inputs';
 import Loader from '@components/Loader';
 
 import { UserContext } from '@context';
 import { useDictionary } from '@helpers/useDictionary';
+import { Button } from 'src/components/buttons/Button';
 
+import modalIco from '../../../../../public/icons/login/_.svg';
+import langIco from '../../../../../public/icons/login/translate.svg';
 import mailIco from '../../../../../public/icons/login/mail.svg';
 
 import styles from './styles.module.scss';
@@ -44,31 +48,39 @@ const Login: FC<LoginProps> = ({ params: { lang } }) => {
   };
   return (
     <div className={styles.loginContainer}>
-      <div className={styles.form}>
+      <Card padding={40}>
         {dict === undefined ? (
           <Loader />
         ) : (
           <>
-            <h3>{dict.login.authTitle}</h3>
+            <div className={styles.loginContainerTitle}>
+              <h3>{dict.login.authTitle}</h3>
+              <div className={styles.titleIcon}>
+                <IconButton icon={langIco} onClick={() => {}} />
+                <IconButton icon={modalIco} onClick={() => {}} />
+              </div>
+            </div>
             <form onSubmit={handleSubmit}>
-              <TextInput
-                // error={'Error'}
-                iconPosition={'right'}
-                iconItem={mailIco}
-                name={'nickname'}
-                label={dict.login.nickNameInput}
-                onChange={handleChange}
-                value={userData.nickname}
-                required={true}
-              />
-              <Password
-                // error={'Пароль невірний'}
-                name={'password'}
-                label={dict.login.passwordInput}
-                onChange={handleChange}
-                value={userData.password}
-                required={true}
-              />
+              <div className={styles.inputs}>
+                <TextInput
+                  // error={'Error'}
+                  iconPosition={'right'}
+                  iconItem={mailIco}
+                  name={'nickname'}
+                  label={dict.login.nickNameInput}
+                  onChange={handleChange}
+                  value={userData.nickname}
+                  required={true}
+                />
+                <Password
+                  // error={'Пароль невірний'}
+                  name={'password'}
+                  label={dict.login.passwordInput}
+                  onChange={handleChange}
+                  value={userData.password}
+                  required={true}
+                />
+              </div>
 
               <Button
                 style={{ width: '100%' }}
@@ -82,7 +94,7 @@ const Login: FC<LoginProps> = ({ params: { lang } }) => {
             </form>
           </>
         )}
-      </div>
+      </Card>
     </div>
   );
 };

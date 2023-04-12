@@ -1,7 +1,7 @@
 'use client';
 import React, { FC, useState } from 'react';
 
-import { Button } from '@components/Button';
+import { Button } from 'src/components/buttons/Button';
 import { TextInput } from '@components/inputs';
 import Loader from '@components/Loader';
 import CuratorItem from '@components/СuratorItem';

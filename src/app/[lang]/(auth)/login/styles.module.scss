@@ -1,29 +1,20 @@
 .loginContainer{
-  width: 90%;
-  max-width: 56rem;
-  height: 44rem;
+  max-width: 57.8rem;
   margin: 0 auto;
-  border-radius: 1rem;
-  padding: var(--padding40);
-  border: 1px black solid;
-  .form{
-    height: 100%;
-    position: relative;
-
-    h3{
-      margin-bottom: 4.3rem
-    }
-    form{
+  width: 80%;
+  .loginContainerTitle{
+    display: flex;
+    margin-bottom: var(--padding40);
+    justify-content: space-between;
+    .titleIcon{
       display: flex;
-      flex-direction: column;
-      gap: 2.4rem;
-      align-items: flex-start;
-      .button{
-        position: absolute;
-        bottom: 1rem;
-        margin: 0 auto;
-
-      }
+      gap: 16px;
     }
+  }
+  .inputs{
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: var(--padding56);
   }
 }
