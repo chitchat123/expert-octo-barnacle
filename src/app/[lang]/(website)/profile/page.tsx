@@ -3,8 +3,9 @@ import React, { FC } from 'react';
 
 import { useRouter } from 'next/navigation';
 
-import { Button } from '@components/Button';
 import ImageFrame from '@components/ImageFrame';
+
+import { Button } from 'src/components/buttons/Button';
 
 import styles from './styles.module.scss';
 

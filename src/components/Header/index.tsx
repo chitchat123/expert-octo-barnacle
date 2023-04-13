@@ -5,12 +5,12 @@ import Link from 'next/link';
 import { FaUserCircle } from 'react-icons/fa';
 import { MdCircleNotifications } from 'react-icons/md';
 
-import { Button } from '@components/Button';
 import { ContextMenu } from '@components/ContextMenu';
 
 import { DictionaryCtxMenu } from '@helpers/dictionary';
 import { apiCallUser } from '@helpers/getUserInfo';
 import { Locale } from '@helpers/i18n';
+import { Button } from 'src/components/buttons/Button';
 
 import styles from './styles.module.scss';
 
@@ -27,14 +27,14 @@ const Header: ({
   return (
     <div className={styles.headerContainer}>
       <div className={styles.logo}>
-        <h1>b</h1>
         <h3>logo</h3>
       </div>
       <div className={styles.buttons}>
         <div className={styles.button}>
-          <Button variant={'secondary'}>Поточний кампус</Button>
+          <Button size={'small'} variant={'secondary'}>
+            Поточний кампус
+          </Button>
         </div>
-        {/*<LangChanger currLocale={lang} />*/}
         <ContextMenu>
           <FaUserCircle fill={'#18A0FB'} size={60} />
           <>

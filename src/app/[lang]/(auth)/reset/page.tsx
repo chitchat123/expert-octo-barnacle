@@ -1,8 +1,9 @@
 'use client';
 import React, { FC, useState } from 'react';
 
-import { Button } from '@components/Button';
 import { Email } from '@components/inputs';
+
+import { Button } from 'src/components/buttons/Button';
 
 import styles from './styles.module.scss';
 
@@ -24,12 +25,8 @@ const Reset: FC<ResetProps> = ({}) => {
             value={state}
             required={true}
           />
-          <Button variant={'primary'} size={'large'}>
-            Відновити
-          </Button>
-          <Button variant={'black'} size={'large'}>
-            Назад
-          </Button>
+          <Button>Відновити</Button>
+          <Button>Назад</Button>
         </div>
       </div>
     </div>

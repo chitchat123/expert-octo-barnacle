@@ -2,11 +2,7 @@
   display: flex;
   font-size: 2rem;
   gap: .5rem;
-  color: #7E7E7E;
   white-space: nowrap;
-  &:hover {
-    color: #18A0FB;
-  }
 }
 
 .simple {
@@ -17,5 +13,9 @@
 
 .appear {
   overflow: hidden;
+  color: var(--base-color);
+  &:hover{
+    text-decoration: underline;
+  }
 }
 

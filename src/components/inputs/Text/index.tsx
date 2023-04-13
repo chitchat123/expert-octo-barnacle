@@ -1,6 +1,9 @@
 import React, { FC } from 'react';
 
-import defaultStyle from '../index.module.scss';
+import Image from 'next/image';
+
+import errorIco from '../../../../public/icons/login/error.svg';
+import defaultStyles from '../index.module.scss';
 
 import { TextInputProps } from './type';
 
@@ -13,28 +16,63 @@ const TextInput: FC<TextInputProps> = ({
   required,
   error,
   name,
+  iconItem,
+  iconPosition,
 }) => {
   return (
-    <div className={defaultStyle.container}>
+    <div className={defaultStyles.inputContainer}>
+      {iconItem && iconPosition === 'left' ? (
+        <div className={defaultStyles.icoLeft}>
+          <Image
+            className={defaultStyles.search__icon}
+            src={iconItem}
+            alt={'icon'}
+          />
+        </div>
+      ) : (
+        ''
+      )}
       <input
         name={name}
-        type='text'
         readOnly={readOnly}
         value={value}
         onChange={onChange}
         disabled={disabled}
         required={required}
-        className={defaultStyle.input}
+        style={{
+          paddingLeft: iconPosition === 'left' ? 50 : 20,
+        }}
+        type='text'
+        className={`${defaultStyles.input} ${
+          error?.length && defaultStyles.error
+        }`}
       />
-      {label && (
-        <label
-          className={`${value && value.length > 0 ? defaultStyle.shrink : ''} ${
-            defaultStyle.label
-          }`}>
-          {label}
-        </label>
+      {error && (
+        <div className={defaultStyles.errorPar}>
+          <Image
+            className={defaultStyles.errorIco}
+            alt={'error'}
+            src={errorIco}></Image>
+          <p>{error}</p>
+        </div>
       )}
-      <div className={defaultStyle.parError}>{error}</div>
+      <label
+        className={`${value && value.length > 0 ? defaultStyles.shrink : ''} ${
+          defaultStyles.label
+        }`}>
+        {label}
+      </label>
+      {iconItem && iconPosition === 'right' ? (
+        <div className={defaultStyles.icoRight}>
+          <Image
+            className={defaultStyles.search__icon}
+            src={iconItem}
+            alt={'icon'}
+          />
+        </div>
+      ) : (
+        ''
+      )}
     </div>
   );
 };

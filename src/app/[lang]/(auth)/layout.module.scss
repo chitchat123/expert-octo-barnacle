@@ -8,28 +8,42 @@
     flex-direction: column;
     justify-content: space-between;
     width: 50%;
-    padding-top: 8vw
+    padding-top: 8vw;
+    .footer{
+      max-width: 80rem;
+      width: 95%;
+      margin: 0 auto;
+    }
   }
   .auth_logo{
-    background-color: $base-background;
-    display: flex;
-    position: relative;
+    background-color: var(--base-color);
+    color: var(--backgroung);
+
     width: 50%;
     height: 100vh;
-    justify-content: center;
-    align-items: center;
-  }
-  .auth_fqu{
-    position: absolute;
-    bottom: 1rem;
-    right: 1rem;
+
+    .auth_fqu {
+      margin: 0 auto;
+      width: 60%;
+      height: 100%;
+      display: flex;
+      gap: 40px;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+    }
   }
 
-  @media screen and (max-width: 375px){
-    .auth_logo{
+  @media screen and (min-height: 1000px) {
+
+  }
+
+  @media screen and (max-width: 1000px) {
+    .auth_logo {
       display: none;
     }
-    .auth_children{
+    .auth_children {
       width: 100%;
       padding-top: 25vw;
     }

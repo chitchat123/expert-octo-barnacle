@@ -1,8 +1,9 @@
 'use client';
 import React, { FC } from 'react';
 
-import { Button } from '@components/Button';
 import ImageFrame from '@components/ImageFrame';
+
+import { Button } from 'src/components/buttons/Button';
 
 import styles from './styles.module.scss';
 
@@ -15,7 +16,7 @@ const Settings: FC<SettingsProps> = ({}) => {
         <div className={styles.imageBlock}>
           <ImageFrame />
           <div className={styles.buttons}>
-            <Button variant={'black'}>Upload</Button>
+            <Button>Upload</Button>
             <Button>Delete</Button>
           </div>
         </div>
