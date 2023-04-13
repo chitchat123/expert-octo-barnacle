@@ -8,22 +8,17 @@ import styles from './styles.module.scss';
 
 interface NewsCardProps {
   href?: string;
-  title?: string;
-  description?: string;
+  title: string;
+  description: string;
 }
 
 const NewsCard: FC<NewsCardProps> = ({ href, title, description }) => {
   return (
     <Link href={`/${href}`}>
-      <Card>
+      <Card padding={10}>
         <div className={styles.content}>
-          <div className={styles.title}>
-            {title || 'Lorem ipsum dolor sit amet'}
-          </div>
-          <div className={styles.description}>
-            {description ||
-              'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem, nobis!'}
-          </div>
+          <div className={styles.title}>{title}</div>
+          <div className={styles.description}>{description}</div>
         </div>
       </Card>
     </Link>

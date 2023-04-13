@@ -1,11 +1,9 @@
-import { ContentCard } from '@components/ContentCard';
+import { NewsCard } from '@components/NewsCard';
 
 import styles from './styles.module.scss';
-import { FC } from 'react';
 
 interface RightBoardProps {
-  news: News[]
-  
+  news: News[];
 }
 type Paging = {
   pageCount: number;
@@ -24,25 +22,19 @@ type News = {
   id: number;
   subject: string;
   text: string;
-  end: null,
+  end: null;
   author: string;
   description: string;
 };
 
-
-
 const RightBoard = ({ news }: RightBoardProps) => {
   return (
     <div className={styles.subjects}>
-      {news.map((el, key) => (
-        <ContentCard description={el.description} key={key} />
+      {news.map(({ subject, description }, key) => (
+        <NewsCard title={subject} description={description} key={key} />
       ))}
     </div>
   );
 };
 
 export { RightBoard };
-
-
-
-

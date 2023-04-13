@@ -9,7 +9,6 @@ import { RightBoard } from '@components/RightBoard';
 import { delay } from '@helpers/delay';
 import { apiCallBoard } from '@helpers/getBoardData';
 import { apiCallUser } from '@helpers/getUserInfo';
-import { NewsCard } from 'src/components/NewsCard';
 
 import styles from './styles.module.scss';
 
@@ -37,8 +36,8 @@ const Page: ({}: PageProps) => Promise<JSX.Element> = async ({}) => {
           </Suspense>
         </div>
         <div className={styles.news}>
-          <NewsCard />
-          <NewsCard />
+          {/*<NewsCard />*/}
+          {/*<NewsCard />*/}
           <RightBoard news={data} />
         </div>
       </div>
