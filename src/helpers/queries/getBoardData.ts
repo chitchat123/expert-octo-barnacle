@@ -3,7 +3,6 @@ export const apiCallBoard = async (
   page: number,
   size: number
 ) => {
-  console.info(token);
   return await fetch(
     `https://api.campus.kpi.ua/Board/All?page=${page}&size=${size}`,
     {
@@ -15,8 +14,7 @@ export const apiCallBoard = async (
   )
     .then(res => res.json())
     .then(data => {
-      console.info('data', data);
-      return data;
+      return data as Pagination;
     })
     .catch(err => {
       throw new Error('could not get board data', err);

@@ -2,13 +2,11 @@ import React, { Suspense } from 'react';
 
 import { cookies } from 'next/headers';
 
-import { GridTable } from '@components/GridTable';
+import { GridTable, RightBoard } from '@components';
 import Loading from '@components/Loader';
-import { RightBoard } from '@components/RightBoard';
 
 import { delay } from '@helpers/delay';
-import { apiCallBoard } from '@helpers/queries/getBoardData';
-import { apiCallUser } from '@helpers/queries/getUserInfo';
+import { apiCallBoard, apiCallUser } from '@helpers/queries';
 
 import styles from './styles.module.scss';
 
@@ -40,8 +38,6 @@ const Page: ({}: PageProps) => Promise<JSX.Element> = async ({}) => {
           </Suspense>
         </div>
         <div className={styles.news}>
-          {/*<NewsCard />*/}
-          {/*<NewsCard />*/}
           <RightBoard news={data} />
         </div>
       </div>
