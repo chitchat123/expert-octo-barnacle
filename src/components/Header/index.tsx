@@ -8,8 +8,8 @@ import { MdCircleNotifications } from 'react-icons/md';
 import { ContextMenu } from '@components/ContextMenu';
 
 import { DictionaryCtxMenu } from '@helpers/dictionary';
-import { apiCallUser } from '@helpers/getUserInfo';
 import { Locale } from '@helpers/i18n';
+import { apiCallUser } from '@helpers/queries/getUserInfo';
 import { Button } from 'src/components/buttons/Button';
 
 import styles from './styles.module.scss';
@@ -19,11 +19,15 @@ const Header: ({
 }: {
   dictionary: DictionaryCtxMenu;
   lang: Locale;
-}) => Promise<JSX.Element> = async ({ dictionary, lang }) => {
+}) => Promise<JSX.Element> = async ({ dictionary }) => {
   const cookieStore = cookies();
   const token = cookieStore.get('token');
 
-  const { fullName } = await apiCallUser(token);
+  if (!token) {
+    throw new Error();
+  }
+
+  const { fullName } = await apiCallUser(token.value);
   return (
     <div className={styles.headerContainer}>
       <div className={styles.logo}>

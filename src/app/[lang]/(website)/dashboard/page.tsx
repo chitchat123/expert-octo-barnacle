@@ -7,8 +7,8 @@ import Loading from '@components/Loader';
 import { RightBoard } from '@components/RightBoard';
 
 import { delay } from '@helpers/delay';
-import { apiCallBoard } from '@helpers/getBoardData';
-import { apiCallUser } from '@helpers/getUserInfo';
+import { apiCallBoard } from '@helpers/queries/getBoardData';
+import { apiCallUser } from '@helpers/queries/getUserInfo';
 
 import styles from './styles.module.scss';
 
@@ -19,8 +19,12 @@ const Page: ({}: PageProps) => Promise<JSX.Element> = async ({}) => {
   const cookieStore = cookies();
   const token = cookieStore.get('token');
 
-  const { fullName } = await apiCallUser(token);
-  const { data } = await apiCallBoard(token?.value || '', 1, 4);
+  if (!token) {
+    throw new Error();
+  }
+
+  const { fullName } = await apiCallUser(token.value);
+  const { data } = await apiCallBoard(token.value || '', 1, 4);
 
   await delay(1000);
 
