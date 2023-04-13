@@ -10,6 +10,8 @@ import { delay } from '@helpers/delay';
 import { apiCallUser } from '@helpers/getUserInfo';
 
 import styles from './styles.module.scss';
+import { RightBoard } from '@components/RightBoard';
+import { apiCallBoard } from '@helpers/getBoardData';
 
 interface PageProps {}
 
@@ -17,8 +19,13 @@ export const dynamic = 'force-dynamic';
 const Page: ({}: PageProps) => Promise<JSX.Element> = async ({}) => {
   const cookieStore = cookies();
   const token = cookieStore.get('token');
+  console.log('token', token)
 
   const { fullName } = await apiCallUser(token);
+  const { data } = await apiCallBoard(token,1,4);
+
+
+
   await delay(1000);
 
   return (
@@ -33,8 +40,7 @@ const Page: ({}: PageProps) => Promise<JSX.Element> = async ({}) => {
           </Suspense>
         </div>
         <div className={styles.news}>
-          <ContentCard />
-          <ContentCard />
+          <RightBoard news={data}/>
         </div>
       </div>
     </div>
