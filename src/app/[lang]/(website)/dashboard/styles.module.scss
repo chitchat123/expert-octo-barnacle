@@ -9,35 +9,6 @@
     max-width: 120rem;
 
 
-    .currentSemester {
-      display: flex;
-      width: 60%;
-      height: 75vh;
-      max-width: 100rem;
-      flex-direction: column;
-      padding: 2rem 1rem 0;
-      border: 1px var(--color) solid;
-
-      .title {
-        font-size: 4rem;
-        color: #7E7E7E;
-        font-weight: 300;
-        margin-bottom: 3rem;
-      }
-
-      .subjects {
-        overflow-y: scroll;
-        height: 100%;
-        width: 100%;
-        margin: 0 auto;
-        display: grid;
-        gap: 1rem;
-        @media (min-width: 1300px) {
-          grid-template-columns: repeat(3, 1fr);
-        }
-      }
-    }
-
     .news {
       width: 40%;
       height: 100%;

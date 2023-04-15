@@ -1,4 +1,5 @@
 type Lesson = {
+  id: string;
   name: string;
   teacher: string;
   total: number;

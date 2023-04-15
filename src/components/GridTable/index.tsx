@@ -1,3 +1,5 @@
+import React from 'react';
+
 import { SubjectCard } from '@components/SubjectCard';
 
 import { getSubjects } from '@helpers/queries/getSubjects';
@@ -12,10 +14,13 @@ const GridTable: ({
   const res = await getSubjects();
 
   return (
-    <div className={styles.subjects}>
-      {res.map((el, key) => (
-        <SubjectCard subject={el} key={key} />
-      ))}
+    <div className={styles.currentSemester}>
+      <h3 className={styles.title}>Current semester</h3>
+      <div className={styles.subjects}>
+        {res.map((el, key) => (
+          <SubjectCard href={`studysheet/${el.id}`} subject={el} key={key} />
+        ))}
+      </div>
     </div>
   );
 };

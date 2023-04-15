@@ -2,9 +2,9 @@ import React, { Suspense } from 'react';
 
 import { cookies } from 'next/headers';
 
-import { GridTable, RightBoard } from '@components';
 import Loading from '@components/Loader';
 
+import { GridTable, RightBoard } from '@components';
 import { delay } from '@helpers/delay';
 import { apiCallBoard, apiCallUser } from '@helpers/queries';
 
@@ -30,13 +30,10 @@ const Page: ({}: PageProps) => Promise<JSX.Element> = async ({}) => {
     <div className={styles.dashboardContainer}>
       <h1>Вітаємо, {fullName}</h1>
       <div className={styles.mainContent}>
-        <div className={styles.currentSemester}>
-          <h3 className={styles.title}>Current semester</h3>
-          <Suspense fallback={<Loading />}>
-            {/*@ts-ignore*/}
-            <GridTable data={delay(2000)} />
-          </Suspense>
-        </div>
+        <Suspense fallback={<Loading />}>
+          {/*@ts-ignore*/}
+          <GridTable data={delay(2000)} />
+        </Suspense>
         <div className={styles.news}>
           <RightBoard news={data} />
         </div>

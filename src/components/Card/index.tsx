@@ -4,12 +4,15 @@ import styles from './styles.module.scss';
 
 interface CardProps {
   children?: ReactNode;
-  padding: number;
+  padding: number | string;
+  className: string;
 }
 
-const Card: FC<CardProps> = ({ children, padding }) => {
+const Card: FC<CardProps> = ({ children, padding, className }) => {
   return (
-    <div style={{ padding: padding }} className={styles.contentCardContainer}>
+    <div
+      style={{ padding: padding }}
+      className={[styles.contentCardContainer, className].join(' ')}>
       {children}
     </div>
   );

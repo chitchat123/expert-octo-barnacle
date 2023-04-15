@@ -7,29 +7,21 @@ import { Card } from '@components/Card';
 import styles from './styles.module.scss';
 
 interface SubjectCardProps {
-  href?: string;
+  href: string;
   subject: Lesson;
 }
 
 const SubjectCard: FC<SubjectCardProps> = ({ href, subject }) => {
   return (
     <Link href={`/${href}`}>
-      <Card padding={24}>
+      <Card padding={24} className={styles.subjectCard}>
         <div className={styles.content}>
           <div>
-            <div className={styles.title}>
-              {subject.name || <h5>Lorem ipsum dolor sit amet</h5>}
-            </div>
-            <div className={styles.description}>
-              {subject.teacher ||
-                'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem, nobis!'}
-            </div>
+            <div className={styles.title}>{subject.name}</div>
+            <div className={styles.description}>{subject.teacher}</div>
           </div>
           <div>
-            <div className={styles.description}>
-              {subject.total ||
-                'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem, nobis!'}
-            </div>
+            <div className={styles.description}>{subject.total}</div>
             <progress max='100' value={subject.total} />
           </div>
         </div>
