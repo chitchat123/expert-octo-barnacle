@@ -27,8 +27,8 @@ const Auth: ({
 
   return (
     <section className={styles.authLayout}>
-      <div className={styles.auth_children}>
-        <div>{children}</div>
+      <div className={styles.auth_content}>
+        <div className={styles.children}>{children}</div>
         <div className={styles.footer}>
           <Footer />
         </div>
