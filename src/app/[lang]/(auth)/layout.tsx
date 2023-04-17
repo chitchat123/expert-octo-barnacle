@@ -1,9 +1,13 @@
 import React from 'react';
 
-import { AuthModalButton } from '@components/Modal';
+import Image from 'next/image';
+
+import Footer from '@components/Footer';
 
 import { getDictionary } from '@helpers/dictionary';
 import { Locale } from '@helpers/i18n';
+
+import kpiLogo from '../../../../public/icons/kpiLogo.png';
 
 import styles from './layout.module.scss';
 
@@ -23,12 +27,17 @@ const Auth: ({
 
   return (
     <section className={styles.authLayout}>
-      <div className={styles.auth_children}>{children}</div>
-
+      <div className={styles.auth_children}>
+        <div>{children}</div>
+        <div className={styles.footer}>
+          <Footer />
+        </div>
+      </div>
       <div className={styles.auth_logo}>
-        <h2>eCampus</h2>
         <div className={styles.auth_fqu}>
-          <AuthModalButton dictionary={dict} />
+          <h1>CAMPUS</h1>
+          <Image width={560} alt={'logo'} src={kpiLogo}></Image>
+          <h1>NTUU KPI</h1>
         </div>
       </div>
     </section>

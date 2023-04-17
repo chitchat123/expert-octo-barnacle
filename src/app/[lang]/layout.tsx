@@ -4,10 +4,6 @@ import '../global.scss';
 import { ThemeContextProvider, UserContextProvider } from '@context';
 import { Locale } from '@helpers/i18n';
 
-// export const generateStaticParams = async () => {
-//   return i18n.locales.map(locale => ({ lang: locale }));
-// };
-
 interface LayoutProps {
   children: React.ReactNode;
   lang: Locale;

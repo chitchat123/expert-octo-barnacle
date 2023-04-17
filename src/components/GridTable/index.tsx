@@ -1,4 +1,8 @@
-import { ContentCard } from '@components/ContentCard';
+import React from 'react';
+
+import { SubjectCard } from '@components/SubjectCard';
+
+import { getSubjects } from '@helpers/queries/getSubjects';
 
 import styles from './styles.module.scss';
 
@@ -6,14 +10,17 @@ const GridTable: ({
   data,
 }: {
   data: Promise<any>;
-}) => Promise<JSX.Element> = async ({ data }) => {
-  const res = await data.then(res => [1, 2, 3, 4]);
+}) => Promise<JSX.Element> = async () => {
+  const res = await getSubjects();
 
   return (
-    <div className={styles.subjects}>
-      {res.map((el, key) => (
-        <ContentCard key={key} />
-      ))}
+    <div className={styles.currentSemester}>
+      <h3 className={styles.title}>Current semester</h3>
+      <div className={styles.subjects}>
+        {res.map((el, key) => (
+          <SubjectCard href={`studysheet/${el.id}`} subject={el} key={key} />
+        ))}
+      </div>
     </div>
   );
 };

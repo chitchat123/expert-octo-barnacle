@@ -31,7 +31,7 @@ const Layout: ({
         {/*@ts-ignore*/}
         <Header dictionary={dict.contextMenu} lang={lang} />
         <div className={styles.childrenLayout}>{children}</div>
-        <Footer fulled={true} />
+        <Footer changer={true} />
       </div>
     </div>
   );

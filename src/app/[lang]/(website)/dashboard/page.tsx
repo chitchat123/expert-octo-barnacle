@@ -2,12 +2,11 @@ import React, { Suspense } from 'react';
 
 import { cookies } from 'next/headers';
 
-import { ContentCard } from '@components/ContentCard';
-import { GridTable } from '@components/GridTable';
 import Loading from '@components/Loader';
 
+import { GridTable, RightBoard } from '@components';
 import { delay } from '@helpers/delay';
-import { apiCallUser } from '@helpers/getUserInfo';
+import { apiCallBoard } from '@helpers/queries';
 
 import styles from './styles.module.scss';
 
@@ -18,23 +17,25 @@ const Page: ({}: PageProps) => Promise<JSX.Element> = async ({}) => {
   const cookieStore = cookies();
   const token = cookieStore.get('token');
 
-  const { fullName } = await apiCallUser(token);
+  if (!token) {
+    throw new Error();
+  }
+
+  // const { fullName } = await apiCallUser(token.value);
+  const { data } = await apiCallBoard(token.value || '', 1, 4);
+
   await delay(1000);
 
   return (
     <div className={styles.dashboardContainer}>
       {/*<h1>Вітаємо, {fullName}</h1>*/}
       <div className={styles.mainContent}>
-        <div className={styles.currentSemester}>
-          <h3 className={styles.title}>Current semester</h3>
-          <Suspense fallback={<Loading />}>
-            {/*@ts-ignore*/}
-            <GridTable data={delay(2000)} />
-          </Suspense>
-        </div>
+        <Suspense fallback={<Loading />}>
+          {/*@ts-ignore*/}
+          <GridTable data={delay(2000)} />
+        </Suspense>
         <div className={styles.news}>
-          <ContentCard />
-          <ContentCard />
+          <RightBoard news={data} />
         </div>
       </div>
     </div>

@@ -1,8 +1,13 @@
 'use client';
 import React, { FC, useState } from 'react';
 
-import { FiEye, FiEyeOff } from 'react-icons/fi';
+import Image from 'next/image';
 
+import defaultStyles from '@components/inputs/index.module.scss';
+
+import errorIco from '../../../../public/icons/login/error.svg';
+import eyeOn from '../../../../public/icons/login/eye on.svg';
+import eyeOff from '../../../../public/icons/login/eye-close-line.svg';
 import defaultStyle from '../index.module.scss';
 
 import { PasswordInputProps } from './type';
@@ -20,7 +25,7 @@ const Password: FC<PasswordInputProps> = ({
   const [showPassword, setShowPassword] = useState<boolean>(false);
 
   return (
-    <div className={defaultStyle.container}>
+    <div className={defaultStyle.inputContainer}>
       <input
         name={name}
         type={showPassword ? 'text' : 'password'}
@@ -29,7 +34,9 @@ const Password: FC<PasswordInputProps> = ({
         onChange={onChange}
         disabled={disabled}
         required={required}
-        className={defaultStyle.input}
+        className={`${defaultStyles.input} ${
+          error?.length && defaultStyles.error
+        }`}
       />
       {label && (
         <label
@@ -39,12 +46,32 @@ const Password: FC<PasswordInputProps> = ({
           {label}
         </label>
       )}
-      <p
-        onClick={() => setShowPassword(!showPassword)}
-        className={defaultStyle.icon}>
-        {showPassword ? <FiEye size={15} /> : <FiEyeOff size={15} />}
-      </p>
-      <div className={defaultStyle.parError}>{error}</div>
+      <div
+        className={defaultStyles.icoRight}
+        onClick={() => setShowPassword(!showPassword)}>
+        {showPassword ? (
+          <Image
+            className={defaultStyles.search__icon}
+            src={eyeOn}
+            alt={'icon'}
+          />
+        ) : (
+          <Image
+            className={defaultStyles.search__icon}
+            src={eyeOff}
+            alt={'icon'}
+          />
+        )}
+      </div>
+      {error && (
+        <div className={defaultStyles.errorPar}>
+          <Image
+            className={defaultStyles.errorIco}
+            alt={'error'}
+            src={errorIco}></Image>
+          <p>{error}</p>
+        </div>
+      )}
     </div>
   );
 };

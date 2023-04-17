@@ -8,7 +8,7 @@ type News = {
   description: string;
 };
 
-type Pagination<T> = {
+type Pagination = {
   paging: {
     pageCount: number;
     totalItemCount: number;
@@ -21,5 +21,5 @@ type Pagination<T> = {
     firstItemOnPage: number;
     lastItemOnPage: number;
   };
-  data: T[];
+  data: News[];
 };
