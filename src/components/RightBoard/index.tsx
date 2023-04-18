@@ -6,8 +6,7 @@ interface RightBoardProps {
   news: News[];
 }
 
-
-const RightBoard = ({ news }: RightBoardProps) => {  
+const RightBoard = ({ news }: RightBoardProps) => {
   return (
     <div className={styles.subjects}>
       {news.map(({ subject, description }, key) => (
