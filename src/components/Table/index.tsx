@@ -2,7 +2,7 @@
 
 import React, { FC, ReactNode, useEffect, useState } from 'react';
 
-import { useRouter } from 'next/navigation';
+import { useRouter, useSearchParams } from 'next/navigation';
 
 import styles from './styles.module.scss';
 
@@ -18,42 +18,52 @@ const titles = {
 
 const Table: FC<TableProps> = ({ type, children }) => {
   const router = useRouter();
-  // router.push('/attestation?test=123213');
+  const searchParams = useSearchParams();
 
-  const [state, setState] = useState<{ [key: string]: string }>({});
+  const [state, setState] = useState({
+    ...(searchParams.get('year') ? { year: searchParams.get('year') } : {}),
+    ...(searchParams.get('semester')
+      ? { semester: searchParams.get('semester') }
+      : {}),
+  });
 
+  // console.info(searchParams.get('year'), 'search');
   useEffect(() => {
     const params = new URLSearchParams();
-    Object.entries(state).forEach(([key, value]) => params.set(key, value));
-
-    console.info(params.toString());
+    Object.entries(state).forEach(([key, value]) =>
+      params.set(key, value || '')
+    );
 
     let tmp = '/attestation' + '?' + params.toString();
-    console.info(tmp);
 
-    router.push(tmp); // or router
+    router.replace(tmp);
   }, [state]);
 
   return (
     <div className={[styles.tableContainer, styles[type]].join(' ')}>
       <div className={styles.header}>
-        {/*<Button onClick={() => router.push('/attestation?test=w')}></Button>*/}
         <div className={styles.control}>
           <div>
             <label htmlFor='year'>Рік </label>
-
             <select
-              name='year'
               id='year'
+              value={state.year || ''}
+              /*...(state.year ? {value: { state.year }} || {})*/
               onChange={evt => setState({ ...state, year: evt.target.value })}>
               <option value='2019'>2019</option>
               <option value='2020'>2020</option>
               <option value='2021'>2021</option>
               <option value='2022'>2022</option>
             </select>
-            <label htmlFor='semester'>Семестр </label>
 
-            <select name='semester' id='semester'>
+            <label htmlFor='semester'>Семестр </label>
+            <select
+              name='semester'
+              id='semester'
+              value={state.semester || ''}
+              onChange={evt =>
+                setState({ ...state, semester: evt.target.value })
+              }>
               <option value='first'>1</option>
               <option value='second'>2</option>
               <option value='all'>Всі</option>

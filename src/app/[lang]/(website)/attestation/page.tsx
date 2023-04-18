@@ -1,10 +1,7 @@
 import React from 'react';
 
-import TableContent from '@components/Table/TableContent';
-
+import { Table, TableContent } from '@components';
 import { getAttestations } from '@helpers/queries/getAttestations';
-
-import Table from '../../../../components/Table';
 
 import styles from './styles.module.scss';
 
@@ -17,7 +14,6 @@ const Attestation = async ({ searchParams }: AttestationProps) => {
     year: searchParams.year,
     semester: searchParams.semester,
   })();
-  console.info(searchParams);
   return (
     <div className={styles.attestationContainer}>
       <Table type={'attestation'}>

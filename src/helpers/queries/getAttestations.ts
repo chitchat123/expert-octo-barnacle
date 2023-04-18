@@ -6,9 +6,8 @@ interface getAttestationProps {
 }
 
 export const getAttestations =
-  ({ year, semester }: getAttestationProps) =>
+  ({}: getAttestationProps) =>
   async () => {
-    console.info(year, semester);
     return fetch('https://jsonplaceholder.typicode.com/posts', {})
       .then(res => res.json())
       .then(() => {
