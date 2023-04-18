@@ -1,7 +1,5 @@
 import React, { FC } from 'react';
 
-import Table from '@components/Table';
-
 import styles from './styles.module.scss';
 
 // export const generateStaticParams = async () => {
@@ -22,27 +20,27 @@ const Page: FC<PageProps> = ({ params: { year, semester } }) => {
   return (
     <div className={styles.semesterPageContainer}>
       <h1>{`${year} ${semester} semester`}</h1>
-      <Table
-        content={[
-          {
-            mark: 1,
-            date: new Date(),
-            name: 'rest',
-          },
-          {
-            mark: 1,
-            date: new Date(),
-            name: 'rest',
-          },
-          {
-            mark: 1,
-            date: new Date(),
-            name: 'rest',
-          },
-        ]}
-        type={'session'}
-        titles={['Name', 'Date', 'Mark']}
-      />
+      {/*<Table*/}
+      {/*  content={[*/}
+      {/*    {*/}
+      {/*      mark: 1,*/}
+      {/*      date: new Date(),*/}
+      {/*      name: 'rest',*/}
+      {/*    },*/}
+      {/*    {*/}
+      {/*      mark: 1,*/}
+      {/*      date: new Date(),*/}
+      {/*      name: 'rest',*/}
+      {/*    },*/}
+      {/*    {*/}
+      {/*      mark: 1,*/}
+      {/*      date: new Date(),*/}
+      {/*      name: 'rest',*/}
+      {/*    },*/}
+      {/*  ]}*/}
+      {/*  type={'session'}*/}
+      {/*  titles={['Name', 'Date', 'Mark']}*/}
+      {/*/>*/}
     </div>
   );
 };
