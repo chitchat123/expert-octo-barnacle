@@ -33,9 +33,9 @@
   "sidebar": {
     "session": "Session",
     "attestation": "Attestation",
-    "main": "Головна",
-    "control": "Поточний контроль",
-    "news": "Новини",
+    "main": "Dashboard",
+    "control": "Current control",
+    "news": "News",
     "other": "інше"
   },
   "find": {

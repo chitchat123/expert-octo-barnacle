@@ -1,21 +1,22 @@
-@mixin ItemStyle {
-  display: flex;
-  font-size: 2rem;
-  gap: .5rem;
-  white-space: nowrap;
-}
-
-.simple {
-  @include ItemStyle;
-  cursor: pointer;
-  min-height: 2.5rem;
-}
 
 .appear {
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
   overflow: hidden;
   color: var(--base-color);
+  padding: 10px 15px;
+  border-left: 5px transparent solid;
+  white-space: nowrap;
+
+  p{
+    font-weight: 700;
+
+  }
   &:hover{
-    text-decoration: underline;
+    background-color: #E2F3FF;
+    border-left-color: #18A0FB;
+    box-sizing: border-box;
   }
 }
 

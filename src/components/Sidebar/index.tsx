@@ -2,12 +2,20 @@
 import { FC, useState } from 'react';
 
 import Image from 'next/image';
-import { BsEarbuds } from 'react-icons/bs';
 
 import { SidebarItem } from '@components/Sidebar/SidebarItem';
 import { getListItemsType, SidebarProps } from '@components/Sidebar/type';
 
-import { Button } from 'src/components/buttons/Button';
+import current from 'public/icons/sidebar/book open.svg';
+import calendar from 'public/icons/sidebar/calendar.svg';
+import attestation from 'public/icons/sidebar/check.svg';
+import dashboard from 'public/icons/sidebar/grid.svg';
+import session from 'public/icons/sidebar/grid.svg';
+import logout from 'public/icons/sidebar/log out.svg';
+import menuIco from 'public/icons/sidebar/menu.svg';
+import quations from 'public/icons/sidebar/quation.svg';
+import news from 'public/icons/sidebar/Speaker.svg';
+import translate from 'public/icons/sidebar/translate.svg';
 
 import styles from './styles.module.scss';
 
@@ -15,35 +23,27 @@ const getListItems: getListItemsType = dict => [
   {
     title: dict.main,
     href: 'dashboard',
-    icon: <BsEarbuds />,
+    icon: dashboard,
   },
   {
     title: dict.control,
     href: 'attestation',
-    type: 'menu',
-    icon: <BsEarbuds />,
+    icon: current,
   },
   {
     title: dict.attestation,
     href: 'attestation',
-    type: 'menu',
-    icon: <BsEarbuds />,
+    icon: attestation,
   },
   {
     title: dict.session,
     href: 'session',
-    type: 'menu',
-    icon: <BsEarbuds />,
+    icon: session,
   },
   {
-    title: 'Text',
-    href: 'attestation',
-    icon: <BsEarbuds />,
-  },
-  {
-    title: 'Profile',
-    href: 'profile',
-    icon: <BsEarbuds />,
+    title: dict.news,
+    href: 'news',
+    icon: news,
   },
 ];
 
@@ -55,45 +55,54 @@ const Sidebar: FC<SidebarProps> = ({ dictionary }) => {
     <div className={`${isOpen ? styles.open : ''} ${styles.constant}`}>
       <div className={styles.sideBarContainer}>
         <Image
-          src={'/icons/menu.svg'}
-          alt={''}
-          width={20}
-          height={20}
+          className={styles.menuIco}
+          alt={'menu'}
+          src={menuIco}
           onClick={() => setIsOpen(!isOpen)}
         />
-        <div>
+        <div className={styles.sideBarItems}>
           {menu.map((item, id) => (
             <SidebarItem key={id} item={item} state={isOpen} />
           ))}
         </div>
-        <div>
+        <div className={styles.sideBarItems}>
           <SidebarItem
+            downItem
             item={{
               title: 'Розклад занять',
               href: 'dashboard',
-              icon: <BsEarbuds />,
+              icon: calendar,
             }}
             state={isOpen}
           />
           <SidebarItem
+            downItem
             item={{
               title: 'Українська',
               href: 'dashboard',
-              icon: <BsEarbuds />,
+              icon: translate,
             }}
             state={isOpen}
           />
           <SidebarItem
+            downItem
             item={{
               title: 'Поширені запитання',
               href: 'dashboard',
-              icon: <BsEarbuds />,
+              icon: quations,
             }}
             state={isOpen}
           />
         </div>
-        <div>
-          <Button onClick={() => null}>Exit</Button>
+        <div style={{ width: '100%' }}>
+          <SidebarItem
+            item={{
+              title: 'Вихід',
+              href: 'logout',
+              icon: logout,
+            }}
+            state={isOpen}
+          />
         </div>
       </div>
     </div>
