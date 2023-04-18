@@ -10,7 +10,7 @@ interface TableContentProps {
 type TableContentType = Attestation[];
 
 const TableContent: FC<TableContentProps> = ({ type, content }) => {
-  console.warn('test');
+  // console.warn('test');
   const drawTable = () => {
     switch (type) {
       case 'session':
