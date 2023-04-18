@@ -1,15 +1,18 @@
 import React from 'react';
 
 import { cookies } from 'next/headers';
+import Image from 'next/image';
 import Link from 'next/link';
-import { FaUserCircle } from 'react-icons/fa';
-import { MdCircleNotifications } from 'react-icons/md';
 
 import { ContextMenu } from '@components/ContextMenu';
 
+import { IconButton } from '@components';
 import { DictionaryCtxMenu } from '@helpers/dictionary';
 import { Locale } from '@helpers/i18n';
 import { apiCallUser } from '@helpers/queries/getUserInfo';
+import logoIco from 'public/icons/header/logo.svg';
+import notificIco from 'public/icons/header/notification on.svg';
+import pessonIco from 'public/icons/header/user.svg';
 import { Button } from 'src/components/buttons/Button';
 
 import styles from './styles.module.scss';
@@ -31,16 +34,15 @@ const Header: ({
   return (
     <div className={styles.headerContainer}>
       <div className={styles.logo}>
-        <h3>logo</h3>
+        <Image alt={'logo'} src={logoIco}></Image>
+        <h4>CAMPUS</h4>
       </div>
       <div className={styles.buttons}>
-        <div className={styles.button}>
-          <Button size={'small'} variant={'secondary'}>
-            Поточний кампус
-          </Button>
-        </div>
+        <Button size={'small'} variant={'secondary'}>
+          Поточна версія кампусу
+        </Button>
         <ContextMenu>
-          <FaUserCircle fill={'#18A0FB'} size={60} />
+          <IconButton size={'small'} icon={notificIco} />
           <>
             <Link className={styles.contextLink} href={'/settings'}>
               Custom
@@ -51,7 +53,7 @@ const Header: ({
           </>
         </ContextMenu>
         <ContextMenu>
-          <MdCircleNotifications fill={'#18A0FB'} size={60} />
+          <IconButton size={'small'} icon={pessonIco} />
           <>
             <div>{fullName}</div>
             <Link className={styles.contextLink} href={'/settings'}>
