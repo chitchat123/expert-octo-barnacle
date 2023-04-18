@@ -34,9 +34,9 @@ const Page: ({}: PageProps) => Promise<JSX.Element> = async ({}) => {
           {/*@ts-ignore*/}
           <GridTable data={delay(2000)} />
         </Suspense>
-        <div className={styles.news}>
-          <RightBoard news={data} />
-        </div>
+        {/*<div className={styles.news}>*/}
+        <RightBoard news={data} />
+        {/*</div>*/}
       </div>
     </div>
   );
