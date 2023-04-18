@@ -1,23 +1,47 @@
 'use client';
 import React, { FC, FormEvent, useContext, useState } from 'react';
 
+import { UserContext } from '@context';
+import { useDictionary } from '@helpers/useDictionary';
+import Image from 'next/image';
 import { useRouter } from 'next/navigation';
+import modalIco from 'public/icons/login/_.svg';
+import mailIco from 'public/icons/login/mail.svg';
+import search from 'public/icons/login/search.svg';
+import square from 'public/icons/login/square.svg';
+import langIco from 'public/icons/login/translate.svg';
+import unlocked from 'public/icons/login/unlocked.svg';
+import { Button } from 'src/components/buttons/Button';
 
 import { IconButton } from '@components/buttons/IconButton';
 import { Card } from '@components/Card';
 import { Password, TextInput } from '@components/inputs';
 import Loader from '@components/Loader';
 
-import { UserContext } from '@context';
-import { useDictionary } from '@helpers/useDictionary';
-import { Button } from 'src/components/buttons/Button';
-
-import modalIco from '../../../../../public/icons/login/_.svg';
-import mailIco from '../../../../../public/icons/login/mail.svg';
-import langIco from '../../../../../public/icons/login/translate.svg';
-
 import styles from './styles.module.scss';
 import { LoginProps, UserState } from './type';
+
+const BUTTON_PROPS: {
+  title: 'title1' | 'title2' | 'title3';
+  link: string;
+  image: any;
+}[] = [
+  {
+    link: 'reset',
+    title: 'title1',
+    image: unlocked,
+  },
+  {
+    link: 'find',
+    title: 'title2',
+    image: search,
+  },
+  {
+    link: 'reset',
+    title: 'title3',
+    image: square,
+  },
+];
 
 const Login: FC<LoginProps> = ({ params: { lang } }) => {
   const dict = useDictionary(lang);
@@ -105,6 +129,25 @@ const Login: FC<LoginProps> = ({ params: { lang } }) => {
           </>
         )}
       </Card>
+      {dict && (
+        <div className={styles.login_buttons}>
+          {BUTTON_PROPS.map(prop => (
+            <div key={prop.link}>
+              <Button
+                className={styles.button}
+                variant={'secondary'}
+                onClick={() => push(`${lang}/${prop.link}`)}
+                type='button'
+                size={'small'}>
+                <div className={styles.button}>
+                  <Image src={prop.image} alt='' />
+                  <div>{dict.loginButtons[prop.title]}</div>
+                </div>
+              </Button>
+            </div>
+          ))}
+        </div>
+      )}
     </div>
   );
 };

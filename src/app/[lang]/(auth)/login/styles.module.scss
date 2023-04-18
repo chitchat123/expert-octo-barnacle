@@ -1,6 +1,6 @@
 .loginContainer{
   max-width: 57.8rem;
-  margin: 0 auto;
+  margin: auto;
   width: 80%;
   .loginContainerTitle{
     display: flex;
@@ -17,4 +17,17 @@
     gap: 12px;
     margin-bottom: var(--padding56);
   }
+
+  .button{
+    display: flex;
+    gap: 6px;
+  }
+
+  .login_buttons{
+    display: flex;
+    justify-content: space-between;
+    margin-top: var(--padding40);
+    gap: 6px;
+  }
 }
+
