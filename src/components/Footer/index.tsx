@@ -2,7 +2,6 @@
 import React, { FC } from 'react';
 
 import { IconButton } from '@components/buttons/IconButton';
-import ThemeChanger from '@components/ThemeChanger';
 
 import chat from '../../../public/icons/footer/circle.svg';
 import fc from '../../../public/icons/footer/facebook.svg';
