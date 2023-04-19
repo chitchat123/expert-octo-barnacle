@@ -24,11 +24,11 @@ const Footer: FC<FooterProps> = ({ changer }) => {
         Розробник: <u>Конструкторське бюро інформаційних систем</u>
       </div>
       <div className={styles.right}>
-        {changer && (
-          <div>
-            <ThemeChanger />
-          </div>
-        )}
+        {/*{changer && (*/}
+        {/*  <div>*/}
+        {/*    <ThemeChanger />*/}
+        {/*  </div>*/}
+        {/*)}*/}
         <div>Соціальні мережі</div>
         <div className={styles.socialLinks}>
           <IconButton
