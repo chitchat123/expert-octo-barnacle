@@ -1,10 +1,10 @@
 .body {
-  overflow: scroll;
 
   .row {
     height: 7.4rem;
     display: grid;
     grid-template-columns: var(--columns);
+    color: #000;
 
     div {
       margin: auto 0;
