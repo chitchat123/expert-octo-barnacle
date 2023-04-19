@@ -1,16 +1,15 @@
 'use client';
 import React, { FC, useEffect, useState } from 'react';
 
+import Image from 'next/image';
 import Link from 'next/link';
-
-import { MenuItem } from '@components/Sidebar/MenuItem';
-import { SidebarItemProps } from '@components/Sidebar/SidebarItem/type';
 
 import styles from './index.module.scss';
 
 const SidebarItem: FC<SidebarItemProps> = ({
   item: { type, href, title, icon },
   state,
+  downItem,
 }) => {
   const [open, setOpen] = useState(false);
   useEffect(() => {
@@ -18,31 +17,16 @@ const SidebarItem: FC<SidebarItemProps> = ({
   }, [state]);
 
   const content = (
-    <div className={styles.appear}>
-      {icon} <span>{state ? title : ''}</span>
+    <div style={{ color: downItem ? '#7D858A' : '' }} className={styles.appear}>
+      <Image src={icon} alt={'icon'}></Image> <p>{state ? title : ''}</p>
     </div>
   );
 
-  switch (type) {
-    case 'menu':
-      return (
-        <div>
-          <div
-            className={styles.simple}
-            {...(state ? { onClick: () => setOpen(!open) } : {})}>
-            {content}
-          </div>
-          {open ? <MenuItem href={href} /> : null}
-        </div>
-      );
-    case 'simple':
-    default:
-      return (
-        <Link className={styles.simple} href={`/${href}`}>
-          {content}
-        </Link>
-      );
-  }
+  return (
+    <Link className={styles.simple} href={`/${href}`}>
+      {content}
+    </Link>
+  );
 };
 
 export { SidebarItem };

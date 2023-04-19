@@ -1,46 +1,114 @@
-'use client';
-import React, { FC } from 'react';
+import React from 'react';
 
-import { useRouter } from 'next/navigation';
+import Image from 'next/image';
 
-import ImageFrame from '@components/ImageFrame';
-
-import { Button } from 'src/components/buttons/Button';
+import { Button, Card } from '@components';
+import { getProfile } from '@helpers/queries/getProfile';
+import settingsIco from 'public/icons/settings.svg';
 
 import styles from './styles.module.scss';
 
 interface SettingsProps {}
 
-const Profile: FC<SettingsProps> = ({}) => {
-  // const [loading, setLoading] = useState(true);
-  const router = useRouter();
-  // if (loading) return <Loading />; if get user info req is pending
+const Profile = async ({}: SettingsProps) => {
+  const profile = await getProfile();
   return (
-    <div className={styles.profileContainer}>
-      <div className={styles.profileView}>
-        <div className={styles.leftContainer}>
-          <ImageFrame />
-          <div className={styles.underImagefield}>
-            <div className={styles.field}>d</div>
-            <div className={styles.field}>d</div>
-          </div>
+    <Card className={styles.profileContainer} padding={32}>
+      <div className={styles.personalInfo}>
+        <div className={styles.image}>
+          <img
+            src={
+              'https://images.pexels.com/photos/14080409/pexels-photo-14080409.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
+            }
+            alt={'personal'}></img>
         </div>
-        <div className={styles.rightContainer}>
-          <div className={styles.rightContainerFields}>
-            <div className={styles.field}>d</div>
-            <div className={styles.field}>d</div>
-            <div className={styles.field}>d</div>
-            <div className={styles.field}>d</div>
-            <div className={styles.field}>d</div>
-          </div>
-          <Button
-            variant={'secondary'}
-            onClick={() => router.push('/settings')}>
-            Settings
+        <div className={styles.fullName}>
+          <h3>Томас Андерсон</h3>
+          <h5 className={styles.coloredText}>Студент</h5>
+          <p>Логін</p>
+          <h5 className={styles.coloredText}>siv19292</h5>
+        </div>
+        <div className={styles.regButton}>
+          <Button type='button' size={'small'}>
+            <div style={{ display: 'flex', gap: 6 }}>
+              <Image src={settingsIco} alt='icon' />
+              <div>Налаштування</div>
+            </div>
           </Button>
         </div>
       </div>
-    </div>
+      <div className={styles.userDescription}>
+        <h4 className={styles.divider}>Опис</h4>
+        <p className={styles.blockTitle}>Контакти</p>
+        <table className={styles.userInfoTable}>
+          <tbody className={styles.info}>
+            {profile.contacts.map((el, idx) => (
+              <tr className={styles.block} key={idx}>
+                <td className={styles.infoKey}>
+                  <h5>{el.type}</h5>
+                </td>
+                <td className={styles.infoValue}>
+                  <h5>{el.val}</h5>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+        <p className={styles.blockTitle}>Місце навчання (Роботи)</p>
+        <table className={styles.userInfoTable}>
+          <tbody className={styles.info}>
+            <tr className={styles.block}>
+              <td className={styles.infoKey}>
+                <h5>Підрозділ:</h5>
+              </td>
+              <td className={styles.studyPlace}>
+                <h5>{profile.profile.institute}</h5>
+              </td>
+            </tr>
+            <tr className={styles.block}>
+              <td className={styles.infoKey}>
+                <h5>Група:</h5>
+              </td>
+              <td className={styles.studyPlace}>
+                <h5>{profile.profile.group}</h5>
+              </td>
+            </tr>
+            <tr className={styles.block}>
+              <td className={styles.infoKey}>
+                <h5>Форма навчання:</h5>
+              </td>
+              <td className={styles.studyPlace}>
+                <h5>{profile.profile.studyForm}</h5>
+              </td>
+            </tr>
+            <tr className={styles.block}>
+              <td className={styles.infoKey}>
+                <h5>Курс навчання:</h5>
+              </td>
+              <td className={styles.studyPlace}>
+                <h5>{profile.profile.course}</h5>
+              </td>
+            </tr>
+            <tr className={styles.block}>
+              <td className={styles.infoKey}>
+                <h5>Спеціальність:</h5>
+              </td>
+              <td className={styles.studyPlace}>
+                <h5>{profile.profile.profile}</h5>
+              </td>
+            </tr>
+            <tr className={styles.block}>
+              <td className={styles.infoKey}>
+                <h5>Статус:</h5>
+              </td>
+              <td className={styles.studyPlace}>
+                <h5>{profile.profile.status}</h5>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </Card>
   );
 };
 

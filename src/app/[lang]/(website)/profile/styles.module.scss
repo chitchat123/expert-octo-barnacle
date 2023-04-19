@@ -1,63 +1,97 @@
 .profileContainer{
-  min-height: 70vh;
-  padding: 1rem;
+  padding: var(--padding32);
+  max-width: 120rem;
+  margin: 0 auto;
+  min-height: 755px;
+  background: url("../../../../../public/icons/404.svg") #F5FAFF right no-repeat;
 
-  .profileView {
-    gap: 5rem;
-    margin: 2rem;
+  .personalInfo {
     display: flex;
-    flex-direction: row;
-    min-height: 50vh;
+    position: relative;
+    margin-bottom: 32px;
 
-    .leftContainer {
-      width: 30%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+    .image {
+      position: relative;
+      width: 120px;
+      height: 120px;
+      overflow: hidden;
 
-      .imageContainer {
-        position: relative;
-        width: 200px;
-        height: 200px;
-        overflow: hidden;
-        border-radius: 50%;
-
-        img {
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-
-        }
-      }
-
-      .underImagefield {
+      img {
         width: 100%;
+        height: 100%;
+        object-fit: cover;
 
-        .field {
-          margin: 2rem auto 0 auto;
-          width: 50%;
-          background-color: #18A0FB;
-          height: 2rem;
-        }
       }
     }
 
-    .rightContainer {
-      width: 50%;
-      .rightContainerFields {
-        width: 100%;
-        display: flex;
-        gap: 2rem;
-        margin-bottom: 2rem;
-        flex-direction: column;
-        .field {
-          background-color: #18A0FB;
-          height: 2rem;
+    .fullName {
+      margin-left: 32px;
 
-        }
+      p {
+        margin-top: 14px;
       }
 
+      h5 {
+        color: var(--base-color)
+      }
 
+    }
+
+    .regButton {
+      position: absolute;
+      right: 0;
     }
   }
+
+  .userDescription {
+    width: 100%;
+
+    .divider {
+      border-bottom: 2px #E2F3FF solid;
+      color: var(--base-color);
+      margin-bottom: 32px;
+    }
+
+    .blockTitle {
+      text-transform: uppercase;
+      color: #7D858A;
+      margin-bottom: 20px;
+    }
+
+    .userInfoTable {
+      width: 100%;
+      margin-bottom: 40px;
+      .info {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+
+        .block {
+          display: flex;
+          justify-content: space-between;
+
+          .infoKey {
+            color: #7D858A;
+            width: 20%;
+          }
+
+          .infoValue {
+            color: var(--base-color);
+            text-align: start;
+            width: 80%;
+          }
+          .studyPlace{
+            width: 80%;
+          }
+        }
+      }
+    }
+
+
+  }
+
 }
+
+
+
+

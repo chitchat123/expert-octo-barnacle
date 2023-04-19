@@ -1,10 +1,16 @@
 'use client';
 import React, { FC, FormEvent, useContext, useState } from 'react';
 
-import { UserContext } from '@context';
-import { useDictionary } from '@helpers/useDictionary';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
+
+import { IconButton } from '@components/buttons/IconButton';
+import { Card } from '@components/Card';
+import { Password, TextInput } from '@components/inputs';
+import Loader from '@components/Loader';
+
+import { UserContext } from '@context';
+import { useDictionary } from '@helpers/useDictionary';
 import modalIco from 'public/icons/login/_.svg';
 import mailIco from 'public/icons/login/mail.svg';
 import search from 'public/icons/login/search.svg';
@@ -12,11 +18,6 @@ import square from 'public/icons/login/square.svg';
 import langIco from 'public/icons/login/translate.svg';
 import unlocked from 'public/icons/login/unlocked.svg';
 import { Button } from 'src/components/buttons/Button';
-
-import { IconButton } from '@components/buttons/IconButton';
-import { Card } from '@components/Card';
-import { Password, TextInput } from '@components/inputs';
-import Loader from '@components/Loader';
 
 import styles from './styles.module.scss';
 import { LoginProps, UserState } from './type';

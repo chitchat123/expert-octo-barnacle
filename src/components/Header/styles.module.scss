@@ -1,29 +1,27 @@
 .headerContainer {
   max-width: 120rem;
-  //padding: 2rem 0;
   margin: 0 auto;
-  height: 6rem;
   display: flex;
+  align-items: center;
   justify-content: space-between;
-  align-items: baseline;
-  background-color: var(--background);
   color: var(--color);
   width: 100%;
+  padding: var(--padding24) 0;
 
   .logo {
     display: flex;
-    flex-direction: row;
     align-items: center;
+    gap: 1.2rem;
+    h4{
+      color: var(--base-color);
+    }
   }
 
   .buttons {
     display: flex;
     align-items: center;
+    gap: 12px;
 
-    .button {
-      width: 19rem;
-      height: 4rem;
-    }
 
     .contextLink {
       font-size: 2rem;

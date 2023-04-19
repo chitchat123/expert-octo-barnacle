@@ -49,6 +49,25 @@ div[data-theme="dark"] {
 }
 
 html {
+
+  *::-webkit-scrollbar-track
+  {
+    border-radius: 10px;
+    background-color: #E2F3FF;
+  }
+
+  *::-webkit-scrollbar
+  {
+    width: 4px;
+    background-color: var(--base-color);
+  }
+
+  *::-webkit-scrollbar-thumb
+  {
+    background-color: var(--base-color);
+  }
+
+
   font-size: 10px;
   font-family: 'Nunito Sans', sans-serif;
 

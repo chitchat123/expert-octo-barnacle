@@ -1,12 +1,12 @@
 .constant {
   transition: width 0.3s ease-out;
-  border-right: 1px #7E7E7E solid;
+  border-right: 1px #BCCEDB solid;
   width: 8rem;
   position: absolute;
   top: 0;
-  padding: 6rem 0;
   height: 100vh;
   background-color: var(--background);
+  padding: var(--padding32) 0;
 
   @media screen and (max-width: 1680px) {
     position: sticky;
@@ -35,11 +35,22 @@
     color: var(--background);
     width: 100%;
     overflow: hidden;
-    padding: 0 2.5rem;
     height: 100%;
+
+    .sideBarItems{
+      display: flex;
+      flex-direction: column;
+      gap: 1.6rem;
+      width: 100%;
+
+    }
+    .menuIco{
+      margin-left: 20px;
+    }
   }
 }
 
 .open {
   width: 24rem;
+
 }

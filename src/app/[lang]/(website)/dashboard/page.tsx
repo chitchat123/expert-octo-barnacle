@@ -6,7 +6,7 @@ import Loading from '@components/Loader';
 
 import { GridTable, RightBoard } from '@components';
 import { delay } from '@helpers/delay';
-import { apiCallBoard } from '@helpers/queries';
+import { apiCallBoard, apiCallUser } from '@helpers/queries';
 
 import styles from './styles.module.scss';
 
@@ -23,8 +23,9 @@ const Page: ({}: PageProps) => Promise<JSX.Element> = async ({}) => {
 
   // const { fullName } = await apiCallUser(token.value);
   const { data } = await apiCallBoard(token.value || '', 1, 4);
-
+  const user = apiCallUser(token.value);
   await delay(1000);
+  console.info(user, 'user');
 
   return (
     <div className={styles.dashboardContainer}>

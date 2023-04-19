@@ -2,7 +2,6 @@
 import React, { FC } from 'react';
 
 import { IconButton } from '@components/buttons/IconButton';
-import ThemeChanger from '@components/ThemeChanger';
 
 import chat from '../../../public/icons/footer/circle.svg';
 import fc from '../../../public/icons/footer/facebook.svg';
@@ -24,11 +23,11 @@ const Footer: FC<FooterProps> = ({ changer }) => {
         Розробник: <u>Конструкторське бюро інформаційних систем</u>
       </div>
       <div className={styles.right}>
-        {changer && (
-          <div>
-            <ThemeChanger />
-          </div>
-        )}
+        {/*{changer && (*/}
+        {/*  <div>*/}
+        {/*    <ThemeChanger />*/}
+        {/*  </div>*/}
+        {/*)}*/}
         <div>Соціальні мережі</div>
         <div className={styles.socialLinks}>
           <IconButton
