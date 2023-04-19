@@ -1,47 +1,92 @@
-import React, { FC } from 'react';
+'use client';
+
+import React, { FC, ReactNode, useEffect, useState } from 'react';
+
+import { useRouter, useSearchParams } from 'next/navigation';
 
 import styles from './styles.module.scss';
 
 interface TableProps {
-  titles: string[];
-  content: TableContent;
-  type: 'session';
+  type: 'session' | 'attestation';
+  children: ReactNode;
 }
 
-type TableContent = Session[] | string[];
-
-type Session = {
-  date: Date;
-  name: string;
-  mark: number;
+const titles = {
+  attestation: ['Name', 'Subject', 'First', 'Second'],
+  session: ['Name', 'Subject', 'First', 'Second'],
 };
 
-const Table: FC<TableProps> = ({ titles, type, content }) => {
-  const drawTable = () => {
-    switch (type) {
-      case 'session':
-        let tmp = content as Session[];
-        return tmp.map((el, idx) => (
-          <div key={idx} className={styles.row}>
-            <div>{el.name}</div>
-            <div>{el.date.toDateString()}</div>
-            <div>{el.mark}</div>
-          </div>
-        ));
-      default:
-        return <div></div>;
-    }
-  };
+const Table: FC<TableProps> = ({ type, children }) => {
+  const router = useRouter();
+  const searchParams = useSearchParams();
+
+  const [state, setState] = useState({
+    ...(searchParams.get('year') ? { year: searchParams.get('year') } : {}),
+    ...(searchParams.get('semester')
+      ? { semester: searchParams.get('semester') }
+      : {}),
+  });
+
+  // console.info(searchParams.get('year'), 'search');
+  useEffect(() => {
+    const params = new URLSearchParams();
+    Object.entries(state).forEach(([key, value]) =>
+      params.set(key, value || '')
+    );
+
+    let tmp = '/attestation' + '?' + params.toString();
+
+    router.replace(tmp);
+  }, [state]);
 
   return (
-    <div className={[styles.tableContainer, styles.attestation].join(' ')}>
-      <div className={styles.row}>
-        {titles.map((el, idx) => (
+    <div className={[styles.tableContainer, styles[type]].join(' ')}>
+      <div className={styles.header}>
+        <div className={styles.control}>
+          <div>
+            <label htmlFor='year'>Рік </label>
+            <select
+              id='year'
+              value={state.year || ''}
+              /*...(state.year ? {value: { state.year }} || {})*/
+              onChange={evt => setState({ ...state, year: evt.target.value })}>
+              <option value='2019'>2019</option>
+              <option value='2020'>2020</option>
+              <option value='2021'>2021</option>
+              <option value='2022'>2022</option>
+            </select>
+
+            <label htmlFor='semester'>Семестр </label>
+            <select
+              name='semester'
+              id='semester'
+              value={state.semester || ''}
+              onChange={evt =>
+                setState({ ...state, semester: evt.target.value })
+              }>
+              <option value='first'>1</option>
+              <option value='second'>2</option>
+              <option value='all'>Всі</option>
+            </select>
+          </div>
+          <div>
+            <h3>Атестація</h3>
+          </div>
+        </div>
+        <div className={styles.row}>
+          <span className={styles.id}>#</span>
+          {titles[type].map((el, idx) => (
+            <span key={idx}>{el}</span>
+          ))}
+        </div>
+      </div>
+      <div className={styles.body}>{children}</div>
+      <div className={[styles.row, styles.footer].join(' ')}>
+        <span className={styles.id}>#</span>
+        {titles[type].map((el, idx) => (
           <span key={idx}>{el}</span>
         ))}
       </div>
-      <hr />
-      {drawTable()}
     </div>
   );
 };

@@ -13,10 +13,12 @@ import { RightBoard } from './RightBoard';
 import { Sidebar } from './Sidebar';
 import { SubjectCard } from './SubjectCard';
 import Table from './Table';
+import TableContent from './Table/TableContent';
 import ThemeChanger from './ThemeChanger';
 import CuratorItem from './СuratorItem';
 
 export {
+  TableContent,
   CuratorItem,
   Button,
   IconButton,
