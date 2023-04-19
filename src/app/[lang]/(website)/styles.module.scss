@@ -11,13 +11,14 @@
     width: 100%;
     max-width: 120rem;
     margin: 0 auto;
-    padding: 0 2rem;
+    //padding: 0 2rem;
     @media screen and (max-width: 1440px) {
       max-width: 100rem;
     }
   }
 
   .childrenLayout {
-    //overflow-y: scroll;
+    width: 100%;
+    overflow-y: scroll;
   }
 }

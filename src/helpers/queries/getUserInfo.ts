@@ -1,13 +1,12 @@
 export const apiCallUser = async (token: string) => {
-  return await fetch('http://localhost:3000/api/user', {
-    method: 'GET',
+  return fetch('https://api.campus.kpi.ua/Account/Info', {
     credentials: 'include',
     headers: {
-      token: token,
+      authorization: `Bearer ${token}`,
     },
   })
     .then(res => res.json())
-    .then(data => data.user as User)
+    .then(data => data as User)
     .catch(err => {
       throw new Error('could not get user info', err);
     });
