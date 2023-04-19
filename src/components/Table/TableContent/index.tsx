@@ -1,22 +1,55 @@
 import React, { FC } from 'react';
 
+import Link from 'next/link';
+
 import styles from './styles.module.scss';
 
 interface TableContentProps {
   content: TableContentType;
-  type: 'session' | 'attestation';
+  type: 'session' | 'attestation' | 'studysheets' | 'studysheet';
 }
 
-type TableContentType = Attestation[];
+type TableContentType =
+  | Attestation[]
+  | Session[]
+  | Lesson[]
+  | LessonOccurrence[];
 
 const TableContent: FC<TableContentProps> = ({ type, content }) => {
-  // console.warn('test');
   const drawTable = () => {
     switch (type) {
       case 'session':
-        break;
+        return (content as Session[]).map((el, idx) => (
+          <div key={idx} className={styles.row}>
+            <span className={styles.id}>{++idx}</span>
+            <div>{el.date.toDateString()}</div>
+            <div>{el.subject}</div>
+            <div>{el.mark}</div>
+            <div>{el.name}</div>
+            <div>{el.typeOfControl}</div>
+            <div>{el.typeInfo}</div>
+          </div>
+        ));
+      case 'studysheets':
+        return (content as Lesson[]).map((el, idx) => (
+          <Link key={idx} href={`/${type}/${el.id}`} className={styles.row}>
+            <span className={styles.id}>{++idx}</span>
+            <div>{el.subject}</div>
+            <div>{el.name}</div>
+            <div>{el.total}</div>
+          </Link>
+        ));
+      case 'studysheet':
+        return (content as LessonOccurrence[]).map((el, idx) => (
+          <div key={idx} className={styles.row}>
+            <span className={styles.id}>{++idx}</span>
+            <div>{el.date.toDateString()}</div>
+            <div>{el.teacher}</div>
+            <div>{el.mark}</div>
+          </div>
+        ));
       case 'attestation':
-        return content.map((el, idx) => (
+        return (content as Attestation[]).map((el, idx) => (
           <div key={idx} className={styles.row}>
             <span className={styles.id}>{++idx}</span>
             <div>{el.name}</div>
