@@ -8,10 +8,10 @@ import { IconButton } from '@components/buttons/IconButton';
 import { Card } from '@components/Card';
 import { Password, TextInput } from '@components/inputs';
 import Loader from '@components/Loader';
+import { AuthModalButton } from '@components/Modal';
 
 import { UserContext } from '@context';
 import { useDictionary } from '@helpers/useDictionary';
-import modalIco from 'public/icons/login/_.svg';
 import mailIco from 'public/icons/login/mail.svg';
 import search from 'public/icons/login/search.svg';
 import square from 'public/icons/login/square.svg';
@@ -90,9 +90,9 @@ const Login: FC<LoginProps> = ({ params: { lang } }) => {
                 <IconButton
                   size={'medium'}
                   variant={'primary'}
-                  icon={modalIco}
-                  onClick={() => {}}
-                />
+                  onClick={() => {}}>
+                  <AuthModalButton dictionary={dict} />
+                </IconButton>
               </div>
             </div>
             <form onSubmit={handleSubmit}>
