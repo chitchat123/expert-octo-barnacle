@@ -23,9 +23,11 @@ const SidebarItem: FC<SidebarItemProps> = ({
   );
 
   return (
-    <Link className={styles.simple} href={`/${href}`}>
-      {content}
-    </Link>
+    <>
+      <Link className={styles.simple} href={`/${href}`}>
+        {content}
+      </Link>
+    </>
   );
 };
 

@@ -6,7 +6,7 @@ import Link from 'next/link';
 
 import { ContextMenu } from '@components/ContextMenu';
 
-import { IconButton } from '@components';
+import { IconButton, LangChanger } from '@components';
 import { DictionaryCtxMenu } from '@helpers/dictionary';
 import { Locale } from '@helpers/i18n';
 import { apiCallUser } from '@helpers/queries/getUserInfo';
@@ -19,10 +19,11 @@ import styles from './styles.module.scss';
 
 const Header: ({
   dictionary,
+  lang,
 }: {
   dictionary: DictionaryCtxMenu;
   lang: Locale;
-}) => Promise<JSX.Element> = async ({ dictionary }) => {
+}) => Promise<JSX.Element> = async ({ dictionary, lang }) => {
   const cookieStore = cookies();
   const token = cookieStore.get('token');
 
