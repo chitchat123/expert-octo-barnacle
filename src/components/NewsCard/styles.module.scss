@@ -1,17 +1,20 @@
 .newsCard {
-  .title {
-    font-size: 1.8rem;
-    font-weight: 600;
-    color: var(--color);
-    line-height: 3.6rem;
-    margin-bottom: 2rem;
+  .content{
+    .link{
+      color: var(--base-color);
+      font-size: 1.2rem;
+      border-bottom: 1px solid var(--base-color);
+    }
+    h5{
+      color: black;
+      margin-bottom: 1.2rem;
+    }
+    p{
+      color: black;
+    }
   }
 
-  .description {
-    color: #7E7E7E;
-    font-size: 1.6rem;
-    line-height: 2rem;
-  }
+
 }
 
 @media (max-width: 1050px) {

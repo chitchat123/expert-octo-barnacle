@@ -9,7 +9,7 @@ interface IndexProps {
   children?: React.ReactNode;
   className?: string;
   disabled?: boolean;
-  icon: any;
+  icon?: any;
   onClick?: any;
   size?: 'medium' | 'normal' | 'small' | 'extraSmall';
   style?: CSSProperties;
@@ -25,6 +25,7 @@ const IconButton: FC<IndexProps> = ({
   className,
   disabled,
   icon,
+  children,
   onClick,
 }) => {
   const [btnStyles, setBtnStyle] = useState<string>('');
@@ -46,7 +47,10 @@ const IconButton: FC<IndexProps> = ({
       onClick={onClick}
       style={style}
       className={btnStyles}>
-      <Image alt={'icon'} src={icon}></Image>
+      <>
+        {icon ? <Image alt={'icon'} src={icon}></Image> : ''}
+        {children}
+      </>
     </button>
   );
 };

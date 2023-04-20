@@ -7,13 +7,15 @@ import { useRouter, useSearchParams } from 'next/navigation';
 import styles from './styles.module.scss';
 
 interface TableProps {
-  type: 'session' | 'attestation';
+  type: 'session' | 'attestation' | 'studysheets' | 'studysheet';
   children: ReactNode;
 }
 
 const titles = {
   attestation: ['Name', 'Subject', 'First', 'Second'],
-  session: ['Name', 'Subject', 'First', 'Second'],
+  session: ['Date', 'Subject', 'Mark', 'Name', 'Control', 'List'],
+  studysheets: ['Subject', 'Name', 'Mark'],
+  studysheet: ['Subject', 'Name', 'Mark'],
 };
 
 const Table: FC<TableProps> = ({ type, children }) => {
@@ -27,16 +29,17 @@ const Table: FC<TableProps> = ({ type, children }) => {
       : {}),
   });
 
-  // console.info(searchParams.get('year'), 'search');
   useEffect(() => {
-    const params = new URLSearchParams();
-    Object.entries(state).forEach(([key, value]) =>
-      params.set(key, value || '')
-    );
+    if (Object.keys(state).length > 0) {
+      const params = new URLSearchParams();
+      Object.entries(state).forEach(([key, value]) =>
+        params.set(key, value || '')
+      );
 
-    let tmp = '/attestation' + '?' + params.toString();
+      let tmp = `/${type}` + '?' + params.toString();
 
-    router.replace(tmp);
+      router.replace(tmp);
+    }
   }, [state]);
 
   return (
@@ -70,7 +73,7 @@ const Table: FC<TableProps> = ({ type, children }) => {
             </select>
           </div>
           <div>
-            <h3>Атестація</h3>
+            <h3>{type}</h3>
           </div>
         </div>
         <div className={styles.row}>

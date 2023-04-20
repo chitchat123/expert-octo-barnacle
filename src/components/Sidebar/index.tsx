@@ -27,7 +27,7 @@ const getListItems: getListItemsType = dict => [
   },
   {
     title: dict.control,
-    href: 'attestation',
+    href: 'studysheet',
     icon: current,
   },
   {

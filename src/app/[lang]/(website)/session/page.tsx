@@ -1,32 +1,22 @@
-import React, { FC } from 'react';
+import React from 'react';
+
+import { Table, TableContent } from '@components';
+import { getSession } from '@helpers/queries/getSession';
 
 import styles from './styles.module.scss';
 
 interface SessionProps {}
 
-const Session: FC<SessionProps> = ({}) => {
+const Session = async ({}: SessionProps) => {
+  const data = await getSession({
+    year: 1,
+    semester: 1,
+  })();
   return (
     <div className={styles.sessionContainer}>
-      {/*<Table*/}
-      {/*  content={[*/}
-      {/*    {*/}
-      {/*      mark: 1,*/}
-      {/*      date: new Date(),*/}
-      {/*      name: 'rest',*/}
-      {/*    },*/}
-      {/*    {*/}
-      {/*      mark: 1,*/}
-      {/*      date: new Date(),*/}
-      {/*      name: 'rest',*/}
-      {/*    },*/}
-      {/*    {*/}
-      {/*      mark: 1,*/}
-      {/*      date: new Date(),*/}
-      {/*      name: 'rest',*/}
-      {/*    },*/}
-      {/*  ]}*/}
-      {/*  type={'session'}*/}
-      {/*  titles={['Name', 'Date', 'Mark']}></Table>*/}
+      <Table type={'session'}>
+        <TableContent type={'session'} content={data} />
+      </Table>
     </div>
   );
 };

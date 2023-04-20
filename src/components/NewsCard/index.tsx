@@ -20,12 +20,15 @@ const NewsCard: FC<NewsCardProps> = ({ href, title, description }) => {
     <Link href={`/${href}`}>
       <Card padding={'1.2rem 3.6rem 1.2rem 3.2rem'} className={styles.newsCard}>
         <div className={styles.content}>
-          <div className={styles.title}>{title}</div>
+          <h5>{title}</h5>
           {formattedContent.map((line, idx) => (
             <div key={idx} className={styles.description}>
-              {line}
+              <p>{line}</p>
             </div>
           ))}
+          <Link className={styles.link} href={'/dashboard'}>
+            Детальніше
+          </Link>
         </div>
       </Card>
     </Link>

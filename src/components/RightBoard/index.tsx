@@ -7,6 +7,7 @@ interface RightBoardProps {
 }
 
 const RightBoard = ({ news }: RightBoardProps) => {
+  // console.info(news, 'news');
   return (
     <div className={styles.subjects}>
       {news.map(({ subject, description }, key) => (
