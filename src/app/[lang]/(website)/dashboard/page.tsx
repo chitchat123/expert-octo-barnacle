@@ -25,7 +25,7 @@ const Page: ({}: PageProps) => Promise<JSX.Element> = async ({}) => {
   const { data } = await apiCallBoard(token.value || '', 1, 4);
   const user = apiCallUser(token.value);
   await delay(1000);
-  console.info(user, 'user');
+  // console.info(user, 'user');
 
   return (
     <div className={styles.dashboardContainer}>

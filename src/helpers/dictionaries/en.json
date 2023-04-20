@@ -45,7 +45,7 @@
   },
   "contextMenu": {
     "settings": "Settings",
-    "logout": "Logout"
+    "profile": "Profile"
   },
   "loginButtons": {
     "title1": "Reset password",

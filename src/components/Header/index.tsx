@@ -55,12 +55,17 @@ const Header: ({
         <ContextMenu>
           <IconButton size={'small'} icon={pessonIco} />
           <>
-            <div>{fullName}</div>
             <Link className={styles.contextLink} href={'/settings'}>
-              {dictionary.settings}
+              <Button style={{ width: '100%' }} size={'small'}>
+                {' '}
+                {dictionary.settings}
+              </Button>
             </Link>
-            <Link className={styles.contextLink} href={'/logout'}>
-              {dictionary.logout}
+            <Link className={styles.contextLink} href={'/profile'}>
+              <Button style={{ width: '100%' }} size={'small'}>
+                {' '}
+                {dictionary.profile}
+              </Button>
             </Link>
           </>
         </ContextMenu>
