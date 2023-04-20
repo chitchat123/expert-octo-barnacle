@@ -25,7 +25,7 @@ const Layout: ({
   return (
     <div className={styles.layoutContainer}>
       <div className={styles.sidebar}>
-        <Sidebar dictionary={dict.sidebar} />
+        <Sidebar lang={lang} dictionary={dict.sidebar} />
       </div>
       <div className={styles.mainLayout}>
         {/*@ts-ignore*/}

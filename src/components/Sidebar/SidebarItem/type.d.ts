@@ -1,5 +1,5 @@
 interface SidebarItemProps {
-  state: boolean;
+  state?: boolean;
   item: SidebarItemType;
   downItem?: boolean;
 }
@@ -7,6 +7,6 @@ interface SidebarItemProps {
 type SidebarItemType = {
   title: string;
   type?: 'menu' | 'simple';
-  href: 'attestation' | 'profile' | 'session' | 'dashboard' | 'news' | 'logout';
+  href: string,
   icon: any;
 };

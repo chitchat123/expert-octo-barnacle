@@ -1,5 +1,5 @@
 'use client';
-import { FC, useState } from 'react';
+import React, { FC, useState } from 'react';
 
 import Image from 'next/image';
 
@@ -15,7 +15,8 @@ import logout from 'public/icons/sidebar/log out.svg';
 import menuIco from 'public/icons/sidebar/menu.svg';
 import quations from 'public/icons/sidebar/quation.svg';
 import news from 'public/icons/sidebar/Speaker.svg';
-import translate from 'public/icons/sidebar/translate.svg';
+
+import { LangChanger } from '../LangChanger/index';
 
 import styles from './styles.module.scss';
 
@@ -47,7 +48,7 @@ const getListItems: getListItemsType = dict => [
   },
 ];
 
-const Sidebar: FC<SidebarProps> = ({ dictionary }) => {
+const Sidebar: FC<SidebarProps> = ({ dictionary, lang }) => {
   const menu = getListItems(dictionary);
 
   const [isOpen, setIsOpen] = useState(true);
@@ -75,15 +76,7 @@ const Sidebar: FC<SidebarProps> = ({ dictionary }) => {
             }}
             state={isOpen}
           />
-          <SidebarItem
-            downItem
-            item={{
-              title: 'Українська',
-              href: 'dashboard',
-              icon: translate,
-            }}
-            state={isOpen}
-          />
+          <LangChanger state={isOpen} currLocale={lang} />
           <SidebarItem
             downItem
             item={{

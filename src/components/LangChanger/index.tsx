@@ -1,33 +1,47 @@
 'use client';
-import { FC } from 'react';
+import { FC, useEffect, useState } from 'react';
 
+import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
-import { locales } from '@helpers/dictionary';
 import { Locale } from '@helpers/i18n';
+import translate from 'public/icons/sidebar/translate.svg';
+
+import styles from './styles.module.scss';
 
 interface LangChangerProps {
   currLocale: Locale;
+  state: boolean;
 }
 
-const LangChanger: FC<LangChangerProps> = ({ currLocale }) => {
+const LangChanger: FC<LangChangerProps> = ({ currLocale, state }) => {
   const pathname = usePathname();
-  return (
-    <div>
-      {locales.map((locale, idx) =>
-        currLocale === locale ? (
-          <h1 key={idx}>{currLocale}</h1>
-        ) : (
-          <Link
-            href={{ pathname: pathname.replace(currLocale, locale) }}
-            key={idx}>
-            {locale}
-          </Link>
-        )
-      )}
-    </div>
-  );
+  const [open, setOpen] = useState(false);
+  useEffect(() => {
+    setOpen(false);
+  }, [state]);
+
+  switch (currLocale) {
+    case 'en':
+      return (
+        <Link href={{ pathname: pathname.replace(currLocale, 'ua') }}>
+          <div className={styles.langChanger}>
+            <Image src={translate} alt={'icon'}></Image>
+            <p>{state ? 'Українська' : ''}</p>
+          </div>
+        </Link>
+      );
+    case 'ua':
+      return (
+        <Link href={{ pathname: pathname.replace(currLocale, 'en') }}>
+          <div className={styles.langChanger}>
+            <Image src={translate} alt={'icon'}></Image>
+            <p>{state ? 'English' : ''}</p>
+          </div>
+        </Link>
+      );
+  }
 };
 
 export { LangChanger };
