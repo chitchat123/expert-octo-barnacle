@@ -36,6 +36,7 @@ export const middleware = (request: NextRequest) => {
     locale => !pathname.startsWith(`/${locale}/`) && pathname !== `/${locale}`
   );
 
+  console.info(pathname);
   if (pathnameIsMissingLocale) {
     const locale = getLocale(request);
 

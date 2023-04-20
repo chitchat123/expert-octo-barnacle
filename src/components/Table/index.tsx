@@ -24,6 +24,9 @@ const Table: FC<TableProps> = ({ type, children }) => {
 
   const [state, setState] = useState({
     ...(searchParams.get('year') ? { year: searchParams.get('year') } : {}),
+    ...(searchParams.get('page')
+      ? { page: parseInt(searchParams.get('page') || '1') }
+      : {}),
     ...(searchParams.get('semester')
       ? { semester: searchParams.get('semester') }
       : {}),
@@ -33,7 +36,7 @@ const Table: FC<TableProps> = ({ type, children }) => {
     if (Object.keys(state).length > 0) {
       const params = new URLSearchParams();
       Object.entries(state).forEach(([key, value]) =>
-        params.set(key, value || '')
+        params.set(key, JSON.stringify(value) || '')
       );
 
       let tmp = `/${type}` + '?' + params.toString();
@@ -42,6 +45,7 @@ const Table: FC<TableProps> = ({ type, children }) => {
     }
   }, [state]);
 
+  const total = 10;
   return (
     <div className={[styles.tableContainer, styles[type]].join(' ')}>
       <div className={styles.header}>
@@ -51,7 +55,6 @@ const Table: FC<TableProps> = ({ type, children }) => {
             <select
               id='year'
               value={state.year || ''}
-              /*...(state.year ? {value: { state.year }} || {})*/
               onChange={evt => setState({ ...state, year: evt.target.value })}>
               <option value='2019'>2019</option>
               <option value='2020'>2020</option>
@@ -83,12 +86,32 @@ const Table: FC<TableProps> = ({ type, children }) => {
           ))}
         </div>
       </div>
-      <div className={styles.body}>{children}</div>
+      {children}
       <div className={[styles.row, styles.footer].join(' ')}>
         <span className={styles.id}>#</span>
-        {titles[type].map((el, idx) => (
-          <span key={idx}>{el}</span>
-        ))}
+        <div />
+        <div className={styles.pagination}>
+          <span
+            className={styles.arrow}
+            onClick={() =>
+              state.page &&
+              state.page > 1 &&
+              setState({ ...state, page: --state.page })
+            }>
+            {'<'}
+          </span>
+          <span>
+            <span className={styles.active}>{state.page || 1}</span>/{total}
+          </span>
+          <span
+            className={styles.arrow}
+            onClick={() =>
+              (!state.page || state.page < total) &&
+              setState({ ...state, page: state.page ? ++state.page : 2 })
+            }>
+            {'>'}
+          </span>
+        </div>
       </div>
     </div>
   );
