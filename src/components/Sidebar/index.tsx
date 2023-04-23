@@ -3,6 +3,7 @@ import React, { FC, useState } from 'react';
 
 import Image from 'next/image';
 
+import { AuthModalButton } from '@components/Modal';
 import { SidebarItem } from '@components/Sidebar/SidebarItem';
 import { getListItemsType, SidebarProps } from '@components/Sidebar/type';
 
@@ -16,6 +17,7 @@ import menuIco from 'public/icons/sidebar/menu.svg';
 import quations from 'public/icons/sidebar/quation.svg';
 import news from 'public/icons/sidebar/Speaker.svg';
 
+// noinspection ES6PreferShortImport
 import { LangChanger } from '../LangChanger/index';
 
 import styles from './styles.module.scss';
@@ -49,7 +51,7 @@ const getListItems: getListItemsType = dict => [
 ];
 
 const Sidebar: FC<SidebarProps> = ({ dictionary, lang }) => {
-  const menu = getListItems(dictionary);
+  const menu = getListItems(dictionary.sidebar);
 
   const [isOpen, setIsOpen] = useState(true);
   return (
@@ -77,15 +79,16 @@ const Sidebar: FC<SidebarProps> = ({ dictionary, lang }) => {
             state={isOpen}
           />
           <LangChanger state={isOpen} currLocale={lang} />
-          <SidebarItem
-            downItem
-            item={{
-              title: 'Поширені запитання',
-              href: 'dashboard',
-              icon: quations,
-            }}
-            state={isOpen}
-          />
+          <AuthModalButton dictionary={dictionary}>
+            <SidebarItem
+              downItem
+              item={{
+                title: 'Поширені запитання',
+                icon: quations,
+              }}
+              state={isOpen}
+            />
+          </AuthModalButton>
         </div>
         <div style={{ width: '100%' }}>
           <SidebarItem

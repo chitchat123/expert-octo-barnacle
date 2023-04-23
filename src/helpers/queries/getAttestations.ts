@@ -15,7 +15,7 @@ export const getAttestations =
           () =>
             ({
               subject: faker.hacker.abbreviation(),
-              name: faker.name.fullName(),
+              teacher: faker.name.fullName(),
               first: faker.datatype.boolean(),
               second: faker.datatype.boolean(),
             } as Attestation)

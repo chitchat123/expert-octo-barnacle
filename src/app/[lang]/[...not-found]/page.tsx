@@ -17,7 +17,9 @@ const Page: FC<PageProps> = ({}) => {
           Сторінка не знайдена <span>:(</span>{' '}
         </p>
 
-        <Link className={styles.link} href={'/en/dashboard'}>На головну</Link>
+        <Link className={styles.link} href={'/en/dashboard'}>
+          На головну
+        </Link>
       </div>
     </div>
   );

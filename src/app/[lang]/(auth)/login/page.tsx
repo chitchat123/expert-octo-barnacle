@@ -12,6 +12,7 @@ import { AuthModalButton } from '@components/Modal';
 
 import { UserContext } from '@context';
 import { useDictionary } from '@helpers/useDictionary';
+import modalIco from 'public/icons/login/_.svg';
 import mailIco from 'public/icons/login/mail.svg';
 import search from 'public/icons/login/search.svg';
 import square from 'public/icons/login/square.svg';
@@ -87,12 +88,14 @@ const Login: FC<LoginProps> = ({ params: { lang } }) => {
                   icon={langIco}
                   onClick={() => {}}
                 />
-                <IconButton
-                  size={'medium'}
-                  variant={'primary'}
-                  onClick={() => {}}>
-                  <AuthModalButton dictionary={dict} />
-                </IconButton>
+                <AuthModalButton dictionary={dict}>
+                  <IconButton
+                    size={'medium'}
+                    variant={'primary'}
+                    onClick={() => {}}>
+                    <Image alt={'req'} src={modalIco}></Image>
+                  </IconButton>
+                </AuthModalButton>
               </div>
             </div>
             <form onSubmit={handleSubmit}>

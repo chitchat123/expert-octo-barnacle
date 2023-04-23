@@ -8,7 +8,7 @@ export const getSubjects = async () => {
         () =>
           ({
             id: faker.datatype.uuid(),
-            name: faker.hacker.phrase(),
+            subject: faker.hacker.abbreviation(),
             teacher: faker.name.fullName(),
             total: faker.datatype.number({ min: 20, max: 100 }),
             occurrences: [],

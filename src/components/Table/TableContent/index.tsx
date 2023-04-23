@@ -35,7 +35,7 @@ const TableContent: FC<TableContentProps> = ({ type, content }) => {
           <Link key={idx} href={`/${type}/${el.id}`} className={styles.row}>
             <span className={styles.id}>{++idx}</span>
             <div>{el.subject}</div>
-            <div>{el.name}</div>
+            <div>{el.teacher}</div>
             <div>{el.total}</div>
           </Link>
         ));
@@ -52,7 +52,7 @@ const TableContent: FC<TableContentProps> = ({ type, content }) => {
         return (content as Attestation[]).map((el, idx) => (
           <div key={idx} className={styles.row}>
             <span className={styles.id}>{++idx}</span>
-            <div>{el.name}</div>
+            <div>{el.teacher}</div>
             <div>{el.subject}</div>
             <div>{JSON.stringify(el.first)}</div>
             <div>{JSON.stringify(el.second)}</div>

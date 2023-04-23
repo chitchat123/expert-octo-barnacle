@@ -15,7 +15,7 @@ export const getStudySheets =
           () =>
             ({
               id: faker.datatype.uuid(),
-              name: faker.name.fullName(),
+              teacher: faker.name.fullName(),
               subject: faker.hacker.abbreviation(),
               total: faker.datatype.number({ min: 12, max: 99 }),
             } as Lesson)
@@ -32,7 +32,7 @@ export const getStudySheet =
         () =>
           ({
             id: faker.datatype.uuid(),
-            name: faker.name.fullName(),
+            teacher: faker.name.fullName(),
             subject: faker.hacker.abbreviation(),
             total: faker.datatype.number({ min: 12, max: 99 }),
             occurrences: [1, 2, 3].map(() => ({

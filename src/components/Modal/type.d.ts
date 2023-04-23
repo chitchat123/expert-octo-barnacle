@@ -1,3 +1,5 @@
+import { ReactNode } from 'react';
+
 import { Dictionary } from '@helpers/dictionary';
 
 interface ModalProps {
@@ -10,4 +12,5 @@ interface ModalProps {
 
 interface AuthModalButtonProps {
   dictionary: Dictionary;
+  children: ReactNode;
 }

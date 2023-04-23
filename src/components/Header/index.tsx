@@ -6,10 +6,9 @@ import Link from 'next/link';
 
 import { ContextMenu } from '@components/ContextMenu';
 
-import { IconButton, LangChanger } from '@components';
+import { IconButton } from '@components';
 import { DictionaryCtxMenu } from '@helpers/dictionary';
 import { Locale } from '@helpers/i18n';
-import { apiCallUser } from '@helpers/queries/getUserInfo';
 import logoIco from 'public/icons/header/logo.svg';
 import notificIco from 'public/icons/header/notification on.svg';
 import pessonIco from 'public/icons/header/user.svg';
@@ -23,7 +22,7 @@ const Header: ({
 }: {
   dictionary: DictionaryCtxMenu;
   lang: Locale;
-}) => Promise<JSX.Element> = async ({ dictionary, lang }) => {
+}) => Promise<JSX.Element> = async ({ dictionary }) => {
   const cookieStore = cookies();
   const token = cookieStore.get('token');
 
@@ -31,7 +30,6 @@ const Header: ({
     throw new Error();
   }
 
-  const { fullName } = await apiCallUser(token.value);
   return (
     <div className={styles.headerContainer}>
       <div className={styles.logo}>

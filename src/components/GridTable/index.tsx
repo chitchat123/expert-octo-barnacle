@@ -18,7 +18,7 @@ const GridTable: ({
       <h3 className={styles.title}>Current semester</h3>
       <div className={styles.subjects}>
         {res.map((el, key) => (
-          <SubjectCard href={`studysheet/${el.id}`} subject={el} key={key} />
+          <SubjectCard href={`studysheets/${el.id}`} subject={el} key={key} />
         ))}
       </div>
     </div>
