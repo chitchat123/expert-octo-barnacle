@@ -7,13 +7,13 @@ import { SidebarItem } from '@components/Sidebar/SidebarItem';
 import { getListItemsType, SidebarProps } from '@components/Sidebar/type';
 
 import current from 'public/icons/sidebar/book open.svg';
-import calendar from 'public/icons/sidebar/calendar.svg';
+import calendar from 'public/icons/sidebar/calendaar.svg';
 import attestation from 'public/icons/sidebar/check.svg';
 import dashboard from 'public/icons/sidebar/grid.svg';
 import session from 'public/icons/sidebar/grid.svg';
 import logout from 'public/icons/sidebar/log out.svg';
 import menuIco from 'public/icons/sidebar/menu.svg';
-import quations from 'public/icons/sidebar/quation.svg';
+import quations from 'public/icons/sidebar/quations.svg';
 import news from 'public/icons/sidebar/Speaker.svg';
 
 import { LangChanger } from '../LangChanger/index';

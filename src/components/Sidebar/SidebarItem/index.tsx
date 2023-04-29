@@ -17,7 +17,7 @@ const SidebarItem: FC<SidebarItemProps> = ({
   }, [state]);
 
   const content = (
-    <div style={{ color: downItem ? '#7D858A' : '' }} className={styles.appear}>
+    <div style={{ color: downItem ? '#011422' : '' }} className={styles.appear}>
       <Image src={icon} alt={'icon'}></Image> <p>{state ? title : ''}</p>
     </div>
   );
