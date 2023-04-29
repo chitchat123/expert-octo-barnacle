@@ -6,8 +6,7 @@ import Footer from '@components/Footer';
 
 import { getDictionary } from '@helpers/dictionary';
 import { Locale } from '@helpers/i18n';
-
-import kpiLogo from '../../../../public/icons/kpiLogo.png';
+import { kpiLogo } from '@helpers/images';
 
 import styles from './layout.module.scss';
 

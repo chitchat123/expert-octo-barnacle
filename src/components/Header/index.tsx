@@ -9,9 +9,7 @@ import { ContextMenu } from '@components/ContextMenu';
 import { IconButton } from '@components';
 import { DictionaryCtxMenu } from '@helpers/dictionary';
 import { Locale } from '@helpers/i18n';
-import logoIco from 'public/icons/header/logo.svg';
-import notificIco from 'public/icons/header/notification on.svg';
-import pessonIco from 'public/icons/header/user.svg';
+import { logoIco, notificIco, pessonIco } from '@helpers/images';
 import { Button } from 'src/components/buttons/Button';
 
 import styles from './styles.module.scss';

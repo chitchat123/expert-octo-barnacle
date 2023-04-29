@@ -7,15 +7,17 @@ import { AuthModalButton } from '@components/Modal';
 import { SidebarItem } from '@components/Sidebar/SidebarItem';
 import { getListItemsType, SidebarProps } from '@components/Sidebar/type';
 
-import current from 'public/icons/sidebar/book open.svg';
-import calendar from 'public/icons/sidebar/calendar.svg';
-import attestation from 'public/icons/sidebar/check.svg';
-import dashboard from 'public/icons/sidebar/grid.svg';
-import session from 'public/icons/sidebar/grid.svg';
-import logout from 'public/icons/sidebar/log out.svg';
-import menuIco from 'public/icons/sidebar/menu.svg';
-import quations from 'public/icons/sidebar/quation.svg';
-import news from 'public/icons/sidebar/Speaker.svg';
+import {
+  attestation,
+  calendar,
+  current,
+  dashboard,
+  logout,
+  menuIco,
+  news,
+  question,
+  session,
+} from '@helpers/images';
 
 // noinspection ES6PreferShortImport
 import { LangChanger } from '../LangChanger/index';
@@ -84,7 +86,7 @@ const Sidebar: FC<SidebarProps> = ({ dictionary, lang }) => {
               downItem
               item={{
                 title: 'Поширені запитання',
-                icon: quations,
+                icon: question,
               }}
               state={isOpen}
             />

@@ -3,8 +3,8 @@ import React from 'react';
 import Image from 'next/image';
 
 import { Button, Card } from '@components';
+import { settingsIco } from '@helpers/images';
 import { getProfile } from '@helpers/queries/getProfile';
-import settingsIco from 'public/icons/settings.svg';
 
 import styles from './styles.module.scss';
 
