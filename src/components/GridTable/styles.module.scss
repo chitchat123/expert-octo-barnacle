@@ -12,8 +12,10 @@
   background-color: var(--backgroung-blue);
 
   .title {
+    display: flex;
+    gap: 10px;
     font-size: 4rem;
-    color: var(--base-text-color);
+    color: #FFFFFF;
     font-weight: 300;
     border-bottom: 1px solid #FFFFFF;
     padding: 12px 8px 12px 10px;

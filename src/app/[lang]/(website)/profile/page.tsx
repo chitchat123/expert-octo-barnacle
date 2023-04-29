@@ -1,6 +1,7 @@
 import React from 'react';
 
 import Image from 'next/image';
+import Link from 'next/link';
 
 import { Button, Card } from '@components';
 import { getProfile } from '@helpers/queries/getProfile';
@@ -29,12 +30,14 @@ const Profile = async ({}: SettingsProps) => {
           <h5 className={styles.coloredText}>siv19292</h5>
         </div>
         <div className={styles.regButton}>
-          <Button type='button' size={'small'}>
-            <div style={{ display: 'flex', gap: 6 }}>
-              <Image src={settingsIco} alt='icon' />
-              <div>Налаштування</div>
-            </div>
-          </Button>
+          <Link href={'/settings'}>
+            <Button type='button' size={'small'}>
+              <div style={{ display: 'flex', gap: 6 }}>
+                <Image src={settingsIco} alt='icon' />
+                <div>Налаштування</div>
+              </div>
+            </Button>
+          </Link>
         </div>
       </div>
       <div className={styles.userDescription}>
