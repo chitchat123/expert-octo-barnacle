@@ -11,7 +11,7 @@ interface FooterProps {
   changer?: boolean;
 }
 
-const Footer: FC<FooterProps> = ({ changer }) => {
+const Footer: FC<FooterProps> = ({}) => {
   return (
     <div className={styles.footerContainer}>
       <div className={styles.left}>

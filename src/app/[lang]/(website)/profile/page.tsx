@@ -16,11 +16,16 @@ const Profile = async ({}: SettingsProps) => {
     <Card className={styles.profileContainer} padding={32}>
       <div className={styles.personalInfo}>
         <div className={styles.image}>
-          <img
+          <Image
             src={
-              'https://images.pexels.com/photos/14080409/pexels-photo-14080409.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
+              'https://images.pexels.com/photos/14080409/pexels-photo-14080409.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=5'
             }
-            alt={'personal'}></img>
+            fill
+            sizes='12rem'
+            priority
+            placeholder={'blur'}
+            blurDataURL={`https://images.pexels.com/photos/14080409/pexels-photo-14080409.jpeg?auto=compress&cs=tinysrgb&w=120&dpr=2`}
+            alt={'personal'}></Image>
         </div>
         <div className={styles.fullName}>
           <h3>Томас Андерсон</h3>
