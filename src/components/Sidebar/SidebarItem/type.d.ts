@@ -7,6 +7,6 @@ interface SidebarItemProps {
 type SidebarItemType = {
   title: string;
   type?: 'menu' | 'simple';
-  href: string,
+  href: string;
   icon: any;
 };

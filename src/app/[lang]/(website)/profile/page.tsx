@@ -17,6 +17,7 @@ const Profile = async ({}: SettingsProps) => {
     <Card className={styles.profileContainer} padding={32}>
       <div className={styles.personalInfo}>
         <div className={styles.image}>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src={
               'https://images.pexels.com/photos/14080409/pexels-photo-14080409.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'

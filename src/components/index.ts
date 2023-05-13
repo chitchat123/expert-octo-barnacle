@@ -5,7 +5,7 @@ import { ContextMenu } from './ContextMenu';
 import Footer from './Footer';
 import { GridTable } from './GridTable';
 import { Header } from './Header';
-import Index from './ImageFrame';
+// import Index from './ImageFrame';
 import { Password, TextInput, Email } from './inputs';
 import { LangChanger } from './LangChanger';
 import { NewsCard } from './NewsCard';
@@ -27,7 +27,7 @@ export {
   Footer,
   GridTable,
   Header,
-  Index,
+  // Index,
   Password,
   TextInput,
   Email,

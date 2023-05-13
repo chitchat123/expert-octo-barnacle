@@ -13,8 +13,9 @@
 
   }
   &:hover{
-    background-color: #E2F3FF;
-    border-left-color: #18A0FB;
+    background-color: var(--base-third-color);
+    border-left-color: var(--base-color);
     box-sizing: border-box;
+    color: #FFFFFF;
   }
 }

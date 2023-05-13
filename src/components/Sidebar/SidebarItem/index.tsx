@@ -12,12 +12,14 @@ const SidebarItem: FC<SidebarItemProps> = ({
   downItem,
 }) => {
   const [open, setOpen] = useState(false);
+
   useEffect(() => {
     setOpen(false);
   }, [state]);
 
   const content = (
-    <div style={{ color: downItem ? '#011422' : '' }} className={styles.appear}>
+    <div className={styles.appear}
+    >
       <Image src={icon} alt={'icon'}></Image> <p>{state ? title : ''}</p>
     </div>
   );

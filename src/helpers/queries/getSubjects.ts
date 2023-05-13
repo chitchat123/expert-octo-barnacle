@@ -6,6 +6,7 @@ export const getSubjects = async () => {
     .then(() => {
       return [1, 2, 3, 4, 5].map(
         () =>
+          // @ts-ignore
           ({
             id: faker.datatype.uuid(),
             name: faker.hacker.phrase(),
