@@ -1,0 +1,19 @@
+.container{
+  color: #18A0FB;
+  .year{
+    font-size: 2rem;
+    margin-left: 1rem;
+  }
+  .semester{
+    margin-left: 2rem;
+    margin-top: 0.5rem;
+    cursor: pointer;
+    a{
+      font-size: 1.4rem;
+      &:hover{
+        color: #18A0FB;
+      }
+    }
+
+  }
+}

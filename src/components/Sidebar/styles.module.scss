@@ -1,0 +1,56 @@
+.constant {
+  transition: width 0.3s ease-out;
+  border-right: 1px #BCCEDB solid;
+  width: 8rem;
+  position: absolute;
+  top: 0;
+  height: 100vh;
+  background-color: var(--background);
+  padding: var(--padding32) 0;
+
+  @media screen and (max-width: 1680px) {
+    position: sticky;
+  }
+
+  @media screen and (max-width: 1440px) {
+  }
+
+  //Tablet
+  @media screen and (max-width: 1271px) {
+    //display: none;
+    position: absolute;
+  }
+  //Mobile
+  @media screen and (max-width: 640px) {
+    display: none;
+    //position: absolute;
+  }
+
+
+  .sideBarContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    color: var(--background);
+    width: 100%;
+    overflow: hidden;
+    height: 100%;
+
+    .sideBarItems{
+      display: flex;
+      flex-direction: column;
+      gap: 1.6rem;
+      width: 100%;
+
+    }
+    .menuIco{
+      margin-left: 20px;
+    }
+  }
+}
+
+.open {
+  width: 24rem;
+
+}

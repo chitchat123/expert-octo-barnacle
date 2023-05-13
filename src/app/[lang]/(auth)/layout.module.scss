@@ -1,0 +1,56 @@
+@import "src/app/variables";
+.authLayout{
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  .auth_content{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 50%;
+    padding-top: 8vw;
+    .children{
+      display: flex;
+      justify-content: center;
+      height: 100%;
+    }
+    .footer{
+      max-width: 80rem;
+      width: 95%;
+      margin: 0 auto;
+    }
+  }
+  .auth_logo{
+    background-color: var(--base-color);
+    color: var(--backgroung);
+
+    width: 50%;
+    height: 100vh;
+
+    .auth_fqu {
+      margin: 0 auto;
+      width: 60%;
+      height: 100%;
+      display: flex;
+      gap: 40px;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+    }
+  }
+
+  @media screen and (min-height: 1000px) {
+
+  }
+
+  @media screen and (max-width: 1000px) {
+    .auth_logo {
+      display: none;
+    }
+    .auth_children {
+      width: 100%;
+      padding-top: 25vw;
+    }
+  }
+}

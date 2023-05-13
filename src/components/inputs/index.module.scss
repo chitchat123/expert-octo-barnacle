@@ -1,0 +1,105 @@
+@mixin shrinkLabel {
+  top: 0;
+  left: 2rem;
+  font-size: 1.2rem;
+  color: var(--base-color);
+  transition: 300ms;
+
+}
+
+.inputContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: center;
+  width: 100%;
+  position: relative;
+
+  .icoLeft {
+    position: absolute;
+    left: 2rem;
+
+    .search__icon {
+      height: 2.4rem;
+      width: 2.4em;
+    }
+  }
+
+  .input {
+    font-size: 1.6rem;
+    line-height: 2.4rem;
+    color: var(--base-text-color);
+    outline: none;
+    background-color: var(--base-input-background); //TODO bug with input background
+    border: 1px solid transparent;
+    padding: var(--padding16) var(--padding20);
+    border-radius: 4px;
+    width: 100%;
+
+    &:hover {
+      border: 1px solid #8BD0FD80;
+      box-sizing: border-box;
+    }
+
+    &:focus {
+      border: 1px solid #8BD0FD;
+
+    }
+
+    &:focus ~ .label {
+      @include shrinkLabel
+    }
+  }
+  .error{
+    background-color: var(--input-error);
+    border: 1px solid var(--input-error-stroke);
+    &:focus{
+      background-color: var(--input-error);
+      border: 1px solid var(--input-error-stroke);
+    }
+    &:hover{
+      background-color: var(--input-error);
+      border: 1px solid var(--input-error-stroke);
+    }
+
+  }
+  .errorPar{
+    margin-top: 8px;
+    display: flex;
+    p{
+      text-align: start;
+      font-size: 1.2rem;
+      line-height: 1.6rem;
+    }
+    .errorIco{
+      margin-right: 8px;
+
+    }
+  }
+  .label {
+    top: 1.6rem;
+    left: 2rem;
+    font-size: 1.6rem;
+    line-height: 2.4rem;
+    font-weight: normal;
+    pointer-events: none;
+    position: absolute;
+    transition: 300ms ease all;
+
+    &.shrink {
+      @include shrinkLabel
+    }
+
+  }
+
+  .icoRight {
+    position: absolute;
+    right: 2rem;
+    top: 1.6rem;
+
+    .search__icon {
+      height: 2.4rem;
+      width: 2.4em;
+    }
+  }
+}

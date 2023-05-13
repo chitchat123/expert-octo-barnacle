@@ -1,21 +1,27 @@
-import React from 'react';
+import React, { FC } from 'react';
 
-import { i18n } from '@helpers/i18n';
+import '../global.scss';
+import { ThemeContextProvider, UserContextProvider } from '@context';
+import { Locale } from '@helpers/i18n';
 
-export async function generateStaticParams() {
-  return i18n.locales.map(locale => ({ lang: locale }));
+interface LayoutProps {
+  children: React.ReactNode;
+  lang: Locale;
 }
 
-export default function Root({
-  children,
-  params,
-}: {
-  children: React.ReactNode;
-  params: { lang: string };
-}) {
+const Layout: FC<LayoutProps> = ({ children, lang }) => {
   return (
-    <html lang={params.lang}>
-      <body>{children}</body>
+    <html lang={lang}>
+      <body>
+        <ThemeContextProvider>
+          <>
+            <UserContextProvider>{children}</UserContextProvider>
+            <div id='modal-root'></div>
+          </>
+        </ThemeContextProvider>
+      </body>
     </html>
   );
-}
+};
+
+export default Layout;

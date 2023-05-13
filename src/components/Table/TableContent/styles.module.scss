@@ -1,0 +1,27 @@
+.body {
+
+  .row {
+    height: 7.4rem;
+    display: grid;
+    grid-template-columns: var(--columns);
+    color: #000;
+
+    div {
+      margin: auto 0;
+    }
+
+    .id {
+      margin: auto;
+    }
+
+
+    &:nth-child(odd) {
+      background-color: #F5FAFF
+    }
+
+    &:hover {
+      background-color: #E2F3FF;
+    }
+  }
+}
+

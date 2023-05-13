@@ -1,0 +1,27 @@
+.dashboardContainer {
+  width: 100%;
+
+  .mainContent {
+    display: flex;
+    width: 100%;
+    gap: 3rem;
+    margin: 0 auto;
+    max-width: 120rem;
+
+    
+  }
+
+  @media (max-width: 1050px) {
+    .mainContent {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      .currentSemester {
+        width: 100%;
+      }
+
+    }
+  }
+}

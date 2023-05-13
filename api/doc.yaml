@@ -1,0 +1,272 @@
+openapi: 3.0.3
+info:
+  title: Campus
+  contact:
+    email: test@kpi.ua
+  license:
+    name: MIT License
+  version: 0.0.1
+servers:
+  - url: https://api.campus.kpi.ua/
+tags:
+  - name: auth
+    description: user auth
+  - name: user
+    description: user info
+  - name: lessons
+    description: lessons info
+
+paths:
+  /login:
+    get:
+      tags:
+        - auth
+      summary: login using credentials
+      description: login using credentials
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Credentials'
+        required: true
+      responses:
+        '200':
+          description: logged in
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  user:
+                    $ref: '#/components/schemas/User'
+                  token:
+                    type: string
+          headers:
+            Set-Cookie:
+              description: auth token
+              schema:
+                type: string
+                example: token=abcde12345; Path=/; HttpOnly
+
+        '400':
+          description: Invalid credentials
+
+  /reset:
+    get:
+      tags:
+        - auth
+      summary: reset password
+      description: reques email for password reset
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  example: test@kpi.ua
+        required: true
+      responses:
+        '200':
+          description: logged in
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+        '400':
+          description: Invalid email
+  /find-curator:
+    get:
+      tags:
+        - user
+      summary: find curator by name or group
+      responses:
+        '200':
+          description: return curator list by name of group
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/User'
+  /lessons:
+    get:
+      tags:
+        - lessons
+      summary: get lessons list
+      security:
+        - cookieAuth: [ ]
+      responses:
+        '200':
+          description: user lessons list
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Subject'
+        '400':
+          description: Invalid request
+  /lessons/{id}:
+    get:
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: integer
+          required: true
+      tags:
+        - lessons
+      summary: get lesson
+      security:
+        - cookieAuth: [ ]
+      responses:
+        '200':
+          description: lesson
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Subject'
+        '400':
+          description: Invalid request
+  /user:
+    get:
+      tags:
+        - user
+      description: get user info
+      security:
+        - cookieAuth: [ ]
+      responses:
+        "200":
+          description: "OK"
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+    post:
+      tags:
+        - user
+      description: edit user info
+      security:
+        - cookieAuth: [ ]
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+        required: true
+      responses:
+        "200":
+          description: "OK"
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+components:
+  schemas:
+    Credentials:
+      type: object
+      properties:
+        username:
+          type: string
+        password:
+          type: string
+    News:
+      type: object
+      properties:
+        id:
+          type: integer
+        title:
+          type: string
+        content:
+          type: string
+    Subject:
+      type: object
+      properties:
+        id:
+          type: integer
+        title:
+          type: string
+        entries:
+          type: array
+    Lesson:
+      type: object
+      properties:
+        mark:
+          type: integer
+        teacher:
+          type: object
+          properties:
+            id:
+              type: integer
+            name:
+              type: string
+    Session:
+      type: object
+      properties:
+        id:
+          type: integer
+    Attestation:
+      type: object
+      properties:
+        id:
+          type: integer
+    User:
+      type: object
+      properties:
+        id:
+          type: integer
+        sid:
+          type: string
+        username:
+          type: string
+        fullName:
+          type: string
+        email:
+          type: string
+        password:
+          type: string
+        modules:
+          type: array
+          items:
+            type: string
+        position:
+          type: array
+          items:
+            type: string
+        subdivision:
+          type: array
+          items:
+            type: string
+        studyGroup:
+          type: object
+          properties:
+            id:
+              type: integer
+            name:
+              type: string
+        scientificInterest:
+          type: string
+        tgAuthLinked:
+          type: boolean
+        profiles:
+          type: array
+          items:
+            type: string
+        userIdentifier:
+          type: string
+        photo:
+          type: string
+        credo:
+          type: string
+        profile:
+          type: object
+  securitySchemes:
+    cookieAuth:
+      type: apiKey
+      in: cookie
+      name: token
+    Bearer:
+      type: http
+      scheme: bearer

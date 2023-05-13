@@ -1,0 +1,14 @@
+.contextMenuContainer{
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  overflow: hidden;
+  width: 20rem;
+  top: 7rem;
+  right: 0rem;
+  z-index: 222;
+  padding: 8px;
+  background-color: #FFFFFF;
+  border: 1px solid var(--base-color);
+  border-radius: 4px;
+}

@@ -1,0 +1,12 @@
+.subjects {
+  //min-height: 100%;
+  margin: 0 auto;
+  display: grid;
+  gap: 1rem;
+  width: 40%;
+  height: 100%;
+  @media (max-width: 1050px) {
+    width: 60%;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

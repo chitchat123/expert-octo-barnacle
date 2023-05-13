@@ -1,0 +1,22 @@
+.findCuratorContainer{
+  border: 1px solid black;
+  min-height: 70vh;
+  width: 70%;
+  margin: 0 auto;
+  padding: 4rem 2rem 2rem 2rem;
+  .findPageContent{
+    position: relative;
+    height: 100%;
+    .button{
+      position: absolute;
+      bottom: 0;
+    }
+    .curatorsItem{
+      position: relative;
+      overflow-y: scroll;
+      margin-top: 1rem;
+      height: 65%;
+    }
+
+  }
+}

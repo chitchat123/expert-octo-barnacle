@@ -1,0 +1,97 @@
+.profileContainer{
+  padding: var(--padding32);
+  max-width: 120rem;
+  margin: 0 auto;
+  min-height: 755px;
+  background: url("../../../../../public/icons/404.svg") #FFFFFF right no-repeat;
+
+  .personalInfo {
+    display: flex;
+    position: relative;
+    margin-bottom: 32px;
+
+    .image {
+      position: relative;
+      width: 120px;
+      height: 120px;
+      overflow: hidden;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+
+      }
+    }
+
+    .fullName {
+      margin-left: 32px;
+
+      p {
+        margin-top: 14px;
+      }
+
+      h5 {
+        color: var(--base-color)
+      }
+
+    }
+
+    .regButton {
+      position: absolute;
+      right: 0;
+    }
+  }
+
+  .userDescription {
+    width: 100%;
+
+    .divider {
+      border-bottom: 2px #E2F3FF solid;
+      color: var(--base-color);
+      margin-bottom: 32px;
+    }
+
+    .blockTitle {
+      text-transform: uppercase;
+      color: #7D858A;
+      margin-bottom: 20px;
+    }
+
+    .userInfoTable {
+      width: 100%;
+      margin-bottom: 40px;
+      .info {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+
+        .block {
+          display: flex;
+          justify-content: space-between;
+
+          .infoKey {
+            color: #7D858A;
+            width: 20%;
+          }
+
+          .infoValue {
+            color: var(--base-color);
+            text-align: start;
+            width: 80%;
+          }
+          .studyPlace{
+            width: 80%;
+          }
+        }
+      }
+    }
+
+
+  }
+
+}
+
+
+
+

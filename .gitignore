@@ -35,6 +35,7 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 .idea/
+.vscode
 .AppleDouble
 .LSOverride
 Icon
@@ -51,3 +52,5 @@ Icon
 Network Trash Folder
 Temporary Items
 .apdisk
+
+.vscode/

@@ -1,0 +1,24 @@
+.newsCard {
+  .content{
+    .link{
+      color: var(--base-color);
+      font-size: 1.2rem;
+      border-bottom: 1px solid var(--base-color);
+    }
+    h5{
+      color: black;
+      margin-bottom: 1.2rem;
+    }
+    p{
+      color: black;
+    }
+  }
+
+
+}
+
+@media (max-width: 1050px) {
+  //.content {
+  //  max-width: 100rem;
+  //}
+}

@@ -1,0 +1,41 @@
+.iconButtonContainer{
+  background-color: var(--base-color);
+  border-radius: 4px;
+  outline: none;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.primary {
+  background-color: var(--base-color);
+
+  &:hover {
+    background-color: var(--hover-main);
+  }
+  &:active{
+    background-color: #023D65;
+  }
+}
+.secondary {
+  background-color: var(--primary-label);
+  border: 1px solid var(--base-color);
+
+
+  &:hover {
+    background-color: var(--hover-secondary);
+  }
+}
+.medium{
+  width: 4.8rem;
+  height: 4.8rem;
+}
+.small {
+  width: 4.0rem;
+  height: 4.0rem;
+}
+.extraSmall{
+  width: 3.2rem;
+  height: 3.2rem;
+}

@@ -1,0 +1,23 @@
+.resetContainer{
+  width: 90%;
+  max-width: 62rem;
+  height: 44rem;
+  margin: 0 auto;
+  border-radius: 1rem;
+  border: 1px black solid;
+  .form{
+    margin: 3rem;
+    h3{
+      margin-bottom: 4.3rem
+    }
+    p{
+      margin-bottom: 2.4rem;
+    }
+
+  }
+  .reset{
+    display: flex;
+    flex-direction: column;
+    gap: 2.4rem;
+  }
+}

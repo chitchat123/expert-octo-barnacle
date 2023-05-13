@@ -1,0 +1,24 @@
+
+.appear {
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+  overflow: hidden;
+  font-weight: 700;
+  color: var(--base-color);
+  padding: 10px 15px;
+  border-left: 5px transparent solid;
+  white-space: nowrap;
+
+  p{
+    font-weight: 700;
+
+  }
+  &:hover{
+    background-color: var(--base-third-color);
+    border-left-color: var(--base-color);
+    box-sizing: border-box;
+    color: #FFFFFF;
+  }
+}
+

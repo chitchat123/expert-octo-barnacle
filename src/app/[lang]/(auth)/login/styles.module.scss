@@ -1,0 +1,34 @@
+.loginContainer{
+  max-width: 57.8rem;
+  margin: auto;
+  width: 80%;
+  .loginContainerTitle{
+    display: flex;
+    margin-bottom: var(--padding40);
+    justify-content: space-between;
+    .titleIcon{
+      display: flex;
+      gap: 16px;
+    }
+  }
+  .inputs{
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: var(--padding56);
+  }
+
+  .button{
+    display: flex;
+    gap: 6px;
+  }
+
+  .login_buttons{
+    width: 100%;
+    display: flex;
+
+    margin-top: var(--padding40);
+    gap: 12px;
+  }
+}
+
