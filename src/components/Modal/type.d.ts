@@ -10,4 +10,5 @@ interface ModalProps {
 
 interface AuthModalButtonProps {
   dictionary: Dictionary;
+  img: JSX.Element;
 }

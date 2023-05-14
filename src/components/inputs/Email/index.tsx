@@ -1,8 +1,12 @@
 'use client';
 import React, { FC, useState } from 'react';
 
-import { isValidEmail } from '@helpers/inputHelper';
+import Image from 'next/image';
 
+import { isValidEmail } from '@helpers/inputHelper';
+import mailIco from 'public/icons/login/mail.svg';
+
+import errorIco from '../../../../public/icons/login/error.svg';
 import defaultStyle from '../index.module.scss';
 
 import { EmailInputProps } from './type';
@@ -27,7 +31,7 @@ const Email: FC<EmailInputProps> = ({
   };
 
   return (
-    <div className={defaultStyle.container}>
+    <div className={defaultStyle.inputContainer}>
       <input
         name={name}
         type='email'
@@ -47,7 +51,23 @@ const Email: FC<EmailInputProps> = ({
           {label}
         </label>
       )}
-      <div className={defaultStyle.parError}>{error}</div>
+      <div className={defaultStyle.icoRight}>
+        <Image
+          className={defaultStyle.search__icon}
+          src={mailIco}
+          alt={'icon'}
+        />
+      </div>
+
+      {error && (
+        <div className={defaultStyle.errorPar}>
+          <Image
+            className={defaultStyle.errorIco}
+            alt={'error'}
+            src={errorIco}></Image>
+          <p>{error}</p>
+        </div>
+      )}
     </div>
   );
 };

@@ -40,7 +40,7 @@ const TextInput: FC<TextInputProps> = ({
         disabled={disabled}
         required={required}
         style={{
-          paddingLeft: iconPosition === 'left' ? 50 : 20,
+          paddingLeft: iconPosition === 'left' ? 60 : 20,
         }}
         type='text'
         className={`${defaultStyles.input} ${
@@ -58,7 +58,9 @@ const TextInput: FC<TextInputProps> = ({
       )}
       <label
         className={`${value && value.length > 0 ? defaultStyles.shrink : ''} ${
-          defaultStyles.label
+          iconPosition === 'left'
+            ? defaultStyles.left_label
+            : defaultStyles.label
         }`}>
         {label}
       </label>
