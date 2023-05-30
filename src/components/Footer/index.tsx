@@ -3,9 +3,7 @@ import React, { FC } from 'react';
 
 import { IconButton } from '@components/buttons/IconButton';
 
-import chat from '../../../public/icons/footer/circle.svg';
 import fc from '../../../public/icons/footer/facebook.svg';
-import mail from '../../../public/icons/footer/mail.svg';
 import tg from '../../../public/icons/footer/send.svg';
 
 import styles from './styles.module.scss';

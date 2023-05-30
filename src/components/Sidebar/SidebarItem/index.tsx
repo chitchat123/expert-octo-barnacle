@@ -18,8 +18,7 @@ const SidebarItem: FC<SidebarItemProps> = ({
   }, [state]);
 
   const content = (
-    <div className={styles.appear}
-    >
+    <div className={styles.appear}>
       <Image src={icon} alt={'icon'}></Image> <p>{state ? title : ''}</p>
     </div>
   );
