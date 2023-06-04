@@ -4,7 +4,6 @@ import React, { FC, FormEvent, useContext, useState } from 'react';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 
-import { IconButton } from '@components/buttons/IconButton';
 import { Card } from '@components/Card';
 import { Password, TextInput } from '@components/inputs';
 import Loader from '@components/Loader';
@@ -14,9 +13,9 @@ import { UserContext } from '@context';
 import { useDictionary } from '@helpers/useDictionary';
 import modalIco from 'public/icons/login/_.svg';
 import mailIco from 'public/icons/login/mail.svg';
+import question from 'public/icons/login/question.svg';
 import search from 'public/icons/login/search.svg';
 import square from 'public/icons/login/square.svg';
-import langIco from 'public/icons/login/translate.svg';
 import unlocked from 'public/icons/login/unlocked.svg';
 import { Button } from 'src/components/buttons/Button';
 
@@ -31,7 +30,7 @@ const BUTTON_PROPS: {
   {
     link: 'reset',
     title: 'title1',
-    image: unlocked,
+    image: question,
   },
   {
     link: 'find',
@@ -118,6 +117,16 @@ const Login: FC<LoginProps> = ({ params: { lang } }) => {
                   value={userData.password}
                   required={true}
                 />
+                <button
+                  className={styles.reset_btn}
+                  onClick={() => push(`${lang}/reset`)}
+                  type='button'
+                  style={{ width: '100%' }}>
+                  <div className={styles.reset_btn}>
+                    <Image src={unlocked} alt='' className={styles.color} />
+                    <div>{dict.login.resetPassword}</div>
+                  </div>
+                </button>
               </div>
 
               <Button
@@ -140,14 +149,32 @@ const Login: FC<LoginProps> = ({ params: { lang } }) => {
               <Button
                 className={styles.button}
                 variant={'secondary'}
-                onClick={() => push(`${lang}/${prop.link}`)}
+                onClick={() =>
+                  prop.title !== 'title1' && push(`${lang}/${prop.link}`)
+                }
                 type='button'
                 style={{ width: '100%' }}
                 size={'small'}>
-                <div className={styles.button}>
-                  <Image src={prop.image} alt='' />
-                  <div>{dict.loginButtons[prop.title]}</div>
-                </div>
+                {prop.title === 'title1' ? (
+                  <AuthModalButton
+                    dictionary={dict}
+                    img={
+                      <div className={styles.button}>
+                        <Image
+                          src={prop.image}
+                          alt=''
+                          className={styles.color}
+                        />
+                        <div>{dict.loginButtons[prop.title]}</div>
+                      </div>
+                    }
+                  />
+                ) : (
+                  <div className={styles.button}>
+                    <Image src={prop.image} alt='' className={styles.color} />
+                    <div>{dict.loginButtons[prop.title]}</div>
+                  </div>
+                )}
               </Button>
             </div>
           ))}
@@ -157,4 +184,4 @@ const Login: FC<LoginProps> = ({ params: { lang } }) => {
   );
 };
 
-export { Login };
+export default Login;

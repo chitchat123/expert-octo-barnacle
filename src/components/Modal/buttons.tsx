@@ -6,7 +6,7 @@ import { AuthModalButtonProps } from '@components/Modal/type';
 
 export const AuthModalButton: FC<AuthModalButtonProps> = ({
   dictionary,
-  children,
+  img,
 }) => {
   const [showModal, setShowModal] = useState(false);
 
@@ -17,7 +17,7 @@ export const AuthModalButton: FC<AuthModalButtonProps> = ({
         onClose={() => setShowModal(false)}
         show={showModal}
       />
-      <div onClick={() => setShowModal(true)}>{children}</div>
+      <div onClick={() => setShowModal(true)}>{img}</div>
     </>
   );
 };

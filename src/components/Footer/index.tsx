@@ -33,22 +33,11 @@ const Footer: FC<FooterProps> = ({}) => {
             icon={fc}
             onClick={() => {}}
           />
-          <IconButton
-            size={'extraSmall'}
-            variant={'secondary'}
-            icon={chat}
-            onClick={() => {}}
-          />
+
           <IconButton
             size={'extraSmall'}
             variant={'secondary'}
             icon={tg}
-            onClick={() => {}}
-          />
-          <IconButton
-            size={'extraSmall'}
-            variant={'secondary'}
-            icon={mail}
             onClick={() => {}}
           />
         </div>
