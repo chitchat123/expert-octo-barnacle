@@ -157,4 +157,4 @@ const Login: FC<LoginProps> = ({ params: { lang } }) => {
   );
 };
 
-export default Login;
+export { Login };

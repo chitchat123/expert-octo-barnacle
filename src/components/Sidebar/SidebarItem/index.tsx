@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, useEffect, useState } from 'react';
 
 import Image from 'next/image';
 import Link from 'next/link';
@@ -17,8 +17,7 @@ const SidebarItem: FC<SidebarItemProps> = ({
   }, [state]);
 
   const content = (
-    <div className={styles.appear}
-    >
+    <div className={styles.appear}>
       <Image src={icon} alt={'icon'}></Image> <p>{state ? title : ''}</p>
     </div>
   );
