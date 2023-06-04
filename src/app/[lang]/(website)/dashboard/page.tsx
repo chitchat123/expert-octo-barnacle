@@ -1,4 +1,4 @@
-import React, { Suspense } from 'react';
+import React, { ReactNode, Suspense } from 'react';
 
 import { cookies } from 'next/headers';
 
@@ -13,7 +13,7 @@ import styles from './styles.module.scss';
 interface PageProps {}
 
 export const dynamic = 'force-dynamic';
-const Page: ({}: PageProps) => Promise<JSX.Element> = async ({}) => {
+const Page: ({}: PageProps) => Promise<ReactNode> = async ({}) => {
   const cookieStore = cookies();
   const token = cookieStore.get('token');
 
@@ -22,6 +22,7 @@ const Page: ({}: PageProps) => Promise<JSX.Element> = async ({}) => {
   }
 
   const { data } = await apiCallBoard(token.value || '', 1, 4);
+  // noinspection ES6MissingAwait
   return (
     <div className={styles.dashboardContainer}>
       <div className={styles.mainContent}>

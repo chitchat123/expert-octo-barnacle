@@ -13,5 +13,4 @@ interface ModalProps {
 interface AuthModalButtonProps {
   dictionary: Dictionary;
   children: ReactNode;
-  img: JSX.Element;
 }

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 
 import Image from 'next/image';
 
@@ -12,8 +12,8 @@ import styles from './styles.module.scss';
 const GridTable: ({
   data,
 }: {
-  data: Promise<any>;
-}) => Promise<JSX.Element> = async () => {
+  data: Promise<void>;
+}) => Promise<ReactNode> = async () => {
   const res = await getSubjects();
 
   return (

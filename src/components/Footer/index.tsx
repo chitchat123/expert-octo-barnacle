@@ -3,7 +3,7 @@ import React, { FC } from 'react';
 
 import { IconButton } from '@components/buttons/IconButton';
 
-import { chat, fc, mail, tg } from '@helpers/images';
+import { fc, tg } from '@helpers/images';
 
 import styles from './styles.module.scss';
 

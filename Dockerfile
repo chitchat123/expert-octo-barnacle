@@ -11,7 +11,8 @@ RUN yarn build
 
 FROM node:lts as runner
 WORKDIR /app
-ENV NODE_ENV production
+ENV NODE_ENV dev
+ENV DELAY_ENV 0
 
 COPY --from=builder /app/next.config.js ./
 COPY --from=builder /app/public ./public

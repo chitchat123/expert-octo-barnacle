@@ -55,7 +55,7 @@ paths:
       tags:
         - auth
       summary: reset password
-      description: reques email for password reset
+      description: request email for password reset
       requestBody:
         content:
           application/json:

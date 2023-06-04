@@ -9,14 +9,18 @@ import { Password, TextInput } from '@components/inputs';
 import Loader from '@components/Loader';
 import { AuthModalButton } from '@components/Modal';
 
+import { IconButton } from '@components';
 import { UserContext } from '@context';
+import {
+  question,
+  modalIco,
+  mailIco,
+  search,
+  square,
+  unlocked,
+  langIco,
+} from '@helpers/images';
 import { useDictionary } from '@helpers/useDictionary';
-import modalIco from 'public/icons/login/_.svg';
-import mailIco from 'public/icons/login/mail.svg';
-import question from 'public/icons/login/question.svg';
-import search from 'public/icons/login/search.svg';
-import square from 'public/icons/login/square.svg';
-import unlocked from 'public/icons/login/unlocked.svg';
 import { Button } from 'src/components/buttons/Button';
 
 import styles from './styles.module.scss';
@@ -156,19 +160,12 @@ const Login: FC<LoginProps> = ({ params: { lang } }) => {
                 style={{ width: '100%' }}
                 size={'small'}>
                 {prop.title === 'title1' ? (
-                  <AuthModalButton
-                    dictionary={dict}
-                    img={
-                      <div className={styles.button}>
-                        <Image
-                          src={prop.image}
-                          alt=''
-                          className={styles.color}
-                        />
-                        <div>{dict.loginButtons[prop.title]}</div>
-                      </div>
-                    }
-                  />
+                  <AuthModalButton dictionary={dict}>
+                    <div className={styles.button}>
+                      <Image src={prop.image} alt='' className={styles.color} />
+                      <div>{dict.loginButtons[prop.title]}</div>
+                    </div>
+                  </AuthModalButton>
                 ) : (
                   <div className={styles.button}>
                     <Image src={prop.image} alt='' className={styles.color} />

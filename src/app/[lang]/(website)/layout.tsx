@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 
 import Footer from '@components/Footer';
 import { Header } from '@components/Header';
@@ -17,7 +17,7 @@ interface LayoutProps {
 const Layout: ({
   children,
   params: { lang },
-}: LayoutProps) => Promise<JSX.Element> = async ({
+}: LayoutProps) => Promise<ReactNode> = async ({
   children,
   params: { lang },
 }) => {

@@ -1,5 +1,5 @@
 'use client';
-import { FC, useEffect, useState } from 'react';
+import { FC } from 'react';
 
 import Image from 'next/image';
 import Link from 'next/link';
@@ -17,10 +17,6 @@ interface LangChangerProps {
 
 const LangChanger: FC<LangChangerProps> = ({ currLocale, state }) => {
   const pathname = usePathname();
-  const [open, setOpen] = useState(false);
-  useEffect(() => {
-    setOpen(false);
-  }, [state]);
 
   switch (currLocale) {
     case 'en':

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 
 import Image from 'next/image';
 
@@ -17,7 +17,7 @@ interface AuthProps {
 const Auth: ({
   children,
   params: { lang },
-}: AuthProps) => Promise<JSX.Element> = async ({ children, params: {} }) => {
+}: AuthProps) => Promise<ReactNode> = async ({ children, params: {} }) => {
   // const dict = await getDictionary(lang);
 
   return (
