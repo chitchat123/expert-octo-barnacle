@@ -1,6 +1,6 @@
 'use client';
 
-import React, { createContext, useMemo, useState } from 'react';
+import React, { createContext, useEffect, useMemo, useState } from 'react';
 
 type Theme = 'light' | 'dark';
 
@@ -11,7 +11,12 @@ const INITIAL_STATE = {
 export const ThemeContext = createContext(INITIAL_STATE);
 
 const ThemeContextProvider = ({ children }: { children: React.ReactNode }) => {
-  const [theme, setTheme] = useState<Theme>('light');
+  const [theme, setTheme] = useState(localStorage.getItem('theme') || 'light');
+
+  // Save theme preference in local storage
+  useEffect(() => {
+    localStorage.setItem('theme', theme);
+  }, [theme]);
 
   const changeTheme = (theme: Theme) => {
     setTheme(theme);
