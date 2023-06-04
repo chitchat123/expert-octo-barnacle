@@ -9,11 +9,13 @@
 
   box-shadow: 0 4px 8px rgba(142, 141, 208, 0.16);
   border-radius: 4px;
-  background-color: var(--backgroung-blue);
+  background-color: var(--base-second-color);
 
   .title {
+    display: flex;
+    gap: 10px;
     font-size: 4rem;
-    color: var(--base-text-color);
+    color: #FFFFFF;
     font-weight: 300;
     border-bottom: 1px solid #FFFFFF;
     padding: 12px 8px 12px 10px;

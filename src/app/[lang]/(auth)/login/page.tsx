@@ -136,12 +136,13 @@ const Login: FC<LoginProps> = ({ params: { lang } }) => {
       {dict && (
         <div className={styles.login_buttons}>
           {BUTTON_PROPS.map(prop => (
-            <div key={prop.link}>
+            <div style={{ width: '33.3%' }} key={prop.link}>
               <Button
                 className={styles.button}
                 variant={'secondary'}
                 onClick={() => push(`${lang}/${prop.link}`)}
                 type='button'
+                style={{ width: '100%' }}
                 size={'small'}>
                 <div className={styles.button}>
                   <Image src={prop.image} alt='' />

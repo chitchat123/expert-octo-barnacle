@@ -24,10 +24,11 @@
   }
 
   .login_buttons{
+    width: 100%;
     display: flex;
-    justify-content: space-between;
+
     margin-top: var(--padding40);
-    gap: 6px;
+    gap: 12px;
   }
 }
 
