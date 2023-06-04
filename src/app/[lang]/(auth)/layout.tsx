@@ -1,13 +1,11 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 
 import Image from 'next/image';
 
 import Footer from '@components/Footer';
 
-import { getDictionary } from '@helpers/dictionary';
 import { Locale } from '@helpers/i18n';
-
-import kpiLogo from '../../../../public/icons/kpiLogo.png';
+import { kpiLogo } from '@helpers/images';
 
 import styles from './layout.module.scss';
 
@@ -19,11 +17,8 @@ interface AuthProps {
 const Auth: ({
   children,
   params: { lang },
-}: AuthProps) => Promise<JSX.Element> = async ({
-  children,
-  params: { lang },
-}) => {
-  const dict = await getDictionary(lang);
+}: AuthProps) => Promise<ReactNode> = async ({ children, params: {} }) => {
+  // const dict = await getDictionary(lang);
 
   return (
     <section className={styles.authLayout}>

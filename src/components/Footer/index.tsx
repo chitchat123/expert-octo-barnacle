@@ -3,10 +3,7 @@ import React, { FC } from 'react';
 
 import { IconButton } from '@components/buttons/IconButton';
 
-import chat from '../../../public/icons/footer/circle.svg';
-import fc from '../../../public/icons/footer/facebook.svg';
-import mail from '../../../public/icons/footer/mail.svg';
-import tg from '../../../public/icons/footer/send.svg';
+import { fc, tg } from '@helpers/images';
 
 import styles from './styles.module.scss';
 
@@ -14,7 +11,7 @@ interface FooterProps {
   changer?: boolean;
 }
 
-const Footer: FC<FooterProps> = ({ changer }) => {
+const Footer: FC<FooterProps> = ({}) => {
   return (
     <div className={styles.footerContainer}>
       <div className={styles.left}>
@@ -36,22 +33,11 @@ const Footer: FC<FooterProps> = ({ changer }) => {
             icon={fc}
             onClick={() => {}}
           />
-          <IconButton
-            size={'extraSmall'}
-            variant={'secondary'}
-            icon={chat}
-            onClick={() => {}}
-          />
+
           <IconButton
             size={'extraSmall'}
             variant={'secondary'}
             icon={tg}
-            onClick={() => {}}
-          />
-          <IconButton
-            size={'extraSmall'}
-            variant={'secondary'}
-            icon={mail}
             onClick={() => {}}
           />
         </div>

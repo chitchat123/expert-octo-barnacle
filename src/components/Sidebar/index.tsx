@@ -3,19 +3,23 @@ import React, { FC, useState } from 'react';
 
 import Image from 'next/image';
 
+import { AuthModalButton } from '@components/Modal';
 import { SidebarItem } from '@components/Sidebar/SidebarItem';
 import { getListItemsType, SidebarProps } from '@components/Sidebar/type';
 
-import current from 'public/icons/sidebar/book open.svg';
-import calendar from 'public/icons/sidebar/calendaar.svg';
-import attestation from 'public/icons/sidebar/check.svg';
-import dashboard from 'public/icons/sidebar/grid.svg';
-import session from 'public/icons/sidebar/grid.svg';
-import logout from 'public/icons/sidebar/log out.svg';
-import menuIco from 'public/icons/sidebar/menu.svg';
-import quations from 'public/icons/sidebar/quations.svg';
-import news from 'public/icons/sidebar/Speaker.svg';
+import {
+  attestation,
+  calendar,
+  current,
+  dashboard,
+  logout,
+  menuIco,
+  news,
+  question,
+  session,
+} from '@helpers/images';
 
+// noinspection ES6PreferShortImport
 import { LangChanger } from '../LangChanger/index';
 
 import styles from './styles.module.scss';
@@ -28,7 +32,7 @@ const getListItems: getListItemsType = dict => [
   },
   {
     title: dict.control,
-    href: 'studysheet',
+    href: 'studysheets',
     icon: current,
   },
   {
@@ -49,7 +53,7 @@ const getListItems: getListItemsType = dict => [
 ];
 
 const Sidebar: FC<SidebarProps> = ({ dictionary, lang }) => {
-  const menu = getListItems(dictionary);
+  const menu = getListItems(dictionary.sidebar);
 
   const [isOpen, setIsOpen] = useState(true);
   return (
@@ -77,15 +81,16 @@ const Sidebar: FC<SidebarProps> = ({ dictionary, lang }) => {
             state={isOpen}
           />
           <LangChanger state={isOpen} currLocale={lang} />
-          <SidebarItem
-            downItem
-            item={{
-              title: 'Поширені запитання',
-              href: 'dashboard',
-              icon: quations,
-            }}
-            state={isOpen}
-          />
+          <AuthModalButton dictionary={dictionary}>
+            <SidebarItem
+              downItem
+              item={{
+                title: 'Поширені запитання',
+                icon: question,
+              }}
+              state={isOpen}
+            />
+          </AuthModalButton>
         </div>
         <div style={{ width: '100%' }}>
           <SidebarItem

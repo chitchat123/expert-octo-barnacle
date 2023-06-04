@@ -1,16 +1,24 @@
 'use client';
 import React, { FC, useState } from 'react';
 
+import { useRouter } from 'next/navigation';
+
 import { Email } from '@components/inputs';
 
+import { Locale } from '@helpers/i18n';
+import { useDictionary } from '@helpers/useDictionary';
 import { Button } from 'src/components/buttons/Button';
 
 import styles from './styles.module.scss';
 
-interface ResetProps {}
+interface ResetProps {
+  params: { lang: Locale };
+}
 
-const Reset: FC<ResetProps> = ({}) => {
+const Reset: FC<ResetProps> = ({ params: { lang } }) => {
   const [state, setState] = useState<string>('');
+  const dict = useDictionary(lang);
+  const router = useRouter();
 
   return (
     <div className={styles.resetContainer}>
@@ -26,7 +34,9 @@ const Reset: FC<ResetProps> = ({}) => {
             required={true}
           />
           <Button>Відновити</Button>
-          <Button>Назад</Button>
+          <Button onClick={() => router.back()}>
+            {dict?.find.buttonTitle}
+          </Button>
         </div>
       </div>
     </div>

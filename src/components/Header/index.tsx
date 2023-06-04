@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 
 import { cookies } from 'next/headers';
 import Image from 'next/image';
@@ -9,10 +9,7 @@ import { ContextMenu } from '@components/ContextMenu';
 import { IconButton } from '@components';
 import { DictionaryCtxMenu } from '@helpers/dictionary';
 import { Locale } from '@helpers/i18n';
-import { apiCallUser } from '@helpers/queries/getUserInfo';
-import logoIco from 'public/icons/header/logo.svg';
-import notificIco from 'public/icons/header/notification on.svg';
-import pessonIco from 'public/icons/header/user.svg';
+import { logoIco, notifyIco, personIco } from '@helpers/images';
 import { Button } from 'src/components/buttons/Button';
 
 import styles from './styles.module.scss';
@@ -23,7 +20,7 @@ const Header: ({
 }: {
   dictionary: DictionaryCtxMenu;
   lang: Locale;
-}) => Promise<JSX.Element> = async ({ dictionary, lang }) => {
+}) => Promise<ReactNode> = async ({ dictionary }) => {
   const cookieStore = cookies();
   const token = cookieStore.get('token');
 
@@ -31,7 +28,6 @@ const Header: ({
     throw new Error();
   }
 
-  const { fullName } = await apiCallUser(token.value);
   return (
     <div className={styles.headerContainer}>
       <div className={styles.logo}>
@@ -43,7 +39,7 @@ const Header: ({
           Поточна версія кампусу
         </Button>
         <ContextMenu>
-          <IconButton size={'small'} icon={notificIco} />
+          <IconButton size={'small'} icon={notifyIco} />
           <>
             <Link className={styles.contextLink} href={'/settings'}>
               Custom
@@ -54,7 +50,7 @@ const Header: ({
           </>
         </ContextMenu>
         <ContextMenu>
-          <IconButton size={'small'} icon={pessonIco} />
+          <IconButton size={'small'} icon={personIco} />
           <>
             <Link className={styles.contextLink} href={'/settings'}>
               <Button style={{ width: '100%' }} size={'small'}>

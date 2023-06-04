@@ -11,7 +11,12 @@ const RightBoard = ({ news }: RightBoardProps) => {
   return (
     <div className={styles.subjects}>
       {news.map(({ subject, description }, key) => (
-        <NewsCard title={subject} description={description} key={key} />
+        <NewsCard
+          title={subject}
+          description={description}
+          key={key}
+          href={'news'}
+        />
       ))}
     </div>
   );

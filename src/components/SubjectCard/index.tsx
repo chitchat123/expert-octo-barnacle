@@ -17,8 +17,8 @@ const SubjectCard: FC<SubjectCardProps> = ({ href, subject }) => {
       <Card padding={24} className={styles.subjectCard}>
         <div className={styles.content}>
           <div>
-            <div className={styles.title}>{subject.name}</div>
-            <div className={styles.description}>{subject.teacher}</div>
+            <div className={styles.title}>{subject.teacher}</div>
+            <div className={styles.description}>{subject.subject}</div>
           </div>
           <div>
             <div className={styles.description}>{subject.total}</div>

@@ -6,9 +6,9 @@
 
   box-sizing: border-box;
 
-  position: relative;
+  //position: relative;
   width: 100%;
-  height: 768px;
+  max-height: 768px;
 
 
   border: 0.6px solid #BCCEDB;
@@ -37,8 +37,9 @@
     position: sticky;
     background: rgba(226, 243, 255, 0.7);
 
-    border: 0.6px solid #BCCEDB;
+    //border: 0.6px solid #BCCEDB;
     backdrop-filter: blur(4px);
+    color: #023D65;
 
   }
 
@@ -66,11 +67,29 @@
   }
 
   .footer {
+    grid-template-columns: 1fr 20fr 4fr;
+
     height: 5.6rem;
     border-radius: 0 0 4px 4px;
-    //position: absolute;
+    color: #7D858A;
 
     bottom: 0;
+
+    .pagination {
+      display: flex;
+      justify-content: space-around;
+      margin: 0 1rem;
+      padding: 0 4rem;
+
+      .arrow {
+        cursor: pointer;
+      }
+    }
+
+
+    .active {
+      color: #011422;
+    }
 
     span {
       margin: auto 0;
@@ -91,5 +110,5 @@
 }
 
 .session {
-  --columns: 1fr 4fr 8fr 2fr 2fr 2fr 2fr;
+  --columns: 1fr 4fr 8fr 2fr 6fr 2fr 2fr;
 }

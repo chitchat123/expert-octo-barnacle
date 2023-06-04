@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 
 import Footer from '@components/Footer';
 import { Header } from '@components/Header';
@@ -17,7 +17,7 @@ interface LayoutProps {
 const Layout: ({
   children,
   params: { lang },
-}: LayoutProps) => Promise<JSX.Element> = async ({
+}: LayoutProps) => Promise<ReactNode> = async ({
   children,
   params: { lang },
 }) => {
@@ -25,7 +25,7 @@ const Layout: ({
   return (
     <div className={styles.layoutContainer}>
       <div className={styles.sidebar}>
-        <Sidebar lang={lang} dictionary={dict.sidebar} />
+        <Sidebar lang={lang} dictionary={dict} />
       </div>
       <div className={styles.mainLayout}>
         {/*@ts-ignore*/}

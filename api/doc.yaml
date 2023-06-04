@@ -50,13 +50,12 @@ paths:
 
         '400':
           description: Invalid credentials
-
   /reset:
     get:
       tags:
         - auth
       summary: reset password
-      description: reques email for password reset
+      description: request email for password reset
       requestBody:
         content:
           application/json:
@@ -69,11 +68,16 @@ paths:
         required: true
       responses:
         '200':
-          description: logged in
+          description: sent
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/User'
+                type: object
+                properties:
+                  Captcha:
+                    type: string
+                  UserIdentifier:
+                    type: string
         '400':
           description: Invalid email
   /find-curator:
@@ -81,6 +85,14 @@ paths:
       tags:
         - user
       summary: find curator by name or group
+
+      parameters:
+        - in: path
+          name: name
+          schema:
+            type: string
+          required: true
+          description: group name
       responses:
         '200':
           description: return curator list by name of group
@@ -89,9 +101,12 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/User'
+                  $ref: '#/components/schemas/Curator'
   /lessons:
     get:
+      parameters:
+        - $ref: '#/components/parameters/semesterParam'
+        - $ref: '#/components/parameters/yearParam'
       tags:
         - lessons
       summary: get lessons list
@@ -105,7 +120,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/Subject'
+                  $ref: '#/components/schemas/Lesson'
         '400':
           description: Invalid request
   /lessons/{id}:
@@ -127,7 +142,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Subject'
+                $ref: '#/components/schemas/Lesson'
         '400':
           description: Invalid request
   /user:
@@ -144,26 +159,60 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/User'
-    post:
+  /attestation:
+    get:
+      parameters:
+        - $ref: '#/components/parameters/semesterParam'
+        - $ref: '#/components/parameters/yearParam'
       tags:
-        - user
-      description: edit user info
+        - Attestation
+      description: get Attestation
       security:
         - cookieAuth: [ ]
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/User'
-        required: true
       responses:
         "200":
           description: "OK"
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/User'
+                $ref: '#/components/schemas/Attestation'
+  /session:
+    get:
+      parameters:
+        - $ref: '#/components/parameters/semesterParam'
+        - $ref: '#/components/parameters/yearParam'
+      tags:
+        - Session
+      description: get Session
+      security:
+        - cookieAuth: [ ]
+      responses:
+        "200":
+          description: "OK"
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Session'
 components:
+  parameters:
+    semesterParam:
+      in: query
+      name: semester
+      required: false
+      schema:
+        type: string
+        enum:
+          - 1
+          - 2
+          - all
+      description: specify which semester, if omitted return latest
+    yearParam:
+      in: query
+      name: year
+      required: false
+      schema:
+        type: string
+      description: specify which year, if omitted return latest, use all to return all data
   schemas:
     Credentials:
       type: object
@@ -176,92 +225,169 @@ components:
       type: object
       properties:
         id:
-          type: integer
-        title:
+          type: number
+        subject:
           type: string
-        content:
+        text:
           type: string
-    Subject:
-      type: object
-      properties:
-        id:
-          type: integer
-        title:
+        start:
           type: string
-        entries:
-          type: array
+        end:
+          type: string
+        author:
+          type: string
+        description:
+          type: string
     Lesson:
       type: object
       properties:
-        mark:
-          type: integer
+        id:
+          type: string
+        subject:
+          type: string
         teacher:
-          type: object
-          properties:
-            id:
-              type: integer
-            name:
-              type: string
+          description: Teacher name or object
+          type: string
+        total:
+          type: number
+        occurrences:
+          type: array
+          description: omit when returning list of lessons
+          items:
+            type: object
+            properties:
+              date:
+                type: string
+              mark:
+                type: number
+              teacher:
+                type: string
     Session:
       type: object
       properties:
         id:
-          type: integer
+          type: number
+        mark:
+          type: number
+        subject:
+          type: string
+        name:
+          type: string
+        teacher:
+          type: string
+        typeOfControl:
+          type: string
+          enum:
+            - exam
+            - credit
+        typeInfo:
+          type: string
+          enum:
+            - main
+            - additional
+            - coma
+        date:
+          type: string
+        status:
+          type: string
     Attestation:
       type: object
       properties:
-        id:
-          type: integer
+        subject:
+          type: string
+        teacher:
+          type: string
+        first:
+          type: boolean
+        second:
+          type: boolean
     User:
       type: object
       properties:
         id:
-          type: integer
-        sid:
+          type: number
+        email:
+          type: string
+        userIdentifier:
           type: string
         username:
           type: string
-        fullName:
-          type: string
-        email:
-          type: string
-        password:
-          type: string
         modules:
-          type: array
-          items:
-            type: string
-        position:
-          type: array
-          items:
-            type: string
-        subdivision:
-          type: array
-          items:
-            type: string
-        studyGroup:
-          type: object
-          properties:
-            id:
-              type: integer
-            name:
-              type: string
-        scientificInterest:
+          type: string
+        sid:
           type: string
         tgAuthLinked:
           type: boolean
-        profiles:
+
+        info:
+          type: object
+          properties:
+            fullName:
+              type: string
+            fullNameEng:
+              type: string
+            credo:
+              type: string
+            photo:
+              type: string
+            scientificInterest:
+              type: string
+
+        position:
+          type: object
+          properties:
+            subdivision:
+              type: string
+            group:
+              type: object
+              properties:
+                id:
+                  type: number
+                name:
+                  type: string
+            form:
+              type: string
+            course:
+              type: number
+            status:
+              type: string
+            speciality:
+              type: string
+
+        contacts:
+          description: array of user contacts info, e.g email, tg, skype, fax, etc
           type: array
           items:
-            type: string
-        userIdentifier:
-          type: string
-        photo:
-          type: string
-        credo:
-          type: string
-        profile:
+            type: object
+            properties:
+              type:
+                type: string
+              value:
+                type: string
+
+    Curator:
+      type: object
+      properties:
+        cathedra:
           type: object
+          properties:
+            id:
+              type: number
+            name:
+              type: string
+        curator:
+          type: object
+          properties:
+            id:
+              type: number
+            userIdentifier:
+              type: string
+            fullName:
+              type: string
+        id:
+          type: number
+        name:
+          type: string
   securitySchemes:
     cookieAuth:
       type: apiKey

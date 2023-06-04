@@ -2,6 +2,7 @@
   "placeholder": "lorem",
   "title": "ЕЛЕКТРОННИЙ КАМПУС",
   "login": {
+    "resetPassword": "Відновити пароль",
     "authTitle": "Авторизація",
     "passwordInput": "Пароль",
     "emailInput": "Електрона пошта",
@@ -42,7 +43,9 @@
   "find": {
     "title": "Пошук куратора",
     "placeholder": "Група",
-    "buttonTitle": "Назад"
+    "buttonTitle": "Назад",
+    "noResults": "Немає результатів."
+
   },
   "contextMenu": {
     "settings": "Налаштування",
@@ -50,7 +53,7 @@
 
   },
   "loginButtons": {
-    "title1": "Відновити пароль",
+    "title1": "Підтримка",
     "title2": "Знайти куратора",
     "title3": "Скарги і пропозиціЇ"
   }

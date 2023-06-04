@@ -18,6 +18,7 @@
   .icoLeft {
     position: absolute;
     left: 2rem;
+    top: 1.6rem;
 
     .search__icon {
       height: 2.4rem;
@@ -66,19 +67,35 @@
   .errorPar{
     margin-top: 8px;
     display: flex;
+    flex-direction: row;
     p{
       text-align: start;
       font-size: 1.2rem;
       line-height: 1.6rem;
     }
     .errorIco{
+      align-self: flex-start;
       margin-right: 8px;
-
     }
   }
   .label {
     top: 1.6rem;
     left: 2rem;
+    font-size: 1.6rem;
+    line-height: 2.4rem;
+    font-weight: normal;
+    pointer-events: none;
+    position: absolute;
+    transition: 300ms ease all;
+
+    &.shrink {
+      @include shrinkLabel
+    }
+
+  }
+  .left_label {
+    top: 1.6rem;
+    left: 6rem;
     font-size: 1.6rem;
     line-height: 2.4rem;
     font-weight: normal;

@@ -1,15 +1,10 @@
-import { getDictionary } from '@/helpers/dictionary';
-import { Locale } from '@helpers/i18n';
+import { redirect } from 'next/navigation';
 
-interface HomeProps {
-  params: {
-    lang: Locale;
-  };
-}
+interface HomeProps {}
 
-const Home = async ({ params: { lang } }: HomeProps) => {
-  const dict = await getDictionary(lang);
+const Home = async ({}: HomeProps) => {
+  redirect('/login');
 
-  return <div>{dict.title}</div>;
+  return;
 };
 export default Home;

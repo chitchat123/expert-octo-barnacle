@@ -4,19 +4,23 @@ import React, { FC, FormEvent, useContext, useState } from 'react';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 
-import { IconButton } from '@components/buttons/IconButton';
 import { Card } from '@components/Card';
 import { Password, TextInput } from '@components/inputs';
 import Loader from '@components/Loader';
 import { AuthModalButton } from '@components/Modal';
 
+import { IconButton } from '@components';
 import { UserContext } from '@context';
+import {
+  question,
+  modalIco,
+  mailIco,
+  search,
+  square,
+  unlocked,
+  langIco,
+} from '@helpers/images';
 import { useDictionary } from '@helpers/useDictionary';
-import mailIco from 'public/icons/login/mail.svg';
-import search from 'public/icons/login/search.svg';
-import square from 'public/icons/login/square.svg';
-import langIco from 'public/icons/login/translate.svg';
-import unlocked from 'public/icons/login/unlocked.svg';
 import { Button } from 'src/components/buttons/Button';
 
 import styles from './styles.module.scss';
@@ -30,7 +34,7 @@ const BUTTON_PROPS: {
   {
     link: 'reset',
     title: 'title1',
-    image: unlocked,
+    image: question,
   },
   {
     link: 'find',
@@ -87,12 +91,14 @@ const Login: FC<LoginProps> = ({ params: { lang } }) => {
                   icon={langIco}
                   onClick={() => {}}
                 />
-                <IconButton
-                  size={'medium'}
-                  variant={'primary'}
-                  onClick={() => {}}>
-                  <AuthModalButton dictionary={dict} />
-                </IconButton>
+                <AuthModalButton dictionary={dict}>
+                  <IconButton
+                    size={'medium'}
+                    variant={'primary'}
+                    onClick={() => {}}>
+                    <Image alt={'req'} src={modalIco}></Image>
+                  </IconButton>
+                </AuthModalButton>
               </div>
             </div>
             <form onSubmit={handleSubmit}>
@@ -115,6 +121,16 @@ const Login: FC<LoginProps> = ({ params: { lang } }) => {
                   value={userData.password}
                   required={true}
                 />
+                <button
+                  className={styles.reset_btn}
+                  onClick={() => push(`${lang}/reset`)}
+                  type='button'
+                  style={{ width: '100%' }}>
+                  <div className={styles.reset_btn}>
+                    <Image src={unlocked} alt='' className={styles.color} />
+                    <div>{dict.login.resetPassword}</div>
+                  </div>
+                </button>
               </div>
 
               <Button
@@ -137,14 +153,25 @@ const Login: FC<LoginProps> = ({ params: { lang } }) => {
               <Button
                 className={styles.button}
                 variant={'secondary'}
-                onClick={() => push(`${lang}/${prop.link}`)}
+                onClick={() =>
+                  prop.title !== 'title1' && push(`${lang}/${prop.link}`)
+                }
                 type='button'
                 style={{ width: '100%' }}
                 size={'small'}>
-                <div className={styles.button}>
-                  <Image src={prop.image} alt='' />
-                  <div>{dict.loginButtons[prop.title]}</div>
-                </div>
+                {prop.title === 'title1' ? (
+                  <AuthModalButton dictionary={dict}>
+                    <div className={styles.button}>
+                      <Image src={prop.image} alt='' className={styles.color} />
+                      <div>{dict.loginButtons[prop.title]}</div>
+                    </div>
+                  </AuthModalButton>
+                ) : (
+                  <div className={styles.button}>
+                    <Image src={prop.image} alt='' className={styles.color} />
+                    <div>{dict.loginButtons[prop.title]}</div>
+                  </div>
+                )}
               </Button>
             </div>
           ))}

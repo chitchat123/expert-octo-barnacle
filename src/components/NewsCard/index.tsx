@@ -26,9 +26,9 @@ const NewsCard: FC<NewsCardProps> = ({ href, title, description }) => {
               <p>{line}</p>
             </div>
           ))}
-          <Link className={styles.link} href={'/dashboard'}>
-            Детальніше
-          </Link>
+          {/*<Link className={styles.link} href={'/dashboard'}>*/}
+          {/*  Детальніше*/}
+          {/*</Link>*/}
         </div>
       </Card>
     </Link>
