@@ -50,7 +50,9 @@ const UserContextProvider = ({ children }: { children: React.ReactNode }) => {
         .json()
         .then(res => {
           setToken(res.access_token);
-          Cookies.set('token', res.access_token);
+          Cookies.set('token', res.access_token, {
+            expires: 365,
+          });
         })
         .catch(er => console.error(er))
     );

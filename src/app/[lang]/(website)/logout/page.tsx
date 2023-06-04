@@ -12,15 +12,16 @@ interface LogoutProps {
   params: { lang: Locale };
 }
 
-const redirect = new Promise(resolve => {
-  Cookies.remove('token');
-  resolve('logout');
-});
+const redirect = () =>
+  new Promise(resolve => {
+    Cookies.remove('token');
+    resolve('logout');
+  });
 
 const Logout: FC<LogoutProps> = ({ params: { lang } }) => {
   const { push } = useRouter();
   useEffect(() => {
-    redirect.then(() => push(`/${lang}/login`));
+    redirect().then(() => push(`/${lang}/login`));
   }, []);
 
   return <Loader />;

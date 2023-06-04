@@ -6,21 +6,27 @@ type Theme = 'light' | 'dark';
 
 const INITIAL_STATE = {
   theme: 'light',
-  changeTheme: (theme: Theme) => {},
+  changeTheme: (newTheme: Theme) => {},
 };
 export const ThemeContext = createContext(INITIAL_STATE);
 
 const ThemeContextProvider = ({ children }: { children: React.ReactNode }) => {
-  const [theme, setTheme] = useState(localStorage.getItem('theme') || 'light');
+  const [theme, setTheme] = useState('light');
+
+  useEffect(() => {
+    if (typeof window !== undefined)
+      setTheme(localStorage.getItem('theme') || 'light');
+  }, []);
 
   // Save theme preference in local storage
   useEffect(() => {
     localStorage.setItem('theme', theme);
   }, [theme]);
 
-  const changeTheme = (theme: Theme) => {
-    setTheme(theme);
+  const changeTheme = (newTheme: Theme) => {
+    if (newTheme !== theme) setTheme(theme);
   };
+
   const contextValue = useMemo(
     () => ({
       theme,
